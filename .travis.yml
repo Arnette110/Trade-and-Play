@@ -3,7 +3,7 @@ os:
   - mac
 language: node_js
 node_js: 
-  - "stable"
+  - "12"
 branches:
   only:
     - master
