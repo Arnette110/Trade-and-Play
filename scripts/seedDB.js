@@ -13,7 +13,13 @@ const playerSeed = [
         fullName: "Wayne Gretsky",
         profileLink: "/api/v1/people/8447400/",
         season: 19841985
-    }
+    },
+    {
+        id: 8447400,
+        fullName: "Wayne Gretsky",
+        profileLink: "/api/v1/people/8447400/",
+        season: 19841985
+    },
 ]
 
 db.PlayerStats.remove({})
