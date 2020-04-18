@@ -13,11 +13,7 @@ const playerSchema = new Schema({
         required: "Enter a name"
     },
     profileLink: {
-        link: "/api/v1/people/8480839",
-        required: "Must have profile link"
-    },
-    ImageLink: {
-        link: "",
+        type: String,
         required: "Must have profile link"
     },
     season: {
