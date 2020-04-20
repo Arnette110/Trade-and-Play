@@ -1,10 +1,9 @@
-const router = require("express").Router();
-const playerController = require("../../controllers/playerController");
+const router = require('express').Router()
+const playerController = require('../../controllers/playerController')
 
 // Matches with "/api/players"
-router.route("/")
-    .post(playerController.create);
-
+router.route('/')
+  .post(playerController.create)
 
 // // Matches with "/api/books"
 // router.route("/")
@@ -18,4 +17,4 @@ router.route("/")
 //   .put(booksController.update)
 //   .delete(booksController.remove);
 
-module.exports = router;
+module.exports = router
