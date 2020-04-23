@@ -37,6 +37,7 @@
     "nodemon": "^2.0.2"
   },
   "dependencies": {
+    "@material-ui/core": "^4.9.11",
     "axios": "^0.19.2",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
