@@ -1,27 +1,23 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { blue } from '@material-ui/core/colors';
+import { indigo } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+
     border: "3px solid blue",
     borderRadius: 10,
-    margin: 10,
+    // margin: 10,
+    color: indigo[50],
+    backgroundColor: indigo[100],
   },
   media: {
     height: 0,
@@ -42,20 +38,16 @@ const useStyles = makeStyles((theme) => ({
     transform: 'rotate(180deg)',
   },
   avatar: {
-    backgroundColor: blue[500],
+    backgroundColor: indigo[500],
+    color: indigo[50],
   },
   deckIcon: {
       maxWidth: 40,
   },
 }));
 
-export default function PlayerCard() {
+export default function PlayerCardBack() {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   return (
     <Card className={classes.root}>
@@ -75,14 +67,18 @@ export default function PlayerCard() {
         title="Player Name"
         subheader="Season number #"
       />
-      <CardMedia
+      {/* <CardMedia
         className={classes.media}
         image="https://nhl.bamcontent.com/images/headshots/current/168x168/8474600.jpg"
         title="Player Portrait"
-      />
+      /> */}
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          Short player bio could go in this section!
+          <ul>
+              <li>Stat:</li>
+              <li>Stat:</li>
+              <li>Stat:</li>
+          </ul>
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -92,30 +88,8 @@ export default function PlayerCard() {
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>
-            Player info here
-          </Typography>
-          <Typography paragraph>
-            Player info here
-          </Typography>
-          <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then serve.
-          </Typography>
-        </CardContent>
-      </Collapse>
     </Card>
+
   );
 }

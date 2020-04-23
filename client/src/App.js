@@ -1,21 +1,19 @@
 import React from 'react'
-import logo from './logo.svg'
+// import CardFlip from './pages/CardFlip'
 import ButtonAppBar from './components/NavBar'
-import PlayerCard from './components/Card'
+import PlayerCardFront from './components/CardFront'
 import Container from '@material-ui/core/container'
-// import Login from './components/login'
 import './App.css'
+import Jumbotron from "./components/Jumbotron"
 
 function App() {
   return (
     <div>
       <ButtonAppBar />
-      {/* <Login/> */}
-
-      {/* This area is just for testing purposes, as Card will be called on a collections page. */}
-      <Container>
-        <PlayerCard/>
-      </Container>
+      <Jumbotron/>
+      {/* <Container>
+        <PlayerCardFront/>
+      </Container> */}
     </div>
   )
 }
