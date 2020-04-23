@@ -1,14 +1,14 @@
 import React from 'react'
-import logo from './logo.svg'
+// import CardFlip from './pages/CardFlip'
 import ButtonAppBar from './components/NavBar'
-// import Login from './components/login'
 import './App.css'
+import Jumbotron from "./components/Jumbotron"
 
 function App() {
   return (
     <div>
       <ButtonAppBar />
-      {/* <Login/> */}
+      <Jumbotron/>
     </div>
   )
 }
