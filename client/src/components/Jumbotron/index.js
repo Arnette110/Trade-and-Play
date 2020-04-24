@@ -13,7 +13,7 @@ function Jumbotron({ children }) {
       }}
       className='jumbotron'>
       {children}
-      <CardFlip {...OutlinedCard}/>
+      <CardFlip />
       {/* <OutlinedCard /> */}
     </div>
   )

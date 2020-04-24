@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import ReactCardFlip from 'react-card-flip'
 import OutlinedCard from '../components/Cards'
+import PlayerCardFront from '../components/CardFront'
+import PlayerCardBack from '../components/CardBack'
 // import { makeStyles } from '@material-ui/core/styles'
 
 // const useStyles = makeStyles({
@@ -16,17 +18,14 @@ const CardFlip = () => {
     setIsFlipped(!isFlipped)
   }
   return (
-    <ReactCardFlip isFlipped={isFlipped} flipDirection='horizontal'>
-      <div onMouseEnter={handleHover}>
-        <OutlinedCard >
-          test
-        </OutlinedCard>
+
+    <ReactCardFlip containerStyle={{width:'100%', maxWidth: 350}} isFlipped={isFlipped} flipDirection='horizontal'>
+      <div onClick={handleHover}>
+        <PlayerCardFront />
       </div>
 
-      <div onMouseLeave={handleHover}>
-        <OutlinedCard>
-          more tests
-        </OutlinedCard>
+      <div onClick={handleHover}>
+        <PlayerCardBack />
       </div>
     </ReactCardFlip>
   )
