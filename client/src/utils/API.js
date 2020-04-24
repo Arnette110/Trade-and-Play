@@ -1,19 +1,16 @@
 import axios from "axios";
 
 export default {
-//   // Gets all books
-//   getBooks: function() {
-//     return axios.get("/api/books");
-//   },
-//   // Gets the book with the given id
-//   getBook: function(id) {
-//     return axios.get("/api/books/" + id);
-//   },
-//   // Deletes the book with the given id
-//   deleteBook: function(id) {
-//     return axios.delete("/api/books/" + id);
-//   },
-  // Saves a book to the database
+  getBio: function(playerId) {
+    return axios.get(
+      "https://statsapi.web.nhl.com/api/v1/people/" + playerId
+    );
+  },
+  getStats: function(playerId, season) {
+    return axios.get(
+      "https://statsapi.web.nhl.com/api/v1/people/" + playerId + "/stats?stats=statsSingleSeason&season=" + season
+    );
+  },
   savePlayer: function(playerData) {
     return axios.post("/api/players", playerData);
   }

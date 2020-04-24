@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from './logo.svg'
+// import logo from './logo.svg'
 import ButtonAppBar from './components/NavBar'
 import PlayerCreate from './pages/PlayerCreate'
 // import Login from './components/login'
