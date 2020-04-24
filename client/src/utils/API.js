@@ -11,8 +11,10 @@ export default {
       "https://statsapi.web.nhl.com/api/v1/people/" + playerId + "/stats?stats=statsSingleSeason&season=" + season
     );
   },
-  savePlayer: function(playerData) {
-    console.log('1')
-    return axios.post("/api/players", playerData);
+  savePlayerStats: function(playerData) {
+    return axios.post("/api/playerstats", playerData);
+  },
+  savePlayerBio: function(playerData) {
+    return axios.post("/api/playerbio", playerData);
   }
 };

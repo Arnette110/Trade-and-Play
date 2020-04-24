@@ -1,7 +1,9 @@
 const router = require('express').Router()
-const playerRoutes = require('./players')
+const playerStatsRoutes = require('./playerStats')
+const playerBioRoutes = require('./playerBio')
 
 // players routes
-router.use('/players', playerRoutes)
+router.use('/playerstats', playerStatsRoutes)
+router.use('/playerbio', playerBioRoutes)
 
 module.exports = router

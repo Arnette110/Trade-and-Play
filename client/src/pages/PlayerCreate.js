@@ -31,7 +31,8 @@ function PlayerCreate() {
   }
 
   const handleSubmitToDb = () => {
-    API.savePlayer(form.statsObj)
+    API.savePlayerStats(form.statsObj)
+    API.savePlayerBio(form.bioObj)
   }
 
   const isObjEmpty = (statsObj, bioObj ) => {
