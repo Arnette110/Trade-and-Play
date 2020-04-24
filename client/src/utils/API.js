@@ -12,6 +12,7 @@ export default {
     );
   },
   savePlayer: function(playerData) {
+    console.log('1')
     return axios.post("/api/players", playerData);
   }
 };

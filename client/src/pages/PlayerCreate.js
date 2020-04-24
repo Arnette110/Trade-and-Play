@@ -26,28 +26,22 @@ function PlayerCreate() {
       let statsData = await stats.json()
       statsData.stats[0].splits[0].id = form.playerId
       setForm({...form, bioObj: bioData.people[0], statsObj: statsData.stats[0].splits[0]})
-      API.savePlayer(form.statsObj)
+      console.log(form.statsObj)
     };
   }
-  // function addIdAndSetForm(obj) {
-  //   let stats = obj
-  //   stats.id = form.playerId
-  //   console.log('stats: ', stats)
-  //   setForm({ ...form, statsObj: stats })
-  // }
-  // function handleFormSubmit(event) {
-  //   event.preventDefault();
-  //   if (form.playerId && form.season) {
-  //     // gets Bio information
-  //     API.getBio(form.playerId)
-  //       .then(res => setForm({ ...form, bioObj: res.data.people[0] }))
-  //       .catch(err => console.log(err));
-  //     // gets player stats
-  //     API.getStats(form.playerId, form.season)
-  //       .then(res => addIdAndSetForm(res.data.stats[0].splits[0]))
-  //       .catch(err => console.log(err));
-  //   }
-  // };
+
+  const handleSubmitToDb = () => {
+    API.savePlayer(form.statsObj)
+  }
+
+  const isObjEmpty = (statsObj, bioObj ) => {
+    if (Object.keys(statsObj).length === 0 || Object.keys(bioObj).length === 0) {
+      return true
+    }
+    else {
+      return false
+    }
+}
 
   return (
     <Container>
@@ -56,7 +50,10 @@ function PlayerCreate() {
           <form>
             <TextField id="standard-basic" label="PlayerId" onChange={handleInputChange} name="playerId" required />
             <TextField id="standard-basic" label="Season" onChange={handleInputChange} name="season" required />
-            <Button variant="contained" onClick={handleFormSubmit}>Submit</Button>
+            <Button variant="contained" onClick={handleFormSubmit}>Search for Player Data</Button>
+            <Button variant="contained" onClick={handleSubmitToDb}
+            disabled={isObjEmpty(form.statsObj, form.bioObj) ? true : false }
+            >Add Player to DB</Button>
           </form>
         </Grid>
         <Grid item xs={6}>
