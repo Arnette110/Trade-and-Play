@@ -16,12 +16,6 @@ function PlayerCreate() {
     setForm({ ...form, [name]: value })
   };
 
-  function addIdAndSetForm(obj) {
-    let stats = obj
-    stats.id = form.playerId
-    console.log('stats: ', stats)
-    setForm({ ...form, statsObj: stats })
-  }
 
   async function handleFormSubmit(event) {
     event.preventDefault();
@@ -32,8 +26,15 @@ function PlayerCreate() {
       let statsData = await stats.json()
       statsData.stats[0].splits[0].id = form.playerId
       setForm({...form, bioObj: bioData.people[0], statsObj: statsData.stats[0].splits[0]})
+      API.savePlayer(form.statsObj)
     };
   }
+  // function addIdAndSetForm(obj) {
+  //   let stats = obj
+  //   stats.id = form.playerId
+  //   console.log('stats: ', stats)
+  //   setForm({ ...form, statsObj: stats })
+  // }
   // function handleFormSubmit(event) {
   //   event.preventDefault();
   //   if (form.playerId && form.season) {
@@ -53,8 +54,8 @@ function PlayerCreate() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <form>
-            <TextField id="standard-basic" label="PlayerId" onChange={handleInputChange} name="playerId" />
-            <TextField id="standard-basic" label="Season" onChange={handleInputChange} name="season" />
+            <TextField id="standard-basic" label="PlayerId" onChange={handleInputChange} name="playerId" required />
+            <TextField id="standard-basic" label="Season" onChange={handleInputChange} name="season" required />
             <Button variant="contained" onClick={handleFormSubmit}>Submit</Button>
           </form>
         </Grid>
