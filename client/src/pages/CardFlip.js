@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import ReactCardFlip from 'react-card-flip'
-import OutlinedCard from '../components/Cards'
 import PlayerCardFront from '../components/CardFront'
 import PlayerCardBack from '../components/CardBack'
 // import { makeStyles } from '@material-ui/core/styles'
