@@ -1,11 +1,15 @@
 import React from 'react'
-// import CardFlip from './pages/CardFlip'
+// Material-ui
+// import Container from '@material-ui/core/container'
+// Components
 import ButtonAppBar from './components/NavBar'
-import PlayerCardFront from './components/CardFront'
-import Container from '@material-ui/core/container'
-import './App.css'
-import Jumbotron from "./components/Jumbotron"
+// import PlayerCardFront from './components/CardFront'
+// import CardFlip from './pages/CardFlip'
+// import Jumbotron from "./components/Jumbotron"
+// Pages
 import PlayerCreate from './pages/PlayerCreate'
+// CSS
+import './App.css'
 
 function App() {
   return (
