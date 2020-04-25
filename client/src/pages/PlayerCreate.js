@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, TextField, Button, Typography, Grid } from '@material-ui/core';
 import API from '../utils/API';
 
-function PlayerCreate() {
+const PlayerCreate = () => {
 
   const [form, setForm] = useState({
     playerId: '',
@@ -11,13 +11,13 @@ function PlayerCreate() {
     statsObj: {}
   })
 
-  function handleInputChange(event) {
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
     setForm({ ...form, [name]: value })
   };
 
 
-  async function handleFormSubmit(event) {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     if (form.playerId && form.season) {
       let bio = await fetch(`https://statsapi.web.nhl.com/api/v1/people/${form.playerId}`)
