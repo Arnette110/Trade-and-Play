@@ -35,15 +35,22 @@ const PlayerCreate = () => {
 
   const handleSubmitToDb = async () => {
     let statCheck = await API.findPlayerStats({id: form.statsObj.id, season: form.statsObj.season})
-    if (statCheck.data) {
-      console.log('Player already in database')
+    let bioCheck = await API.findPlayerBio({id: form.statsObj.id})
+    if (statCheck.data === null) {
+      console.log('Stat DO NOT EXIST in the database')
+      API.savePlayerStats(form.statsObj)
+      if (bioCheck.data) {
+        console.log('Bio EXIST in the database')
+      }
+      else {
+        console.log('Stats DO NOT EXIT in the database')
+        API.savePlayerBio(form.bioObj)
+      }
     }
     else {
-      API.savePlayerStats(form.statsObj)
-      console.log('Player added to database')
+      console.log('Player & Stats EXIST in the database')
     }
     emptyStateObjs()
-    // API.savePlayerBio(form.bioObj)
   }
 
   const isObjEmpty = (statsObj, bioObj ) => {

@@ -19,5 +19,8 @@ export default {
   },
   findPlayerStats: function (obj) {
     return axios.put("/api/playerstats", obj);
+  },
+  findPlayerBio: function (obj) {
+    return axios.put("/api/playerbio", obj);
   }
 };

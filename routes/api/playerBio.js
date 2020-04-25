@@ -1,10 +1,10 @@
 const router = require('express').Router()
 const playerBioController = require('../../controllers/playerBioController')
 
-// Matches with "/api/playerbios"
+// Matches with "/api/playerbio"
 router.route('/')
   .post(playerBioController.create)
-  .get(playerBioController.findOne)
+  .put(playerBioController.findById)
 
 // // Matches with "/api/books"
 // router.route("/")
