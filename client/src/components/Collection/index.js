@@ -1,8 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+import { Container, Grid } from '@material-ui/core';
 import CardFlip from '../../pages/CardFlip';
-import { Container } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
