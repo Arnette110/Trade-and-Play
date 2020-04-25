@@ -1,9 +1,9 @@
 const router = require('express').Router()
-const playerController = require('../../controllers/playerController')
+const playerStatsController = require('../../controllers/playerStatsController')
 
-// Matches with "/api/players"
+// Matches with "/api/playerstats"
 router.route('/')
-  .post(playerController.create)
+  .post(playerStatsController.create)
 
 // // Matches with "/api/books"
 // router.route("/")

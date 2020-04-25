@@ -5,15 +5,14 @@ import PlayerCardFront from './components/CardFront'
 import Container from '@material-ui/core/container'
 import './App.css'
 import Jumbotron from "./components/Jumbotron"
+import PlayerCreate from './pages/PlayerCreate'
 
 function App() {
   return (
     <div>
       <ButtonAppBar />
-      <Jumbotron/>
-      {/* <Container>
-        <PlayerCardFront/>
-      </Container> */}
+      {/* <Login/> */}
+      <PlayerCreate />
     </div>
   )
 }
