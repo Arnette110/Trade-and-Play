@@ -31,16 +31,16 @@ export default function NestedGrid() {
   function FormRow() {
     return (
       <React.Fragment>
-        <Grid className={classes.root} item xs={3}>
+        <Grid className={classes.cardSpacing} item xs={3}>
         <CardFlip/>
         </Grid>
-        <Grid className={classes.root} item xs={3}>
+        <Grid className={classes.cardSpacing} item xs={3}>
         <CardFlip/>
         </Grid>
-        <Grid  className={classes.root}item xs={3}>
+        <Grid  className={classes.cardSpacing}item xs={3}>
         <CardFlip/>
         </Grid>
-        <Grid  className={classes.root}item xs={3}>
+        <Grid  className={classes.cardSpacing}item xs={3}>
         <CardFlip/>
         </Grid>
       </React.Fragment>
