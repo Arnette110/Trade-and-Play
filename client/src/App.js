@@ -3,6 +3,7 @@ import React from 'react'
 import ButtonAppBar from './components/NavBar'
 import PlayerCardFront from './components/CardFront'
 import Container from '@material-ui/core/container'
+import Collection from './components/Collection'
 import './App.css'
 import Jumbotron from "./components/Jumbotron"
 import PlayerCreate from './pages/PlayerCreate'
@@ -13,6 +14,7 @@ function App() {
       <ButtonAppBar />
       {/* <Login/> */}
       <PlayerCreate />
+      <Collection />
     </div>
   )
 }
