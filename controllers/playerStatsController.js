@@ -1,6 +1,6 @@
 const db = require('../models')
 
-// Defining methods for the playerStatsController
+// Defining methods for the playerController
 module.exports = {
   create: function (req, res) {
     db.PlayerStats
@@ -8,9 +8,10 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   },
-  findOne: function (req, res) {
+  findByIdAndSeason: function (req, res) {
+    const { id, season } = req.body
     db.PlayerStats
-      .findOne({ id: req.body.id, season: req.body.season })
+      .findOne({ id: id, season: season })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   }

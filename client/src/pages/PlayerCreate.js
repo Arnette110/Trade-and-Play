@@ -30,9 +30,16 @@ function PlayerCreate() {
     };
   }
 
-  const handleSubmitToDb = () => {
-    API.savePlayerStats(form.statsObj)
-    API.savePlayerBio(form.bioObj)
+  const handleSubmitToDb = async () => {
+    let statCheck = await API.findPlayerStats({id: form.statsObj.id, season: form.statsObj.season})
+    if (statCheck.data) {
+      console.log('Player already in database')
+    }
+    else {
+      API.savePlayerStats(form.statsObj)
+      console.log('Player added to database')
+    }
+    // API.savePlayerBio(form.bioObj)
   }
 
   const isObjEmpty = (statsObj, bioObj ) => {

@@ -4,6 +4,7 @@ const playerStatsController = require('../../controllers/playerStatsController')
 // Matches with "/api/playerstats"
 router.route('/')
   .post(playerStatsController.create)
+  .put(playerStatsController.findByIdAndSeason)
 
 // // Matches with "/api/books"
 // router.route("/")
