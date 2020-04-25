@@ -26,8 +26,11 @@ function PlayerCreate() {
       let statsData = await stats.json()
       statsData.stats[0].splits[0].id = form.playerId
       setForm({...form, bioObj: bioData.people[0], statsObj: statsData.stats[0].splits[0]})
-      console.log(form.statsObj)
     };
+  }
+
+  const emptyStateObjs = () => {
+    setForm({...form, bioObj: {}, statsObj: {}})
   }
 
   const handleSubmitToDb = async () => {
@@ -39,6 +42,7 @@ function PlayerCreate() {
       API.savePlayerStats(form.statsObj)
       console.log('Player added to database')
     }
+    emptyStateObjs()
     // API.savePlayerBio(form.bioObj)
   }
 
@@ -49,15 +53,15 @@ function PlayerCreate() {
     else {
       return false
     }
-}
+  }
 
   return (
     <Container>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <form>
-            <TextField id="standard-basic" label="PlayerId" onChange={handleInputChange} name="playerId" required />
-            <TextField id="standard-basic" label="Season" onChange={handleInputChange} name="season" required />
+            <TextField id="standard-basic" label="PlayerId" onChange={handleInputChange} name="playerId" helperText="Example: 8474565" required />
+            <TextField id="standard-basic" label="Season" onChange={handleInputChange} name="season" helperText="Example: 20182019" required />
             <Button variant="contained" onClick={handleFormSubmit}>Search for Player Data</Button>
             <Button variant="contained" onClick={handleSubmitToDb}
             disabled={isObjEmpty(form.statsObj, form.bioObj) ? true : false }
