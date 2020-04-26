@@ -16,16 +16,35 @@ const PlayerCreate = () => {
     setForm({ ...form, [name]: value })
   };
 
+  const getPlayerInfoFromAPI = () => {
+    let response = {};
+    const getBio = () => {
+      return API.getBio(form.playerId)
+    }
+    
+    const getStats = res => {
+      response.bio = res.data.people[0];
+      return API.getStats(form.playerId, form.season);
+    }
+  
+    const setPlayerInfoToState = (res) => {
+      response.stats = res.data.stats[0].splits[0];
+      response.stats.id = form.playerId
+      setForm({...form, bioObj: response.bio, statsObj: response.stats})
+    }
 
-  const handleFormSubmit = async (event) => {
+    return getBio()
+      .then(getStats)
+      .then(setPlayerInfoToState)
+      .catch(err => {
+        console.log('error', err)
+      })
+  }
+
+  const handleFormSubmit = (event) => {
     event.preventDefault();
     if (form.playerId && form.season) {
-      let bio = await fetch(`https://statsapi.web.nhl.com/api/v1/people/${form.playerId}`)
-      let bioData = await bio.json()
-      let stats = await fetch(`https://statsapi.web.nhl.com/api/v1/people/${form.playerId}/stats?stats=statsSingleSeason&season=${form.season}`)
-      let statsData = await stats.json()
-      statsData.stats[0].splits[0].id = form.playerId
-      setForm({...form, bioObj: bioData.people[0], statsObj: statsData.stats[0].splits[0]})
+      getPlayerInfoFromAPI()
     };
   }
 
@@ -38,13 +57,13 @@ const PlayerCreate = () => {
     let bioCheck = await API.findPlayerBio({id: form.statsObj.id})
     if (statCheck.data === null) {
       console.log('Stat DO NOT EXIST in the database')
-      API.savePlayerStats(form.statsObj)
+      // API.savePlayerStats(form.statsObj)
       if (bioCheck.data) {
         console.log('Bio EXIST in the database')
       }
       else {
         console.log('Stats DO NOT EXIT in the database')
-        API.savePlayerBio(form.bioObj)
+        // API.savePlayerBio(form.bioObj)
       }
     }
     else {
