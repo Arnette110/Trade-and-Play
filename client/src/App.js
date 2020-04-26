@@ -11,6 +11,7 @@ import NoMatch from "./pages/NoMatch"
 import Home from "./pages/Home"
 // import CardFlip from './pages/CardFlip'
 import PlayerCreate from './pages/PlayerCreate'
+import PlayerCreate from './pages/Packs'
 // Css
 import './App.css'
 
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route exact path={["/collection"]}>
             <Collection />
+          </Route>
+          <Route exact path={["/packs"]}>
+            <Packs />
           </Route>
           <Route exact path={["/nomatch"]}>
             <NoMatch />
