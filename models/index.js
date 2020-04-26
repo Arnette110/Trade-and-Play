@@ -1,5 +1,4 @@
 module.exports = {
-    PlayerStats: require("./playerStats"),
-    PlayerBios: require("./playerBios")
-  };
-  
+  PlayerStats: require('./playerStats'),
+  PlayerBios: require('./playerBios')
+}
