@@ -9,7 +9,6 @@ module.exports = {
       .catch(err => res.status(422).json(err))
   },
   findById: function (req, res) {
-    console.log(req.body)
     db.PlayerBios
       .findOne({ id: req.body.id })
       .then(dbModel => res.json(dbModel))

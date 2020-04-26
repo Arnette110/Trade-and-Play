@@ -57,13 +57,13 @@ const PlayerCreate = () => {
     let bioCheck = await API.findPlayerBio({id: form.statsObj.id})
     if (statCheck.data === null) {
       console.log('Stat DO NOT EXIST in the database')
-      // API.savePlayerStats(form.statsObj)
+      API.savePlayerStats(form.statsObj)
       if (bioCheck.data) {
         console.log('Bio EXIST in the database')
       }
       else {
-        console.log('Stats DO NOT EXIT in the database')
-        // API.savePlayerBio(form.bioObj)
+        console.log('Stats DO NOT EXIST in the database')
+        API.savePlayerBio(form.bioObj)
       }
     }
     else {
