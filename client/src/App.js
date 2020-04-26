@@ -8,6 +8,7 @@ import Collection from './components/Collection'
 
 // Pages
 import NoMatch from "./pages/NoMatch"
+import Home from "./pages/Home"
 // import CardFlip from './pages/CardFlip'
 import PlayerCreate from './pages/PlayerCreate'
 // Css
@@ -20,7 +21,7 @@ function App() {
         <ButtonAppBar />
         <Switch>
           <Route exact path={["/", "/home"]}>
-            {/* Home Page   */}
+            <Home/>
           </Route>
           <Route exact path={["/createplayer"]}>
             <PlayerCreate />
