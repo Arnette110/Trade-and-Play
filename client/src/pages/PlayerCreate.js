@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, TextField, Button, Typography, Grid } from '@material-ui/core';
 import API from '../utils/API';
 
-function PlayerCreate() {
+const PlayerCreate = () => {
 
   const [form, setForm] = useState({
     playerId: '',
@@ -11,28 +11,65 @@ function PlayerCreate() {
     statsObj: {}
   })
 
-  function handleInputChange(event) {
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
     setForm({ ...form, [name]: value })
   };
 
+  const getPlayerInfoFromAPI = () => {
+    let response = {};
+    const getBio = () => {
+      return API.getBio(form.playerId)
+    }
+    
+    const getStats = res => {
+      response.bio = res.data.people[0];
+      return API.getStats(form.playerId, form.season);
+    }
+  
+    const setPlayerInfoToState = (res) => {
+      response.stats = res.data.stats[0].splits[0];
+      response.stats.id = form.playerId
+      setForm({...form, bioObj: response.bio, statsObj: response.stats})
+    }
 
-  async function handleFormSubmit(event) {
+    return getBio()
+      .then(getStats)
+      .then(setPlayerInfoToState)
+      .catch(err => {
+        console.log('error', err)
+      })
+  }
+
+  const handleFormSubmit = (event) => {
     event.preventDefault();
     if (form.playerId && form.season) {
-      let bio = await fetch(`https://statsapi.web.nhl.com/api/v1/people/${form.playerId}`)
-      let bioData = await bio.json()
-      let stats = await fetch(`https://statsapi.web.nhl.com/api/v1/people/${form.playerId}/stats?stats=statsSingleSeason&season=${form.season}`)
-      let statsData = await stats.json()
-      statsData.stats[0].splits[0].id = form.playerId
-      setForm({...form, bioObj: bioData.people[0], statsObj: statsData.stats[0].splits[0]})
-      console.log(form.statsObj)
+      getPlayerInfoFromAPI()
     };
   }
 
-  const handleSubmitToDb = () => {
-    API.savePlayerStats(form.statsObj)
-    API.savePlayerBio(form.bioObj)
+  const emptyStateObjs = () => {
+    setForm({...form, bioObj: {}, statsObj: {}})
+  }
+
+  const handleSubmitToDb = async () => {
+    let statCheck = await API.findPlayerStats({id: form.statsObj.id, season: form.statsObj.season})
+    let bioCheck = await API.findPlayerBio({id: form.statsObj.id})
+    if (statCheck.data === null) {
+      console.log('Stat DO NOT EXIST in the database')
+      API.savePlayerStats(form.statsObj)
+      if (bioCheck.data) {
+        console.log('Bio EXIST in the database')
+      }
+      else {
+        console.log('Stats DO NOT EXIST in the database')
+        API.savePlayerBio(form.bioObj)
+      }
+    }
+    else {
+      console.log('Player & Stats EXIST in the database')
+    }
+    emptyStateObjs()
   }
 
   const isObjEmpty = (statsObj, bioObj ) => {
@@ -42,15 +79,15 @@ function PlayerCreate() {
     else {
       return false
     }
-}
+  }
 
   return (
     <Container>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <form>
-            <TextField id="standard-basic" label="PlayerId" onChange={handleInputChange} name="playerId" required />
-            <TextField id="standard-basic" label="Season" onChange={handleInputChange} name="season" required />
+            <TextField id="standard-basic" label="PlayerId" onChange={handleInputChange} name="playerId" helperText="Example: 8474565" required />
+            <TextField id="standard-basic" label="Season" onChange={handleInputChange} name="season" helperText="Example: 20182019" required />
             <Button variant="contained" onClick={handleFormSubmit}>Search for Player Data</Button>
             <Button variant="contained" onClick={handleSubmitToDb}
             disabled={isObjEmpty(form.statsObj, form.bioObj) ? true : false }
