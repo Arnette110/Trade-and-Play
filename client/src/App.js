@@ -11,7 +11,7 @@ import NoMatch from "./pages/NoMatch"
 import Home from "./pages/Home"
 // import CardFlip from './pages/CardFlip'
 import PlayerCreate from './pages/PlayerCreate'
-import PlayerCreate from './pages/Packs'
+import Packs from './pages/Packs'
 // Css
 import './App.css'
 
