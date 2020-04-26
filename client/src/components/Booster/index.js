@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   root: {
     marginTop: '20px',
+    borderRadius: 'unset'
   },
   media: {
     height: '100%',
@@ -17,24 +18,25 @@ const useStyles = makeStyles({
   },
 });
 
-function Booster() {
+function Booster(props) {
   const classes = useStyles();
+  const { title, description, img } = props
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <img className={classes.media} alt='Booster Packs' src='https://nhl.bamcontent.com/images/photos/316717774/2048x1152/cut.jpg'/>
+        <img className={classes.media} alt='Booster Packs' src={img}/>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Forwards
+            {title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Increase the offensive ability of your collection with new forwards
+            {description}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions style={{justifyContent: 'center'}}>
-        <Button size="small" color="primary">
+        <Button size="medium" variant="contained" color="primary">
           Buy Booster Pack
         </Button>
       </CardActions>
