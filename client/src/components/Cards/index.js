@@ -21,12 +21,15 @@ const useStyles = makeStyles({
   },
 })
 
-export default function OutlinedCard({children}) {
+export default function OutlinedCard({ children }) {
   const classes = useStyles(children)
-//   const bull = <span className={classes.bullet}> • </span>
 
   return (
-    <Paper elevation={3} className={classes.root} variant='outlined' justify='center'>
+    <Paper
+      elevation={3}
+      className={classes.root}
+      variant='outlined'
+      justify='center'>
       <Card>
         <CardContent>
           <Typography
@@ -34,7 +37,7 @@ export default function OutlinedCard({children}) {
             className={classes.title}
             color='inherit'
             gutterBottom>
-           {children}{' '}
+            {children}{' '}
           </Typography>{' '}
           <Typography variant='h5' component='h2'>
             {children}
@@ -43,7 +46,8 @@ export default function OutlinedCard({children}) {
             {children}{' '}
           </Typography>{' '}
           <Typography variant='body2' component='p'>
-            {children}<br /> {' '}
+            {children}
+            <br />{' '}
           </Typography>{' '}
         </CardContent>{' '}
       </Card>
