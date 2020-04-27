@@ -5,7 +5,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import Menu from '@material-ui/core/Menu'
 import Login from '../login'
-import SignUp from '../SignUp'
+import Logout from '../Logout'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,45 +35,47 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position='static'>
+      <AppBar position="static">
         <Toolbar>
           {auth && (
             <div>
               <IconButton
-                edge='start'
+                edge="start"
                 className={classes.menuButton}
-                color='inherit'
-                aria-label='menu'
-                aria-controls='menu'
-                onClick={handleMenu}>
+                color="inherit"
+                aria-label="menu"
+                aria-controls="menu"
+                onClick={handleMenu}
+              >
                 <MenuIcon />
               </IconButton>
               <Menu
-                id='menu'
+                id="menu"
                 anchorEl={anchorEl}
                 anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
+                  vertical: "top",
+                  horizontal: "left"
                 }}
                 keepMounted
                 tranformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
+                  vertical: "top",
+                  horizontal: "left"
                 }}
                 open={open}
-                onClose={handleClose}>
+                onClose={handleClose}
+              >
                 <MenuItem onClick={handleClose}>testing menu</MenuItem>
                 <MenuItem onClick={handleClose}>more tests of menu</MenuItem>
               </Menu>
             </div>
           )}
-          <Typography variant='h6' className={classes.title}>
+          <Typography variant="h6" className={classes.title}>
             News
           </Typography>
+          <Logout />
           <Login />
-          <SignUp />
         </Toolbar>
       </AppBar>
     </div>
-  )
+  );
 }
