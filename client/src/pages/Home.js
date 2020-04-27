@@ -39,13 +39,15 @@ export default function Home() {
             <Container>
               <Typography variant='h1' style={{ overflowWrap: 'inherit' }}>
                 Trade{' '}
-                <Typography variant='h3' style={{ overflowWrap: 'inherit' }}>
-                  &
-                </Typography>
-                Play
+              </Typography>
+              <Typography variant='h3' style={{ overflowWrap: 'inherit' }}>
+                &
+              </Typography>
+              <Typography variant='h1' style={{ overflowWrap: 'inherit' }}>
+                Play{' '}
               </Typography>
             </Container>
-            <br/>
+            <br />
             <LearnMore />
           </Grid>
         </Grid>
