@@ -1,16 +1,14 @@
 import React from 'react'
-import { Grid, useMediaQuery } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import Booster from '../components/Booster'
 
 function Packs() {
-    const isMedium = useMediaQuery('(max-width: 960px');
 
     return (
         <Grid container
             alignItems="stretch"
             justify='space-evenly'
             direction='row'
-            // spacing={isMedium ? 0 : 5}
         >
             <Grid item xs={12} sm={8} md={3}>
                 <Booster

@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardActionArea, CardActions, CardContent, Button, Typography } from '@material-ui/core';
+import ConfirmDialog from '../ConfirmDialog'
 
 const useStyles = makeStyles({
     root: {
@@ -25,7 +26,6 @@ function Booster(props) {
                     <Typography
                         gutterBottom
                         variant="h5"
-                        // component="h2"
                     >
                         {title}
                     </Typography>
@@ -41,13 +41,7 @@ function Booster(props) {
             <CardActions
                 style={{ justifyContent: 'space-evenly' }}
             >
-                <Button
-                    size="medium"
-                    variant="contained"
-                    color="primary"
-                >
-                    Draft Now
-                </Button>
+                <ConfirmDialog/>
                 <Button
                     size="medium"
                     variant="contained"
