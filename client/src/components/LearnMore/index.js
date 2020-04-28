@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   Button,
-  TextField,
   Dialog,
   DialogActions,
   DialogContent,
@@ -9,7 +8,7 @@ import {
   DialogTitle,
 } from '@material-ui/core'
 
-export default function SignUp() {
+export default function Login() {
   const [open, setOpen] = React.useState(false)
 
   const handleClickOpen = () => {
@@ -22,27 +21,27 @@ export default function SignUp() {
 
   return (
     <div>
-      <Button variant='outlined' color='inherit' onClick={handleClickOpen}>
-        Sign Up
+      <Button
+        variant='outlined'
+        style={{ color: 'crimson' }}
+        onClick={handleClickOpen}>
+        Learn More!
       </Button>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby='form-dialog-title'>
-        <DialogTitle id='form-dialog-title'>Subscribe</DialogTitle>
+        <DialogTitle id='form-dialog-title'>You're the Boss!</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            To start trading and playing cards, please enter your email address
-            here. We will send updates occasionally.
+          <DialogContentText variant='h6'>
+            Recruit top talent to complete your Team (Deck)
           </DialogContentText>
-          <TextField
-            autoFocus
-            margin='dense'
-            id='name'
-            label='Email Address'
-            type='email'
-            fullWidth
-          />
+          <DialogContentText variant='h6'>
+            Trade with other Managers to build your dream team
+          </DialogContentText>
+          <DialogContentText variant='h6'>
+            Shop for Booster Packs
+          </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color='primary'>

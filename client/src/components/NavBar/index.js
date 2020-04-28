@@ -5,7 +5,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import Menu from '@material-ui/core/Menu'
 import Login from '../login'
-import SignUp from '../SignUp'
+import Logout from '../Logout'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar() {
   const classes = useStyles()
-  const [auth, setAuth] = React.useState(true)
+  // const [auth, setAuth] = React.useState(true)
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
 
@@ -37,7 +37,7 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position='static'>
         <Toolbar>
-          {auth && (
+          
             <div>
               <IconButton
                 edge='start'
@@ -51,27 +51,19 @@ export default function ButtonAppBar() {
               <Menu
                 id='menu'
                 anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}
                 keepMounted
-                tranformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}
                 open={open}
                 onClose={handleClose}>
                 <MenuItem onClick={handleClose}>testing menu</MenuItem>
                 <MenuItem onClick={handleClose}>more tests of menu</MenuItem>
               </Menu>
             </div>
-          )}
+          
           <Typography variant='h6' className={classes.title}>
-            News
+            Menu
           </Typography>
+          <Logout />
           <Login />
-          <SignUp />
         </Toolbar>
       </AppBar>
     </div>
