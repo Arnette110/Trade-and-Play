@@ -30,7 +30,7 @@ function Booster(props) {
           <Typography gutterBottom variant="h5" component="h2">
             {title}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" color="textSecondary" component="p" style={{height: '100px'}}>
             {description}
           </Typography>
         </CardContent>
