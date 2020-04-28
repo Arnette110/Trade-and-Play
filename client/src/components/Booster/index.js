@@ -24,7 +24,7 @@ function Booster(props) {
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
+      <CardActionArea disableRipple disabled>
         <img className={classes.media} alt='Booster Packs' src={img}/>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
