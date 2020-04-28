@@ -13,6 +13,8 @@ import Home from "./pages/Home"
 import PlayerCreate from './pages/PlayerCreate'
 // Css
 import './App.css'
+// Auth0 callback
+import Callback from "./Callback";
 
 function App() {
   return (
@@ -21,7 +23,7 @@ function App() {
         <ButtonAppBar />
         <Switch>
           <Route exact path={["/", "/home"]}>
-            <Home/>
+            <Home />
           </Route>
           <Route exact path={["/createplayer"]}>
             <PlayerCreate />
@@ -32,10 +34,11 @@ function App() {
           <Route exact path={["/nomatch"]}>
             <NoMatch />
           </Route>
+          <Route exact path="/callback" component={Callback}/>
         </Switch>
       </div>
     </Router>
-  )
+  );
 }
 
 export default App

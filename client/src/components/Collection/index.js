@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 import CardFlip from '../../pages/CardFlip';
 // import ItemsCarousel from 'react-items-carousel';
 import API from '../../utils/API';
+=======
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import { Container, Grid } from '@material-ui/core'
+import CardFlip from '../../pages/CardFlip'
+>>>>>>> master
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,20 +22,19 @@ const useStyles = makeStyles((theme) => ({
   cardSpacing: {
     justifyContent: 'center',
     textAlign: 'center',
-  }
-  ,
+  },
   paper: {
     padding: theme.spacing(0),
     textAlign: 'center',
     justifyContent: 'center',
     color: theme.palette.text.secondary,
   },
-}));
+}))
 
 
 
 export default function NestedGrid() {
-  const classes = useStyles();
+  const classes = useStyles()
 
   async function findAll() {
     let apiStats = await API.findAll()
@@ -44,5 +50,5 @@ export default function NestedGrid() {
       <CardFlip/>
 
     </div>
-  );
+  )
 }
