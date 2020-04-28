@@ -14,5 +14,11 @@ module.exports = {
       .findOne({ id: id, season: season })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
+  },
+  findAll: function (req, res) {
+    db.PlayerStats
+      .find({})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err))
   }
 }
