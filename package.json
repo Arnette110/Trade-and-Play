@@ -43,8 +43,7 @@
     "if-env": "^1.0.4",
     "mongoose": "^5.9.7",
     "nba-api-client": "^1.0.9",
-    "react-card-flip": "^1.0.10",
-    "react-items-carousel": "^2.8.0"
+    "react-card-flip": "^1.0.10"
   },
   "bugs": {
     "url": "https://github.com/Arnette110/Trade-and-Play/issues"
