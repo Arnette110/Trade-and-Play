@@ -16,6 +16,7 @@ import Packs from './pages/Packs'
 import './App.css'
 // Auth0 callback
 import Callback from "./Callback";
+import CardFlip from './pages/CardFlip';
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route exact path={["/packs"]}>
             <Packs />
+          </Route>
+          <Route exact path={["/packs"]}>
+            <CardFlip />
           </Route>
           <Route exact path={["/nomatch"]}>
             <NoMatch />

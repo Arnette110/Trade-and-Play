@@ -35,13 +35,13 @@ export default function ConfirmDialog() {
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle id="alert-dialog-slide-title">{"Use Google's location service?"}</DialogTitle>
+        <DialogTitle id="alert-dialog-slide-title">{"Draft a new player?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
           With this Draft, you can acquire one player. Are you sure you want to Draft?
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
+        <DialogActions style={{justifyContent: 'space-evenly'}}>
         <Button onClick={handleClose} size="medium" variant="contained" color="secondary">
             No
           </Button>

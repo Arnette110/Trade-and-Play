@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardActionArea, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import ConfirmDialog from '../ConfirmDialog'
+import RosterDialog from '../RosterDialog'
 
 const useStyles = makeStyles({
     root: {
@@ -42,13 +43,14 @@ function Booster(props) {
                 style={{ justifyContent: 'space-evenly' }}
             >
                 <ConfirmDialog/>
-                <Button
+                <RosterDialog/>
+                {/* <Button
                     size="medium"
                     variant="contained"
                     color="primary"
                 >
                     See Roster
-                </Button>
+                </Button> */}
             </CardActions>
         </Card>
     );
