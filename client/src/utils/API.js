@@ -25,5 +25,8 @@ export default {
   },
   findAll: function () {
     return axios.get("/api/playerstats/all")
+  },
+  findAllbyCode: function (code) {
+    return axios.get("/api/playerbio/" + code)
   }
 };
