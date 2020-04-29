@@ -104,6 +104,6 @@ const playerSchema = new Schema({
   }
 })
 
-const PlayerStats = mongoose.model('PlayerStats', playerSchema)
+const Player = mongoose.model('Player', playerSchema)
 
-module.exports = PlayerStats
+module.exports = Player
