@@ -110,7 +110,23 @@ export default function SimpleSelect() {
 
                 <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
                 <Avatar alt="Remy Sharp" src="https://avatars1.githubusercontent.com/u/56489980?s=460&u=474c8bfae2757c5101e04e4a5e41e0b078c3d226&v=4" className={classes.large} />
-                <Button variant="contained" > Choose File </Button>
+               
+            
+ 
+{/* button */}
+                <input
+                    accept="image/*"
+                    className={classes.input}
+                    style={{ display: 'none' }}
+                    id="raised-button-file"
+                    multiple
+                    type="file"
+                />
+                <label htmlFor="raised-button-file">
+                    <Button variant="contained" component="span" className={classes.button}>
+                        Upload
+                    </Button>
+                </label>
 
             </div>
 
