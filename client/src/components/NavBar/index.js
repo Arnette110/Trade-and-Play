@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core'
+import { AppBar, Toolbar, Typography, IconButton, Link } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import Menu from '@material-ui/core/Menu'
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar() {
   const classes = useStyles()
-const [auth /*, setAuth*/] = React.useState(true)
+  const [auth /*, setAuth*/] = React.useState(true)
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
 
@@ -30,6 +30,7 @@ const [auth /*, setAuth*/] = React.useState(true)
   }
 
   const handleClose = () => {
+
     setAnchorEl(null)
   }
 
@@ -54,8 +55,26 @@ const [auth /*, setAuth*/] = React.useState(true)
                 keepMounted
                 open={open}
                 onClose={handleClose}>
-                <MenuItem onClick={handleClose}>testing menu</MenuItem>
-                <MenuItem onClick={handleClose}>more tests of menu</MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <Link href='/home'>
+                    Home
+                  </Link>
+                </MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <Link href='/profile'>
+                    Profile
+                  </Link>
+                </MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <Link href='/collection'>
+                    Collection
+                  </Link>
+                </MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <Link href='/packs'>
+                    Draft
+                  </Link>
+                </MenuItem>
               </Menu>
             </div>
           

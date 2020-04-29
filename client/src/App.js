@@ -36,7 +36,7 @@ function App() {
           <Route exact path={["/packs"]}>
             <Packs />
           </Route>
-          <Route exact path={["/packs"]}>
+          <Route exact path={["/cardflip"]}>
             <CardFlip />
           </Route>
           <Route exact path={["/nomatch"]}>
