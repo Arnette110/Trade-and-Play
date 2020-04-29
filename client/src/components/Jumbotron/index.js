@@ -4,11 +4,13 @@ function Jumbotron({ children }) {
   return (
     <div
       style={{
-        height: '100vh',
-        width: '100vw',
+        height: '100%',
+        maxHeight: '100vh',
+        width: '100%',
+        maxWidth: '100vw',
         clear: 'both',
-        paddingTop: 120,
-        paddingBottom: 400,
+        paddingTop: 30,
+        paddingBottom: 100,
         textAlign: 'center',
         backgroundColor: '#131313',
         color: 'white',
