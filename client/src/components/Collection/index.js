@@ -1,16 +1,13 @@
-<<<<<<< HEAD
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Container } from '@material-ui/core';
+//import { Container } from '@material-ui/core';
 import CardFlip from '../../pages/CardFlip';
 // import ItemsCarousel from 'react-items-carousel';
 import API from '../../utils/API';
-=======
-import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+//import React from 'react'
+//import { makeStyles } from '@material-ui/core/styles'
 import { Container, Grid } from '@material-ui/core'
-import CardFlip from '../../pages/CardFlip'
->>>>>>> master
+//import CardFlip from '../../pages/CardFlip'
 
 const useStyles = makeStyles((theme) => ({
   root: {

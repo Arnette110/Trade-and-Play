@@ -11,6 +11,7 @@ import NoMatch from "./pages/NoMatch"
 import Home from "./pages/Home"
 // import CardFlip from './pages/CardFlip'
 import PlayerCreate from './pages/PlayerCreate'
+import Profile from './pages/Profile'
 // Css
 import './App.css'
 // Auth0 callback
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route exact path={["/createplayer"]}>
             <PlayerCreate />
+          </Route>
+          <Route exact path={["/profile"]}>
+            <Profile />
           </Route>
           <Route exact path={["/collection"]}>
             <Collection />
