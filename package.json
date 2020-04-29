@@ -37,10 +37,15 @@
     "nodemon": "^2.0.2"
   },
   "dependencies": {
+    "@date-io/date-fns": "^2.6.1",
+    "@date-io/moment": "^2.6.0",
     "@material-ui/core": "^4.9.11",
+    "@material-ui/pickers": "^3.2.10",
     "axios": "^0.19.2",
+    "date-fns": "^2.0.0-beta.5",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
+    "moment": "^2.24.0",
     "mongoose": "^5.9.7",
     "nba-api-client": "^1.0.9",
     "react-card-flip": "^1.0.10"
