@@ -62,104 +62,85 @@ import FilledInput from '@material-ui/core/FilledInput';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Input from '@material-ui/core/Input';
+import Select from '@material-ui/core/Select';
+
 import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
+
+import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
-            margin: theme.spacing(10),
+            margin: theme.spacing(1),
+            width: '25ch',
         },
     },
 }));
 
-export default function ComposedTextField() {
-    const [name, setName] = React.useState('Composed TextField');
+
+
+//   for the select
+
+
+
+
+
+
+export default function SimpleSelect() {
     const classes = useStyles();
+    const [Gender, setGender] = React.useState('');
 
     const handleChange = (event) => {
-        setName(event.target.value);
+        setGender(event.target.value);
     };
 
     return (
         <div>
-            <form className={classes.root} noValidate autoComplete="off">
 
-            <FormControl variant="outlined">
-                    <InputLabel htmlFor="component-outlined">First Name</InputLabel>
-                    <OutlinedInput id="component-outlined" value={name} onChange={handleChange} label="Name" />
-                </FormControl>
-
-                <FormControl variant="outlined">
-                    <InputLabel htmlFor="component-outlined">Last Name</InputLabel>
-                    <OutlinedInput id="component-outlined" value={name} onChange={handleChange} label="Name" />
-                </FormControl>
-
-                <FormControl variant="outlined">
-                    <InputLabel htmlFor="component-outlined">Phone Number</InputLabel>
-                    <OutlinedInput id="component-outlined" value={name} onChange={handleChange} label="Name" />
-                </FormControl>
-
-                <FormControl variant="outlined">
-                    <InputLabel htmlFor="component-outlined">Email</InputLabel>
-                    <OutlinedInput id="component-outlined" value={name} onChange={handleChange} label="Name" />
-                </FormControl>
-
-                <FormControl variant="outlined">
-                    <InputLabel htmlFor="component-outlined">Location</InputLabel>
-                    <OutlinedInput id="component-outlined" value={name} onChange={handleChange} label="Name" />
-                </FormControl>
-
-      
+            {/* picture */}
+            <div>
 
 
 
-                <FormControl>
-                    <InputLabel htmlFor="component-simple">Name</InputLabel>
-                    <Input id="component-simple" value={name} onChange={handleChange} />
-                </FormControl>
-
-                <FormControl>
-                    <InputLabel htmlFor="component-helper">Name</InputLabel>
-                    <Input
-                        id="component-helper"
-                        value={name}
-                        onChange={handleChange}
-                        aria-describedby="component-helper-text"
-                    />
-                    <FormHelperText id="component-helper-text">Some important helper text</FormHelperText>
-                </FormControl>
+            </div>
 
 
-                <FormControl disabled>
-                    <InputLabel htmlFor="component-disabled">Name</InputLabel>
-                    <Input id="component-disabled" value={name} onChange={handleChange} />
-                    <FormHelperText>Disabled</FormHelperText>
-                </FormControl>
+            {/* form */}
+            <div>
 
 
-                <FormControl error>
-                    <InputLabel htmlFor="component-error">Name</InputLabel>
-                    <Input
-                        id="component-error"
-                        value={name}
-                        onChange={handleChange}
-                        aria-describedby="component-error-text"
-                    />
-                    <FormHelperText id="component-error-text">Error</FormHelperText>
-                </FormControl>
+                <form className={classes.root} noValidate autoComplete="off">
+
+                    <TextField id="outlined-basic" label="prueba" variant="outlined" />
+
+                    <TextField id="outlined-textarea" label="Multiline Placeholder" placeholder="Placeholder" multiline variant="outlined" />
+
+                    <FormControl variant="outlined" className={classes.formControl}>
+                        <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-outlined-label"
+                            id="demo-simple-select-outlined"
+                            value={Gender}
+                            onChange={handleChange}
+                            label="Gender"
+                        >
+                            <MenuItem value="">
+                                <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={"Male"}>Ten</MenuItem>
+                            <MenuItem value={"Female"}>Twenty</MenuItem>
+
+                        </Select>
+                    </FormControl>
 
 
-                <FormControl variant="outlined">
-                    <InputLabel htmlFor="component-outlined">Namex</InputLabel>
-                    <OutlinedInput id="component-outlined" value={name} onChange={handleChange} label="Name" />
-                </FormControl>
 
-                <FormControl variant="filled">
-                    <InputLabel htmlFor="component-filled">Name</InputLabel>
-                    <FilledInput id="component-filled" value={name} onChange={handleChange} />
-                </FormControl>
-            </form>
+
+
+                </form>
+            </div>
         </div>
     );
 }
