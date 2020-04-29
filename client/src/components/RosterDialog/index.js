@@ -1,59 +1,88 @@
 import React from 'react';
+import { List, Divider } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import MuiDialogTitle from '@material-ui/core/DialogTitle';
+import MuiDialogContent from '@material-ui/core/DialogContent';
+import MuiDialogActions from '@material-ui/core/DialogActions';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+import Typography from '@material-ui/core/Typography';
+import RosterLi from '../RosterListItem'
 
-export default function ScrollDialog() {
+const styles = (theme) => ({
+  root: {
+    margin: 0,
+    padding: theme.spacing(2),
+  },
+  closeButton: {
+    position: 'absolute',
+    right: theme.spacing(1),
+    top: theme.spacing(1),
+    color: theme.palette.grey[500],
+  },
+});
+
+const DialogTitle = withStyles(styles)((props) => {
+  const { children, classes, onClose, ...other } = props;
+  return (
+    <MuiDialogTitle disableTypography className={classes.root} {...other}>
+      <Typography variant="h6">{children}</Typography>
+      {onClose ? (
+        <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
+          <CloseIcon />
+        </IconButton>
+      ) : null}
+    </MuiDialogTitle>
+  );
+});
+
+const DialogContent = withStyles((theme) => ({
+  root: {
+    padding: theme.spacing(2),
+  },
+}))(MuiDialogContent);
+
+const DialogActions = withStyles((theme) => ({
+  root: {
+    margin: 0,
+    padding: theme.spacing(1),
+  },
+}))(MuiDialogActions);
+
+export default function CustomizedDialogs() {
   const [open, setOpen] = React.useState(false);
-  const [scroll, setScroll] = React.useState('paper');
 
-  const handleClickOpen = (scrollType) => () => {
+  const handleClickOpen = () => {
     setOpen(true);
-    setScroll(scrollType);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
 
-  const descriptionElementRef = React.useRef(null);
-  React.useEffect(() => {
-    if (open) {
-      const { current: descriptionElement } = descriptionElementRef;
-      if (descriptionElement !== null) {
-        descriptionElement.focus();
-      }
-    }
-  }, [open]);
-
   return (
     <div>
-      <Button variant='contained' color='primary' onClick={handleClickOpen('paper')}>Roster</Button>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        scroll={scroll}
-        aria-labelledby="scroll-dialog-title"
-        aria-describedby="scroll-dialog-description"
-      >
-        <DialogTitle id="scroll-dialog-title">Roster</DialogTitle>
-        <DialogContent dividers={scroll === 'paper'}>
-          <DialogContentText
-            id="scroll-dialog-description"
-            ref={descriptionElementRef}
-            tabIndex={-1}
-          >
-            This is where the roster will be displayed.
-          </DialogContentText>
+      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+        View Roster
+      </Button>
+      <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
+        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+          Roster
+        </DialogTitle>
+        <DialogContent dividers style={{ minWidth: '300px' }}>
+          <List>
+            <RosterLi />
+          </List>
+          <Divider />
+          <List>
+            <RosterLi />
+          </List>
+          <Divider />
+          <List>
+            <RosterLi />
+          </List>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} variant='contained' color="primary">
-            Close
-          </Button>
-        </DialogActions>
       </Dialog>
     </div>
   );

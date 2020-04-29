@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Container } from '@material-ui/core';
 import CardFlip from '../../pages/CardFlip';
 // import ItemsCarousel from 'react-items-carousel';
 import API from '../../utils/API';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardActionArea, CardActions, CardContent, Button, Typography } from '@material-ui/core';
+import { Card, CardActionArea, CardActions, CardContent, Typography } from '@material-ui/core';
 import ConfirmDialog from '../ConfirmDialog'
 import RosterDialog from '../RosterDialog'
 
@@ -44,13 +44,6 @@ function Booster(props) {
             >
                 <ConfirmDialog/>
                 <RosterDialog/>
-                {/* <Button
-                    size="medium"
-                    variant="contained"
-                    color="primary"
-                >
-                    See Roster
-                </Button> */}
             </CardActions>
         </Card>
     );
