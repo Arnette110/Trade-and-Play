@@ -1,7 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Grid, Typography, Container } from '@material-ui/core'
-import auth0Client from '../Auth'
 import logo from '../logo.svg'
 import Jumbotron from '../components/Jumbotron'
 import Login from '../components/login'
@@ -10,7 +9,7 @@ import StarBorderIcon from '@material-ui/icons/StarBorder'
 const useStyles = makeStyles({
   textContainer: {
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
   logo: {
     marginTop: 0
@@ -50,7 +49,7 @@ export default function Home() {
               <Container className={classes.textContainer}>
                 <StarBorderIcon fontSize='large' />{' '}
                 <Typography className={classes.typography}>
-                  Get booster packs to build your team deck
+                  Trade with other managers to build your dream team
                 </Typography>
               </Container>
             </Container>

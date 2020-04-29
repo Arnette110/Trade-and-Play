@@ -4,10 +4,8 @@ function Jumbotron({ children }) {
   return (
     <div
       style={{
-        height: '100%',
-        maxHeight: '100vh',
-        width: '100%',
-        maxWidth: '100vw',
+        height: '100vh',
+        width: '100vw',
         clear: 'both',
         paddingTop: 30,
         paddingBottom: 100,
