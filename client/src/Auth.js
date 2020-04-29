@@ -4,9 +4,9 @@ class Auth {
   constructor() {
     this.auth0 = new auth0.WebAuth({
       // the following three lines MUST be updated
-      domain: "dev-bvo7v3sa.auth0.com",
-      audience: "https://dev-bvo7v3sa.auth0.com/userinfo",
-      clientID: "CqKLwsYwSRLvGxcoXS7003iv0qXqjKPs",
+      domain: "dev-o4r1vfwl.auth0.com",
+      audience: "https://dev-o4r1vfwl.auth0.com/userinfo",
+      clientID: "1VMnRjQGZGHqM6M7MCu82rOzLnwmv10Q",
       redirectUri: "http://localhost:3000/callback",
       responseType: "id_token",
       scope: "openid profile"
@@ -58,7 +58,7 @@ class Auth {
     this.expiresAt = null;
     this.auth0.logout({
       returnTo: "http://localhost:3000",
-      clientID: "CqKLwsYwSRLvGxcoXS7003iv0qXqjKPs"
+      clientID: "1VMnRjQGZGHqM6M7MCu82rOzLnwmv10Q"
     });
   }
 }
@@ -66,3 +66,5 @@ class Auth {
 const auth0Client = new Auth();
 
 export default auth0Client;
+
+
