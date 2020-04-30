@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function RosterLi(props) {
     const classes = useStyles();
+    //build the rest of this key.
     const key = [{
         fullName: 'Boston Bruins',
         abrName: 'BOS'
@@ -20,7 +21,15 @@ export default function RosterLi(props) {
         abrName: 'CAR'
     }
     ]
-    console.log('data: ', props.data)
+
+    const getAbrName = (key) => {key.map(el=> {
+        if (el.fullName === props.data.currentTeam.name) {
+            props.data.currentTeam.abrName = el.abrName
+        }
+    })}
+    getAbrName(key)
+    
+    // console.log('data: ', props.data)
     return (
         <div className={classes.root}>
             <Grid container spacing={2}>
@@ -41,13 +50,6 @@ export default function RosterLi(props) {
                         #{props.data.primaryNumber}
                     </Typography>
                     <Typography variant='h6'>
-                        {key.map(el=> {
-                            console.log('team: ', props.data.currentTeam.name)
-                            console.log('key: ', el.fullName)
-                            if (el.fullName === props.data.currentTeam.name) {
-                                props.data.currentTeam.abrName = el.NameName
-                            }
-                        })}
                         {props.data.currentTeam.abrName}
                     </Typography>
                 </Grid>
