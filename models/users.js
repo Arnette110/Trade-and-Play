@@ -1,26 +1,16 @@
 var mongoose = require('mongoose')
 var bcrypt = require('bcrypt-nodejs')
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 
-var userSchema = mongoose.Schema({
+var userSchema = new Schema({
   local: {
     email: String,
     username: String,
     password: String,
     resetPasswordToken: String,
-    resetPasswordExpires: Date,
-    // card: [
-    //   {
-    //     playerId: Number,
-    //     season: String,
-    //     bioIdL: String,
-    //     statsId: String
-    //   }
-    // ]
-    card: [
-      [{ type: Schema.Types.ObjectId, ref: 'PlayerStats',}]
-    ]
-  }
+    resetPasswordExpires: Date
+  },
+  card: []
 })
 
 userSchema.methods.generateHash = function (password) {

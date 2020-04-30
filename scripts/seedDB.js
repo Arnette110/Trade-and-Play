@@ -276,3 +276,25 @@ db.PlayerStats.remove({})
     console.error(err)
     process.exit(1)
   })
+
+const userSeed = [{
+  local: {
+    email: 'Email',
+    username: 'Username',
+    password: 'Password',
+    resetPasswordToken: 'resetPasswordToken',
+    // resetPasswordExpires: Date
+  },
+  card: []
+}]
+
+db.User.remove({})
+  .then(() => db.User.collection.insertMany(userSeed))
+  .then(data => {
+    console.log(data.result.n + ' records inserted!')
+    process.exit(0)
+  })
+  .catch(err => {
+    console.error(err)
+    process.exit(1)
+  })
