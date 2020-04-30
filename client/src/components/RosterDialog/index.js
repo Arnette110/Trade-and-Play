@@ -79,7 +79,7 @@ function CustomizedDialogs({ boosterType }) {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={() => handleClickOpen(boosterType)}>
+      <Button variant="contained" color="primary" onClick={() => handleClickOpen(boosterType)}>
         View Roster
       </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
