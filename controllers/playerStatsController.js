@@ -22,16 +22,16 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   },
-  populateBio: function (req, res) {
-    db.PlayerStats
-      .findOneAndUpdate({ _id: '5eab21f824c9e7ab82a93de5' }, { $push: { bio: '5eab21f824c9e7ab82a93de9' } })
-      .populate('bio')
-      .then(dbStats => {
-        console.log('PSC: ', dbStats)
+  // populateBio: function (req, res) {
+  //   db.PlayerStats
+  //     .findOneAndUpdate({ _id: '5eab21f824c9e7ab82a93de5' }, { $push: { bio: '5eab21f824c9e7ab82a93de9' } })
+  //     .populate('bio')
+  //     .then(dbStats => {
+  //       console.log('PSC: ', dbStats)
 
-        res.json(dbStats)
-      })
-  },
+  //       res.json(dbStats)
+  //     })
+  // },
   getUserCollection: function (req, res) {
     console.log('you are in the backend getUserCollection fx')
     db.User

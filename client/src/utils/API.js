@@ -30,9 +30,6 @@ export default {
   findAllbyCode: function (code) {
     return axios.get("/api/playerbio/" + code)
   },
-   testMethod: function () {
-    return axios.get("/api/playerstats/test")
-   },
    getUserCard: function () {
      return axios.get("/api/playerstats/collection")
    }

@@ -39,27 +39,6 @@ export default function NestedGrid() {
   getUserCollection()
     .then(consoleLog)
 
-  // async function findAll() {
-  //   let apiStats = await API.findAll()
-  //   // await console.log(apiStats.data)
-  // }
-
-  // findAll();
-
-  // function parentFunc(){
-  //   function testPopulate () {
-  //     return API.testMethod()
-  //   }
-  
-  //   function logIt(res) {
-  //     console.log(res.data)
-  //   }
-
-  //   return testPopulate()
-  //           .then(logIt)
-  // }
-  // parentFunc()
-
   return (
     <div className={classes.root}>
    
