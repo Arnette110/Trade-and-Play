@@ -28,7 +28,7 @@ export default {
     return axios.get("/api/playerstats/all")
   },
   findAllbyCode: function (code) {
-    return axios.get("/api/playerbio/" + code)
+    return axios.get("/api/playerstats/" + code)
   },
   getUserCard: function () {
     return axios.get("/api/playerstats/collection")
