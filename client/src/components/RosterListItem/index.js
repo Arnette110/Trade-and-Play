@@ -29,16 +29,16 @@ export default function RosterLi(props) {
                     }}
                 >
                     <Typography variant='h6'>
-                        Num
+                        #{props.data.primaryNumber}
                     </Typography>
                     <Typography variant='h6'>
-                        TEAM
+                        {props.data.currentTeam.name}
                     </Typography>
                 </Grid>
                 <Grid item xs={7}>
                     <Grid item xs>
                         <Typography gutterBottom variant="h6">
-                            FullName
+                            {props.data.fullName}
                         </Typography>
                         <Typography gutterBottom variant="subtitle1">
                             Season

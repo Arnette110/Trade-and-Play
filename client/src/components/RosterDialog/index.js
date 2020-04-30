@@ -65,7 +65,7 @@ function CustomizedDialogs({ boosterType }) {
     }
     
     const setRosterToState = (res) => {
-      console.log('r.s: ', res.data)
+      // console.log('r.s: ', res.data)
       setRosterList({...rosterList, list: res.data})
     }
     
@@ -84,10 +84,13 @@ function CustomizedDialogs({ boosterType }) {
         </DialogTitle>
         <DialogContent dividers style={{ minWidth: '300px' }}>
         {/* Map array of players to generate RosterLIs */}
-        {/* {rosterList.list.map()} */}
-          <List>
-            <RosterLi data={rosterList.list}/>
-          </List>
+        {rosterList.list.map(el=>{
+          return (
+            <List key={el._id}>
+              <RosterLi data={el}/>
+            </List>
+          )
+        })}
           <Divider />
         </DialogContent>
       </Dialog>
