@@ -22,7 +22,6 @@ function App() {
   return (
     <Router>
       <div>
-        <ButtonAppBar />
         <Switch>
           <Route exact path={["/", "/home"]}>
             <Home />
