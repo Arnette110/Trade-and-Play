@@ -38,7 +38,38 @@ const playerSeed = [
       shortHandedTimeOnIcePerGame: '02:35',
       powerPlayTimeOnIcePerGame: '02:58'
     },
-    bio: []
+    bio: {
+      id: 8474600,
+      fullName: 'Roman Josi',
+      link: '/api/v1/people/8474600',
+      firstName: 'Roman',
+      lastName: 'Josi',
+      primaryNumber: '59',
+      birthDate: '1990-06-01',
+      currentAge: 29,
+      birthCity: 'Bern',
+      birthCountry: 'CHE',
+      nationality: 'CHE',
+      height: "6' 1\"",
+      weight: 201,
+      active: true,
+      alternateCaptain: false,
+      captain: true,
+      rookie: false,
+      shootsCatches: 'L',
+      rosterStatus: 'Y',
+      currentTeam: {
+        id: 18,
+        name: 'Nashville Predators',
+        link: '/api/v1/teams/18'
+      },
+      primaryPosition: {
+        code: 'D',
+        name: 'Defenseman',
+        type: 'Defenseman',
+        abbreviation: 'D'
+      }
+    }
   },
   {
     id: 8473419,
@@ -72,7 +103,39 @@ const playerSeed = [
       shortHandedTimeOnIcePerGame: '01:34',
       powerPlayTimeOnIcePerGame: '03:09'
     },
-    bio: []
+    bio: {
+      id: 8473419,
+      fullName: 'Brad Marchand',
+      link: '/api/v1/people/8473419',
+      firstName: 'Brad',
+      lastName: 'Marchand',
+      primaryNumber: '63',
+      birthDate: '1988-05-11',
+      currentAge: 31,
+      birthCity: 'Halifax',
+      birthStateProvince: 'NS',
+      birthCountry: 'CAN',
+      nationality: 'CAN',
+      height: "5' 9\"",
+      weight: 181,
+      active: true,
+      alternateCaptain: false,
+      captain: false,
+      rookie: false,
+      shootsCatches: 'L',
+      rosterStatus: 'Y',
+      currentTeam: {
+        id: 6,
+        name: 'Boston Bruins',
+        link: '/api/v1/teams/6'
+      },
+      primaryPosition: {
+        code: 'L',
+        name: 'Left Wing',
+        type: 'Forward',
+        abbreviation: 'LW'
+      }
+    }
   },
   {
     id: 8478427,
@@ -106,7 +169,38 @@ const playerSeed = [
       shortHandedTimeOnIcePerGame: '01:06',
       powerPlayTimeOnIcePerGame: '03:00'
     },
-    bio: []
+    bio: {
+      id: 8478427,
+      fullName: 'Sebastian Aho',
+      link: '/api/v1/people/8478427',
+      firstName: 'Sebastian',
+      lastName: 'Aho',
+      primaryNumber: '20',
+      birthDate: '1997-07-26',
+      currentAge: 22,
+      birthCity: 'Rauma',
+      birthCountry: 'FIN',
+      nationality: 'FIN',
+      height: "6' 0\"",
+      weight: 176,
+      active: true,
+      alternateCaptain: false,
+      captain: false,
+      rookie: false,
+      shootsCatches: 'L',
+      rosterStatus: 'Y',
+      currentTeam: {
+        id: 12,
+        name: 'Carolina Hurricanes',
+        link: '/api/v1/teams/12'
+      },
+      primaryPosition: {
+        code: 'C',
+        name: 'Center',
+        type: 'Forward',
+        abbreviation: 'C'
+      }
+    }
   },
   {
     id: 8476945,
@@ -136,156 +230,44 @@ const playerSeed = [
       shortHandedSavePercentage: 91.93548387096774,
       evenStrengthSavePercentage: 92.0
     },
-    bio: []
+    bio: {
+      id: 8476945,
+      fullName: 'Connor Hellebuyck',
+      link: '/api/v1/people/8476945',
+      firstName: 'Connor',
+      lastName: 'Hellebuyck',
+      primaryNumber: '37',
+      birthDate: '1993-05-19',
+      currentAge: 26,
+      birthCity: 'Commerce',
+      birthStateProvince: 'MI',
+      birthCountry: 'USA',
+      nationality: 'USA',
+      height: "6' 4\"",
+      weight: 207,
+      active: true,
+      alternateCaptain: false,
+      captain: false,
+      rookie: false,
+      shootsCatches: 'L',
+      rosterStatus: 'Y',
+      currentTeam: {
+        id: 52,
+        name: 'Winnipeg Jets',
+        link: '/api/v1/teams/52'
+      },
+      primaryPosition: {
+        code: 'G',
+        name: 'Goalie',
+        type: 'Goalie',
+        abbreviation: 'G'
+      }
+    }
   }
 ]
 
 db.PlayerStats.remove({})
   .then(() => db.PlayerStats.collection.insertMany(playerSeed))
-  .then(data => {
-    console.log(data.result.n + ' records inserted!')
-    process.exit(0)
-  })
-  .catch(err => {
-    console.error(err)
-    process.exit(1)
-  })
-
-const playerBioSeed = [
-  {
-    id: 8474600,
-    fullName: 'Roman Josi',
-    link: '/api/v1/people/8474600',
-    firstName: 'Roman',
-    lastName: 'Josi',
-    primaryNumber: '59',
-    birthDate: '1990-06-01',
-    currentAge: 29,
-    birthCity: 'Bern',
-    birthCountry: 'CHE',
-    nationality: 'CHE',
-    height: "6' 1\"",
-    weight: 201,
-    active: true,
-    alternateCaptain: false,
-    captain: true,
-    rookie: false,
-    shootsCatches: 'L',
-    rosterStatus: 'Y',
-    currentTeam: {
-      id: 18,
-      name: 'Nashville Predators',
-      link: '/api/v1/teams/18'
-    },
-    primaryPosition: {
-      code: 'D',
-      name: 'Defenseman',
-      type: 'Defenseman',
-      abbreviation: 'D'
-    }
-  },
-  {
-    id: 8473419,
-    fullName: 'Brad Marchand',
-    link: '/api/v1/people/8473419',
-    firstName: 'Brad',
-    lastName: 'Marchand',
-    primaryNumber: '63',
-    birthDate: '1988-05-11',
-    currentAge: 31,
-    birthCity: 'Halifax',
-    birthStateProvince: 'NS',
-    birthCountry: 'CAN',
-    nationality: 'CAN',
-    height: "5' 9\"",
-    weight: 181,
-    active: true,
-    alternateCaptain: false,
-    captain: false,
-    rookie: false,
-    shootsCatches: 'L',
-    rosterStatus: 'Y',
-    currentTeam: {
-      id: 6,
-      name: 'Boston Bruins',
-      link: '/api/v1/teams/6'
-    },
-    primaryPosition: {
-      code: 'L',
-      name: 'Left Wing',
-      type: 'Forward',
-      abbreviation: 'LW'
-    }
-  },
-  {
-    id: 8478427,
-    fullName: 'Sebastian Aho',
-    link: '/api/v1/people/8478427',
-    firstName: 'Sebastian',
-    lastName: 'Aho',
-    primaryNumber: '20',
-    birthDate: '1997-07-26',
-    currentAge: 22,
-    birthCity: 'Rauma',
-    birthCountry: 'FIN',
-    nationality: 'FIN',
-    height: "6' 0\"",
-    weight: 176,
-    active: true,
-    alternateCaptain: false,
-    captain: false,
-    rookie: false,
-    shootsCatches: 'L',
-    rosterStatus: 'Y',
-    currentTeam: {
-      id: 12,
-      name: 'Carolina Hurricanes',
-      link: '/api/v1/teams/12'
-    },
-    primaryPosition: {
-      code: 'C',
-      name: 'Center',
-      type: 'Forward',
-      abbreviation: 'C'
-    }
-  },
-  {
-    id: 8476945,
-    fullName: 'Connor Hellebuyck',
-    link: '/api/v1/people/8476945',
-    firstName: 'Connor',
-    lastName: 'Hellebuyck',
-    primaryNumber: '37',
-    birthDate: '1993-05-19',
-    currentAge: 26,
-    birthCity: 'Commerce',
-    birthStateProvince: 'MI',
-    birthCountry: 'USA',
-    nationality: 'USA',
-    height: "6' 4\"",
-    weight: 207,
-    active: true,
-    alternateCaptain: false,
-    captain: false,
-    rookie: false,
-    shootsCatches: 'L',
-    rosterStatus: 'Y',
-    currentTeam: {
-      id: 52,
-      name: 'Winnipeg Jets',
-      link: '/api/v1/teams/52'
-    },
-    primaryPosition: {
-      code: 'G',
-      name: 'Goalie',
-      type: 'Goalie',
-      abbreviation: 'G'
-    }
-  }
-]
-
-db.PlayerBios.remove({})
-  .then(() => db.PlayerBios.collection.insertMany(playerBioSeed))
   .then(data => {
     console.log(data.result.n + ' records inserted!')
     process.exit(0)
