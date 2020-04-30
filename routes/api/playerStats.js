@@ -9,8 +9,10 @@ router.route('/')
 router.route('/all')
   .get(playerStatsController.findAll)
 
-router.route('/test')
-  .get(playerStatsController.populateBio)
+router.route('/collection')
+  .get(playerStatsController.getUserCollection)
+// router.route('/test')
+//   .get(playerStatsController.populateBio)
 // // Matches with "/api/books"
 // router.route("/")
 //   .get(booksController.findAll)

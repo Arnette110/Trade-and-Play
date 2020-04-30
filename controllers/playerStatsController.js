@@ -31,5 +31,11 @@ module.exports = {
 
         res.json(dbStats)
       })
+  },
+  getUserCollection: function (req, res) {
+    console.log('you are in the backend getUserCollection fx')
+    db.User
+      .find({})
+      .then(userModel => console.log(userModel))
   }
 }

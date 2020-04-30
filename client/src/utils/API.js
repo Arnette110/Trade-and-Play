@@ -32,5 +32,8 @@ export default {
   },
    testMethod: function () {
     return axios.get("/api/playerstats/test")
+   },
+   getUserCard: function () {
+     return axios.get("/api/playerstats/collection")
    }
 };
