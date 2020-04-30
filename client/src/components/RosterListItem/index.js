@@ -9,9 +9,9 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function RosterLi() {
+export default function RosterLi(props) {
     const classes = useStyles();
-
+    console.log('data: ', props.data)
     return (
         <div className={classes.root}>
             <Grid container spacing={2}>

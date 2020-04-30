@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { List, Divider } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -45,8 +45,11 @@ const DialogContent = withStyles((theme) => ({
   },
 }))(MuiDialogContent);
 
-export default function CustomizedDialogs({ boosterType }) {
-  const [open, setOpen] = React.useState(false);
+function CustomizedDialogs({ boosterType }) {
+  const [open, setOpen] = useState(false);
+  const [rosterList, setRosterList] = useState({
+    list: []
+  });
 
   const handleClickOpen = (positionType) => {
     setOpen(true);
@@ -61,14 +64,14 @@ export default function CustomizedDialogs({ boosterType }) {
       return API.findAllbyCode(positionType)
     }
     
-    const createRosterList = (res) => {
-      console.log(res.data)
+    const setRosterToState = (res) => {
+      console.log('r.s: ', res.data)
+      setRosterList({...rosterList, list: res.data})
     }
     
-    getRoster(positionType)
-      .then(createRosterList)
+    return getRoster(positionType)
+      .then(setRosterToState)
   }
-
 
   return (
     <div>
@@ -81,8 +84,9 @@ export default function CustomizedDialogs({ boosterType }) {
         </DialogTitle>
         <DialogContent dividers style={{ minWidth: '300px' }}>
         {/* Map array of players to generate RosterLIs */}
+        {/* {rosterList.list.map()} */}
           <List>
-            <RosterLi />
+            <RosterLi data={rosterList.list}/>
           </List>
           <Divider />
         </DialogContent>
@@ -90,3 +94,5 @@ export default function CustomizedDialogs({ boosterType }) {
     </div>
   );
 }
+
+export default CustomizedDialogs
