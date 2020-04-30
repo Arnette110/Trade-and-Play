@@ -63,6 +63,10 @@ function CustomizedDialogs({ boosterType }) {
     const getRoster = (positionType) => {
       return API.findAllbyCode(positionType)
     }
+    //get team abbreviation
+    
+    //get stats
+
     
     const setRosterToState = (res) => {
       // console.log('r.s: ', res.data)
