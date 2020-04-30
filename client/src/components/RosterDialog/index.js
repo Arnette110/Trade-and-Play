@@ -47,8 +47,8 @@ const DialogContent = withStyles((theme) => ({
 
 function CustomizedDialogs({ boosterType }) {
   const [open, setOpen] = useState(false);
-  const [rosterList, setRosterList] = useState({
-    list: []
+  const [roster, setRoster] = useState({
+    bios: []
   });
 
   const handleClickOpen = (positionType) => {
@@ -66,7 +66,7 @@ function CustomizedDialogs({ boosterType }) {
     
     const setRosterToState = (res) => {
       // console.log('r.s: ', res.data)
-      setRosterList({...rosterList, list: res.data})
+      setRoster({...roster, bios: res.data})
     }
     
     return getRoster(positionType)
@@ -84,7 +84,7 @@ function CustomizedDialogs({ boosterType }) {
         </DialogTitle>
         <DialogContent dividers style={{ minWidth: '300px' }}>
         {/* Map array of players to generate RosterLIs */}
-        {rosterList.list.map(el=>{
+        {roster.bios.map(el=>{
           return (
             <List key={el._id}>
               <RosterLi data={el}/>
