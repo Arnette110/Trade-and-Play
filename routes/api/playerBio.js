@@ -6,6 +6,9 @@ router.route('/')
   .post(playerBioController.create)
   .put(playerBioController.findById)
 
+router.route('/:code')
+  .get(playerBioController.findByCode)
+
 // // Matches with "/api/books"
 // router.route("/")
 //   .get(booksController.findAll)
