@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button } from '@material-ui/core'
-import auth0Client from '../../Auth'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles({
@@ -23,16 +22,12 @@ const useStyles = makeStyles({
 })
 
 export default function Login() {
-  const handleGoogle = () => {
-    if (!auth0Client.isAuthenticated()) {
-      auth0Client.signIn()
-    }
-  }
+
   const classes = useStyles()
 
   return (
     <div>
-      <Button variant='outlined' onClick={handleGoogle} className={classes.root}>
+      <Button variant='outlined' href="/login" className={classes.root}>
         Sign in or Register
       </Button>
     </div>

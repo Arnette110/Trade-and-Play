@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button } from '@material-ui/core'
-import auth0Client from '../../Auth'
 import { makeStyles } from '@material-ui/core/styles'
 
 
@@ -23,17 +22,13 @@ const useStyles = makeStyles({
 })
 
 export default function Logout() {
-  const handleLogout = () => {
-    auth0Client.signOut()
-    this.props.history.replace('/')
-  }
 
   const classes = useStyles()
 
   return (
     <div>
       <Button
-        onClick={handleLogout}
+        href="/"
         variant='outlined'
         className={classes.root}>
         sign out

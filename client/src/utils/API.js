@@ -2,13 +2,14 @@ import axios from "axios";
 
 export default {
   getBio: function(playerId) {
-    return axios.get(
-      "https://statsapi.web.nhl.com/api/v1/people/" + playerId
-    );
+    return axios.get("https://statsapi.web.nhl.com/api/v1/people/" + playerId);
   },
   getStats: function(playerId, season) {
     return axios.get(
-      "https://statsapi.web.nhl.com/api/v1/people/" + playerId + "/stats?stats=statsSingleSeason&season=" + season
+      "https://statsapi.web.nhl.com/api/v1/people/" +
+        playerId +
+        "/stats?stats=statsSingleSeason&season=" +
+        season
     );
   },
   savePlayerStats: function(playerData) {
@@ -17,10 +18,10 @@ export default {
   savePlayerBio: function(playerData) {
     return axios.post("/api/playerbio", playerData);
   },
-  findPlayerStats: function (obj) {
+  findPlayerStats: function(obj) {
     return axios.put("/api/playerstats", obj);
   },
-  findPlayerBio: function (obj) {
+  findPlayerBio: function(obj) {
     return axios.put("/api/playerbio", obj);
   },
   findAll: function () {
