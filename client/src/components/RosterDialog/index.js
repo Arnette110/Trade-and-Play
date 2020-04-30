@@ -48,24 +48,22 @@ const DialogContent = withStyles((theme) => ({
 export default function CustomizedDialogs() {
   const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
+  const handleClickOpen = (positionCode) => {
     setOpen(true);
+    getRoster(positionCode)
   };
   const handleClose = () => {
     setOpen(false);
   };
 
-  const getRoster = () => {
+  const getRoster = (positionCode) => {
     //DB call to get all players of a specified position
-    API.findAllbyCode('C')
-    //Map array of players to generate RosterLIs
-}
-
-  getRoster()
+    API.findAllbyCode(positionCode)
+  }
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button variant="outlined" color="primary" onClick={() => handleClickOpen('C')}>
         View Roster
       </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
@@ -73,17 +71,11 @@ export default function CustomizedDialogs() {
           Roster
         </DialogTitle>
         <DialogContent dividers style={{ minWidth: '300px' }}>
+        {/* Map array of players to generate RosterLIs */}
           <List>
             <RosterLi />
           </List>
           <Divider />
-          <List>
-            <RosterLi />
-          </List>
-          <Divider />
-          <List>
-            <RosterLi />
-          </List>
         </DialogContent>
       </Dialog>
     </div>
