@@ -23,7 +23,7 @@ export default function LoginPage() {
         <button type="submit">Login</button>
       </form>
       <p>
-        Dont have an account? <a href="/login">Signup</a>
+        Dont have an account? <a href="/signup">Signup</a>
       </p>
     </div>
   );
