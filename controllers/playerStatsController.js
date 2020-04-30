@@ -50,6 +50,7 @@ module.exports = {
           cardDataArr.push(cardData)
         })
     })
+    // NEED TO RESOLVE .MAP BEFORE RETURNING JSON
     setTimeout(() => { res.json(cardDataArr) }, 3000)
     // .then(() => res.json(cardDataArr))
     // .catch(err => res.status(422).json(err))
