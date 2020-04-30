@@ -54,6 +54,7 @@ module.exports = {
           console.log('finished collecting card data: ', cardData)
         })
     })
+    setTimeout(() => { res.json(cardDataArr) }, 3000)
     // .then(() => res.json(cardDataArr))
     // .catch(err => res.status(422).json(err))
     // setTimeout(() => { console.log('cardDataArr: ', cardDataArr) }, 3000)
