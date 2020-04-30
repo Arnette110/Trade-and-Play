@@ -40,18 +40,14 @@ module.exports = {
   },
   getCollectionData: function (req, res) {
     const cardDataArr = []
-    // console.log('You are in the backend getCollectionData fx')
     const collectionArray = req.body
-    console.log('collectionArray', collectionArray)
-    // loop through collectionArray
     collectionArray.map(el => {
-      // console.log('el: ', el)
+      // ID WILL NEED TO BE CHANGED TO _ID
       const id = el
       db.PlayerStats
         .find({ id: id })
         .then(cardData => {
           cardDataArr.push(cardData)
-          console.log('finished collecting card data: ', cardData)
         })
     })
     setTimeout(() => { res.json(cardDataArr) }, 3000)
