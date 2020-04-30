@@ -18,7 +18,18 @@ module.exports = {
   findAll: function (req, res) {
     db.PlayerStats
       .find({})
+      .populate('bio')
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
+  },
+  populateBio: function (req, res) {
+    db.PlayerStats
+      .findOneAndUpdate({ _id: '5eab21f824c9e7ab82a93de5' }, { $push: { bio: '5eab21f824c9e7ab82a93de9' } })
+      .populate('bio')
+      .then(dbStats => {
+        console.log('PSC: ', dbStats)
+
+        res.json(dbStats)
+      })
   }
 }

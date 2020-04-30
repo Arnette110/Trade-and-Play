@@ -37,7 +37,8 @@ const playerSeed = [
       evenTimeOnIcePerGame: '19:35',
       shortHandedTimeOnIcePerGame: '02:35',
       powerPlayTimeOnIcePerGame: '02:58'
-    }
+    },
+    bio: []
   },
   {
     id: 8473419,
@@ -70,7 +71,8 @@ const playerSeed = [
       evenTimeOnIcePerGame: '14:53',
       shortHandedTimeOnIcePerGame: '01:34',
       powerPlayTimeOnIcePerGame: '03:09'
-    }
+    },
+    bio: []
   },
   {
     id: 8478427,
@@ -103,7 +105,8 @@ const playerSeed = [
       evenTimeOnIcePerGame: '16:02',
       shortHandedTimeOnIcePerGame: '01:06',
       powerPlayTimeOnIcePerGame: '03:00'
-    }
+    },
+    bio: []
   },
   {
     id: 8476945,
@@ -132,7 +135,8 @@ const playerSeed = [
       powerPlaySavePercentage: 87.26114649681529,
       shortHandedSavePercentage: 91.93548387096774,
       evenStrengthSavePercentage: 92.0
-    }
+    },
+    bio: []
   }
 ]
 

@@ -28,13 +28,26 @@ const useStyles = makeStyles((theme) => ({
 export default function NestedGrid() {
   const classes = useStyles()
 
-  async function findAll() {
-    let apiStats = await API.findAll()
-    await console.log(apiStats.data)
-  }
+  // async function findAll() {
+  //   let apiStats = await API.findAll()
+  //   // await console.log(apiStats.data)
+  // }
 
-  findAll();
+  // findAll();
+
+  function parentFunc(){
+    function testPopulate () {
+      return API.testMethod()
+    }
   
+    function logIt(res) {
+      console.log(res.data)
+    }
+
+    return testPopulate()
+            .then(logIt)
+  }
+  parentFunc()
 
   return (
     <div className={classes.root}>
