@@ -30,7 +30,10 @@ export default {
   findAllbyCode: function (code) {
     return axios.get("/api/playerbio/" + code)
   },
-   getUserCard: function () {
-     return axios.get("/api/playerstats/collection")
-   }
+  getUserCard: function () {
+    return axios.get("/api/playerstats/collection")
+  },
+  getCardData: function (arr) {
+    return axios.post("/api/playerstats/collection", arr)
+  }
 };

@@ -285,7 +285,7 @@ const userSeed = [{
     resetPasswordToken: 'resetPasswordToken',
     // resetPasswordExpires: Date
   },
-  card: []
+  card: [8474600, 8476945]
 }]
 
 db.User.remove({})

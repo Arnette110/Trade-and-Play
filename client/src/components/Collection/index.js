@@ -32,11 +32,17 @@ export default function NestedGrid() {
     return API.getUserCard()
   }
 
+  const getCollectionData = (res) => {
+    console.log(res.data)
+    return API.getCardData(res.data)
+  }
+
   const consoleLog = (res) => {
     console.log(res.data)
   }
 
   getUserCollection()
+    .then(getCollectionData)
     .then(consoleLog)
 
   return (

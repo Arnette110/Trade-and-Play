@@ -37,5 +37,25 @@ module.exports = {
     db.User
       .find({})
       .then(userModel => res.json(userModel[0].card))
+  },
+  getCollectionData: function (req, res) {
+    const cardDataArr = []
+    // console.log('You are in the backend getCollectionData fx')
+    const collectionArray = req.body
+    console.log('collectionArray', collectionArray)
+    // loop through collectionArray
+    collectionArray.map(el => {
+      // console.log('el: ', el)
+      const id = el
+      db.PlayerStats
+        .find({ id: id })
+        .then(cardData => {
+          cardDataArr.push(cardData)
+          console.log('finished collecting card data: ', cardData)
+        })
+    })
+    // .then(() => res.json(cardDataArr))
+    // .catch(err => res.status(422).json(err))
+    // setTimeout(() => { console.log('cardDataArr: ', cardDataArr) }, 3000)
   }
 }
