@@ -1,20 +1,20 @@
 import React from 'react'
-import OutlinedCard from '../Cards'
-import CardFlip from '../../pages/CardFlip'
 
 function Jumbotron({ children }) {
   return (
     <div
       style={{
-        height: 300,
+        height: '100vh',
+        width: '100vw',
         clear: 'both',
-        paddingTop: 120,
+        paddingTop: 30,
+        paddingBottom: 100,
         textAlign: 'center',
+        backgroundColor: '#131313',
+        color: 'white',
       }}
       className='jumbotron'>
       {children}
-      <CardFlip />
-      {/* <OutlinedCard /> */}
     </div>
   )
 }

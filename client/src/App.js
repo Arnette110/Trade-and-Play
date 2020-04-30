@@ -11,6 +11,7 @@ import NoMatch from "./pages/NoMatch"
 import Home from "./pages/Home"
 import SignupPage from "./pages/SignupPage"
 import LoginPage from "./pages/LoginPage";
+import Dashboard from './pages/Dashboard'
 // import CardFlip from './pages/CardFlip'
 import PlayerCreate from './pages/PlayerCreate'
 // Css
@@ -20,15 +21,17 @@ function App() {
   return (
     <Router>
       <div>
-        <ButtonAppBar />
         <Switch>
-          <Route exact path={["/", "/home"]}>
+          <Route exact path={['/', '/home']}>
             <Home />
           </Route>
-          <Route exact path={["/createplayer"]}>
+          <Route exact path={['/dashboard']}>
+            <Dashboard />
+          </Route>
+          <Route exact path={['/createplayer']}>
             <PlayerCreate />
           </Route>
-          <Route exact path={["/collection"]}>
+          <Route exact path={['/collection']}>
             <Collection />
           </Route>
           <Route exact path={["/signup"]}>
@@ -43,7 +46,7 @@ function App() {
         </Switch>
       </div>
     </Router>
-  );
+  )
 }
 
 export default App

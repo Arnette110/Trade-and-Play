@@ -1,5 +1,13 @@
 import React from 'react'
-import { Button, Link, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core'
+import {
+  Button,
+  TextField,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from '@material-ui/core'
 
 export default function SignUp() {
   // const [open, setOpen] = React.useState(false)
@@ -24,8 +32,8 @@ export default function SignUp() {
         <DialogTitle id='form-dialog-title'>Subscribe</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To start trading and playing cards, please enter your email address here.
-            We will send updates occasionally.
+            To start trading and playing cards, please enter your email address
+            here. We will send updates occasionally.
           </DialogContentText>
           <TextField
             autoFocus

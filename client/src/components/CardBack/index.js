@@ -69,11 +69,11 @@ export default function PlayerCardBack() {
       /> */}
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          <ul>
+          
               <li>Stat:</li>
               <li>Stat:</li>
               <li>Stat:</li>
-          </ul>
+          
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

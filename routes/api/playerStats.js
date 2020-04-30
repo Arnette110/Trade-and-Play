@@ -6,6 +6,8 @@ router.route('/')
   .post(playerStatsController.create)
   .put(playerStatsController.findByIdAndSeason)
 
+router.route('/all')
+  .get(playerStatsController.findAll)
 // // Matches with "/api/books"
 // router.route("/")
 //   .get(booksController.findAll)
