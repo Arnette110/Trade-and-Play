@@ -1,16 +1,9 @@
-<<<<<<< HEAD
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Container } from '@material-ui/core';
+// import { Container } from '@material-ui/core';
 import CardFlip from '../../pages/CardFlip';
 // import ItemsCarousel from 'react-items-carousel';
 import API from '../../utils/API';
-=======
-import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import { Container, Grid } from '@material-ui/core'
-import CardFlip from '../../pages/CardFlip'
->>>>>>> master
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,19 +29,53 @@ const useStyles = makeStyles((theme) => ({
 export default function NestedGrid() {
   const classes = useStyles()
 
-  async function findAll() {
-    let apiStats = await API.findAll()
-    await console.log(apiStats.data)
+  let [apiData, setApiData] = React.useState({
+    stats: [],
+    bios: []
+  })
+
+
+  function findDbData(){
+    let response = {};
+    function findAll() {
+      return API.findAllStats()
+    }
+    
+    function findAllBios(res) {
+      response.stats = res.data;
+      console.log(response.stats);
+      return API.findAllBios()
+    }
+
+    function sendData(res){
+      response.bio = res.data;
+      console.log(response.bio);
+      setApiData({...apiData, stats: response.stats, bios: response.bio})
+    }
+
+    return findAll().then(findAllBios).then(sendData)
+
   }
 
-  findAll();
-  
+  useEffect(() => {findDbData()}, []);
+
 
   return (
     <div className={classes.root}>
-   
-      <CardFlip/>
-
+      {apiData.stats.map(el  => {
+        let matchedBio = apiData.bios.find((bio) => bio.id === el.id);
+        // for (var i = 0; i < apiData.bio.length; i++){
+          // console.log("Bio: " , matchedBio.id)
+          // console.log("Stat: ", el.id)
+          
+        //   if (apiData.bio.id === el.stat.id) {
+        //     matchedBio = apiData.bio[i];
+        //   }
+        // }
+        // console.log(matchedBio.id);
+        return <CardFlip frontsideData={matchedBio} backsideData={el} key={el.id}/>
+      })}
+  
     </div>
   )
 }

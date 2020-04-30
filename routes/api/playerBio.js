@@ -5,7 +5,8 @@ const playerBioController = require('../../controllers/playerBioController')
 router.route('/')
   .post(playerBioController.create)
   .put(playerBioController.findById)
-
+router.route('/all')
+  .get(playerBioController.findAll)
 // // Matches with "/api/books"
 // router.route("/")
 //   .get(booksController.findAll)

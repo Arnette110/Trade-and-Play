@@ -41,9 +41,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PlayerCardBack() {
+export default function PlayerCardBack({backsideData, frontsideData}) {
   const classes = useStyles();
-
+  console.log("Log in Back: ", backsideData)
+  const isGoalie = (frontsideData.primaryPosition.name === 'Goalie');
+  
   return (
     <Card className={classes.root}>
       <CardHeader
@@ -69,11 +71,11 @@ export default function PlayerCardBack() {
       /> */}
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          <ul>
+  
+              <li>{isGoalie ? 'Saves: ' :  'Assists: '} {isGoalie ? backsideData.stat.saves :  backsideData.stat.assists}</li>
               <li>Stat:</li>
               <li>Stat:</li>
-              <li>Stat:</li>
-          </ul>
+          
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

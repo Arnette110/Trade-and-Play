@@ -23,7 +23,10 @@ export default {
   findPlayerBio: function (obj) {
     return axios.put("/api/playerbio", obj);
   },
-  findAll: function () {
+  findAllStats: function () {
     return axios.get("/api/playerstats/all")
+  },
+  findAllBios: function () {
+    return axios.get("/api/playerbio/all")
   }
 };
