@@ -6,6 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import Menu from '@material-ui/core/Menu'
 import Login from '../login'
 import Logout from '../Logout'
+import Signup from "../SignUp"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -72,6 +73,7 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
             News
           </Typography>
+          <Signup/>
           <Logout />
           <Login />
         </Toolbar>

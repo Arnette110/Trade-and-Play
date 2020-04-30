@@ -1,23 +1,23 @@
 import React from 'react'
-import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core'
+import { Button, Link, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core'
 
 export default function SignUp() {
-  const [open, setOpen] = React.useState(false)
+  // const [open, setOpen] = React.useState(false)
 
-  const handleClickOpen = () => {
-    setOpen(true)
-  }
+  // const handleClickOpen = () => {
+  //   setOpen(true)
+  // }
 
-  const handleClose = () => {
-    setOpen(false)
-  }
+  // const handleClose = () => {
+  //   setOpen(false)
+  // }
 
   return (
     <div>
-      <Button variant='outlined' color='inherit' onClick={handleClickOpen}>
+      <Button href="/signup" variant='outlined' color='inherit'>
         Sign Up
       </Button>
-      <Dialog
+      {/* <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby='form-dialog-title'>
@@ -44,7 +44,7 @@ export default function SignUp() {
             Sign Up!
           </Button>
         </DialogActions>
-      </Dialog>
+      </Dialog> */}
     </div>
   )
 }
