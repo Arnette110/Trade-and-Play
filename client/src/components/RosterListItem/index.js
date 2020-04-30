@@ -29,19 +29,19 @@ export default function RosterLi() {
                     }}
                 >
                     <Typography variant='h6'>
-                        #20
+                        Num
                     </Typography>
                     <Typography variant='h6'>
-                        CAR
+                        TEAM
                     </Typography>
                 </Grid>
                 <Grid item xs={7}>
                     <Grid item xs>
                         <Typography gutterBottom variant="h6">
-                            Sebastian Aho
+                            FullName
                         </Typography>
                         <Typography gutterBottom variant="subtitle1">
-                            2018-2019
+                            Season
                         </Typography>
                     </Grid>
                 </Grid>

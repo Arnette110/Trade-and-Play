@@ -43,7 +43,9 @@ function Booster(props) {
                 style={{ justifyContent: 'space-evenly' }}
             >
                 <ConfirmDialog/>
-                <RosterDialog/>
+                <RosterDialog
+                    boosterType={props.boosterType}
+                />
             </CardActions>
         </Card>
     );

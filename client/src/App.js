@@ -2,7 +2,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // Components
-import ButtonAppBar from './components/NavBar'
+// import ButtonAppBar from './components/NavBar'
 import Collection from './components/Collection'
 // Material-ui
 

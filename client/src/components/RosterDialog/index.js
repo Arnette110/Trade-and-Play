@@ -45,25 +45,34 @@ const DialogContent = withStyles((theme) => ({
   },
 }))(MuiDialogContent);
 
-export default function CustomizedDialogs() {
+export default function CustomizedDialogs({ boosterType }) {
   const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = (positionCode) => {
+  const handleClickOpen = (positionType) => {
     setOpen(true);
-    getRoster(positionCode)
+    generateRoster(positionType)
   };
   const handleClose = () => {
     setOpen(false);
   };
 
-  const getRoster = (positionCode) => {
-    //DB call to get all players of a specified position
-    API.findAllbyCode(positionCode)
+  const generateRoster = (positionType) => {
+    const getRoster = (positionType) => {
+      return API.findAllbyCode(positionType)
+    }
+    
+    const createRosterList = (res) => {
+      console.log(res.data)
+    }
+    
+    getRoster(positionType)
+      .then(createRosterList)
   }
+
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={() => handleClickOpen('C')}>
+      <Button variant="outlined" color="primary" onClick={() => handleClickOpen(boosterType)}>
         View Roster
       </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
