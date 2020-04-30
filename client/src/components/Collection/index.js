@@ -29,10 +29,15 @@ export default function NestedGrid() {
   const classes = useStyles()
 
   const getUserCollection = () => {
-    API.getUserCard()
+    return API.getUserCard()
+  }
+
+  const consoleLog = (res) => {
+    console.log(res.data)
   }
 
   getUserCollection()
+    .then(consoleLog)
 
   // async function findAll() {
   //   let apiStats = await API.findAll()

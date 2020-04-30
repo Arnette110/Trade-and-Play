@@ -36,6 +36,6 @@ module.exports = {
     console.log('you are in the backend getUserCollection fx')
     db.User
       .find({})
-      .then(userModel => console.log(userModel))
+      .then(userModel => res.json(userModel[0].card))
   }
 }
