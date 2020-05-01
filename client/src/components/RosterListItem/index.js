@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function RosterLi(props) {
     const classes = useStyles();
-    build the rest of this key.
+    // build the rest of this key.
     const key = [{
         fullName: 'Boston Bruins',
         abrName: 'BOS'
