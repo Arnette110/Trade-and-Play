@@ -2,7 +2,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // Components
-import ButtonAppBar from './components/NavBar'
+// import ButtonAppBar from './components/NavBar'
 import Collection from './components/Collection'
 // Material-ui
 
@@ -14,6 +14,7 @@ import LoginPage from "./pages/LoginPage";
 import Dashboard from './pages/Dashboard'
 // import CardFlip from './pages/CardFlip'
 import PlayerCreate from './pages/PlayerCreate'
+import Packs from './pages/Packs'
 // Css
 import './App.css'
 
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route exact path={['/collection']}>
             <Collection />
+          </Route>
+          <Route exact path={["/packs"]}>
+            <Packs />
           </Route>
           <Route exact path={["/signup"]}>
             <SignupPage />
