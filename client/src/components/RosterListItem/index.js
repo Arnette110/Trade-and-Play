@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Avatar } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
+import abrKey from '../../utils/abbreviationKey'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -11,23 +12,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function RosterLi(props) {
     const classes = useStyles();
-    // build the rest of this key.
-    // const key = [{
-    //     fullName: 'Boston Bruins',
-    //     abrName: 'BOS'
-    // },
-    // {
-    //     fullName: 'Carolina Hurricanes',
-    //     abrName: 'CAR'
-    // }
-    // ]
 
-    // const getAbrName = (key) => {key.map(el=> {
-    //     if (el.fullName === props.data.currentTeam.name) {
-    //         props.data.currentTeam.abrName = el.abrName
-    //     }
-    // })}
-    // getAbrName(key)
+    const getAbrName = (key) => {key.forEach(el=> {
+        if (el.fullName === props.data.bio.currentTeam.name) {
+            props.data.bio.currentTeam.abrName = el.abrName
+        }
+    })}
+    getAbrName(abrKey)
     
     // console.log('data: ', props.data)
     return (
@@ -50,7 +41,7 @@ export default function RosterLi(props) {
                         #{props.data.bio.primaryNumber}
                     </Typography>
                     <Typography variant='h6'>
-                        {props.data.bio.currentTeam.name}
+                        {props.data.bio.currentTeam.abrName}
                     </Typography>
                 </Grid>
                 <Grid item xs={7}>
