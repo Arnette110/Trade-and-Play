@@ -76,6 +76,7 @@ function CustomizedDialogs({ boosterType }) {
     return getRoster(positionType)
       .then(setRosterToState)
   }
+  
 
   return (
     <div>
