@@ -18,16 +18,25 @@ export default function RosterLi(props) {
             props.data.bio.currentTeam.abrName = el.abrName
         }
     })}
-    getAbrName(abrKey)
     
-    // console.log('data: ', props.data)
+    const addHyphenToSeason = (str) => {
+        if (str.slice(4,5) !== '-') {
+            const newStr = str.slice(0,4) + '-' + str.slice(4,8)
+            props.data.season = newStr
+        }
+    }
+    
+    // invoke functions
+    getAbrName(abrKey)
+    addHyphenToSeason(props.data.season)
+    
     return (
         <div className={classes.root}>
             <Grid container spacing={2}>
                 <Grid item xs={3}>
                     <Avatar
                         style={{width: '100%', height: '100%'}}
-                        src='https://nhl.bamcontent.com/images/headshots/current/168x168/8478427@2x.jpg'
+                        src={'https://nhl.bamcontent.com/images/headshots/current/168x168/' + props.data.id + '@2x.jpg'}
                     />
                 </Grid>
                 <Grid item xs={2}
