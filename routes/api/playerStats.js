@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const playerStatsController = require('../../controllers/playerStatsController')
 
-// Matches with "/api/playerstats"
+// Matches with "/api/playerstats" 
 router.route('/')
   .post(playerStatsController.create)
   .put(playerStatsController.findByIdAndSeason)
