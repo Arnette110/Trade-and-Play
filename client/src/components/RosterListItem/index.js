@@ -11,25 +11,25 @@ const useStyles = makeStyles((theme) => ({
 
 export default function RosterLi(props) {
     const classes = useStyles();
-    //build the rest of this key.
-    // const key = [{
-    //     fullName: 'Boston Bruins',
-    //     abrName: 'BOS'
-    // },
-    // {
-    //     fullName: 'Carolina Hurricanes',
-    //     abrName: 'CAR'
-    // }
-    // ]
+    build the rest of this key.
+    const key = [{
+        fullName: 'Boston Bruins',
+        abrName: 'BOS'
+    },
+    {
+        fullName: 'Carolina Hurricanes',
+        abrName: 'CAR'
+    }
+    ]
 
-    // const getAbrName = (key) => {key.map(el=> {
-    //     if (el.fullName === props.data.currentTeam.name) {
-    //         props.data.currentTeam.abrName = el.abrName
-    //     }
-    // })}
-    // getAbrName(key)
+    const getAbrName = (key) => {key.map(el=> {
+        if (el.fullName === props.data.currentTeam.name) {
+            props.data.currentTeam.abrName = el.abrName
+        }
+    })}
+    getAbrName(key)
     
-    console.log('data: ', props.data)
+    // console.log('data: ', props.data)
     return (
         <div className={classes.root}>
             <Grid container spacing={2}>
@@ -47,19 +47,19 @@ export default function RosterLi(props) {
                     }}
                 >
                     <Typography variant='h6'>
-                        #{props.data.bio.primaryNumber}
+                        #{props.data.primaryNumber}
                     </Typography>
                     <Typography variant='h6'>
-                        {props.data.bio.currentTeam.name}
+                        {props.data.currentTeam.abrName}
                     </Typography>
                 </Grid>
                 <Grid item xs={7}>
                     <Grid item xs>
                         <Typography gutterBottom variant="h6">
-                            {props.data.bio.fullName}
+                            {props.data.fullName}
                         </Typography>
                         <Typography gutterBottom variant="subtitle1">
-                            {props.data.season}
+                            Season
                         </Typography>
                     </Grid>
                 </Grid>

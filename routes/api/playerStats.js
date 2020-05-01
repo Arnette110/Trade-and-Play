@@ -6,9 +6,6 @@ router.route('/')
   .post(playerStatsController.create)
   .put(playerStatsController.findByIdAndSeason)
 
-router.route('/:code')
-  .get(playerStatsController.findByCode)
-
 router.route('/all')
   .get(playerStatsController.findAll)
 
