@@ -30,7 +30,7 @@ const SignupPage = props => {
  
       if (!message.msgError) {
         timerID = setTimeout(() => {
-          this.history.push("/login");
+          props.history.push("/login");
         }, 2000);
       }
     });

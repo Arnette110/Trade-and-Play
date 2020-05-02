@@ -12,7 +12,6 @@ import Home from "./pages/Home"
 import SignupPage from "./pages/SignupPage"
 import LoginPage from "./pages/LoginPage";
 import Dashboard from './pages/Dashboard'
-import Admin from "./pages/Admin";
 
 // import CardFlip from './pages/CardFlip'
 import PlayerCreate from './pages/PlayerCreate'
@@ -26,16 +25,21 @@ function App() {
   return (
     <Router>
       <div>
-        <ButtonAppBar/>
-        <Switch>
+        <ButtonAppBar />
+
+        <Route exact path="/" component={Home} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/createplayer" component={PlayerCreate} />
+        <Route exact path="/collection" component={Collection} />
+        <Route exact path="/register" component={SignupPage} />
+        <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/nomatch" component={NoMatch} />
+        {/* <Switch>
           <Route exact path={["/", "/home"]}>
             <Home />
           </Route>
           <Route exact path={["/dashboard"]}>
             <Dashboard />
-          </Route>
-          <Route exact path={["/admin"]}>
-            <Admin />
           </Route>
           <Route exact path={["/createplayer"]}>
             <PlayerCreate />
@@ -52,7 +56,7 @@ function App() {
           <Route exact path={["/nomatch"]}>
             <NoMatch />
           </Route>
-        </Switch>
+        </Switch> */}
       </div>
     </Router>
   );
