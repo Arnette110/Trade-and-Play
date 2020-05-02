@@ -37,7 +37,7 @@ export default function Home() {
             <Container>
               <Typography
                 variant='h4'
-                style={{ paddingTop: '1rem', fontFamily: 'Roboto Black' }}>
+                style={{ paddingTop: '1rem', fontWeight: 'bold' }}>
                 YOU'RE THE BOSS!
               </Typography>
               <br />
