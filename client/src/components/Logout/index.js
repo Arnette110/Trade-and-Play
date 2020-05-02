@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-
+import AuthService from '../../Services/AuthService';
+import { AuthContext } from '../../Context/AuthContext';
 
 const useStyles = makeStyles({
   root: {
@@ -22,17 +23,26 @@ const useStyles = makeStyles({
 })
 
 export default function Logout() {
+  const { isAuthenticated, user, setIsAuthenticated, setUser } = useContext(
+    AuthContext
+  );
+
+    const onClickLogoutHandler = () => {
+      AuthService.logout().then(data => {
+        if (data.success) {
+          setUser(data.user);
+          setIsAuthenticated(false);
+        }
+      });
+    };
 
   const classes = useStyles()
 
   return (
     <div>
-      <Button
-        href="/"
-        variant='outlined'
-        className={classes.root}>
+      <Button onClick={onClickLogoutHandler} className={classes.root}>
         sign out
       </Button>
     </div>
-  )
+  );
 }

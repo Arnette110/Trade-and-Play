@@ -22,7 +22,7 @@ export default function SignUp() {
 
   return (
     <div>
-      <Button href="/signup" variant='outlined' color='inherit'>
+      <Button href="/register" variant='outlined' color='inherit'>
         Sign Up
       </Button>
       {/* <Dialog
