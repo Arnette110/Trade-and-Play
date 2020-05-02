@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import {
   Card,
@@ -50,8 +50,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function PlayerCardFront({frontsideData}) {
+
+
+export default function PlayerCardFront({data}) {
+  
+  console.log(data);
   const classes = useStyles()
+
 
   return (
     <Card className={classes.root}>
@@ -72,12 +77,12 @@ export default function PlayerCardFront({frontsideData}) {
             </Avatar>
           </IconButton>
         }
-        title={frontsideData.fullName}
-        subheader='Season number #'
+        title={data.bio.fullName}
+        subheader={data.season}
       />
       <CardMedia
         className={classes.media}
-        image={'https://nhl.bamcontent.com/images/headshots/current/168x168/'+ frontsideData.id + '.jpg'}
+        image={'https://nhl.bamcontent.com/images/headshots/current/168x168/'+ data.id + '.jpg'}
         title='Player Portrait'
       />
       <CardContent>
