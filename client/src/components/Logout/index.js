@@ -40,7 +40,7 @@ export default function Logout() {
 
   return (
     <div>
-      <Button onClick={onClickLogoutHandler} className={classes.root}>
+      <Button onClick={onClickLogoutHandler} className={classes.root} href='/'>
         sign out
       </Button>
     </div>
