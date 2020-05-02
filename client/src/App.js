@@ -17,7 +17,7 @@ import Dashboard from './pages/Dashboard'
 import PlayerCreate from './pages/PlayerCreate'
 // Css
 import './App.css'
-// import PrivateRoute from './hocs/PrivateRoute';
+import PrivateRoute from './hocs/PrivateRoute';
 // import UnPrivateRoute from './hocs/UnPrivateRoute';
 
 function App() {
@@ -26,11 +26,10 @@ function App() {
     <Router>
       <div>
         <ButtonAppBar />
-
-        <Route exact path="/" component={Home} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/createplayer" component={PlayerCreate} />
-        <Route exact path="/collection" component={Collection} />
+        <Route exact path={["/", "/home"]} component={Home} />
+        <PrivateRoute exact path="/createplayer" roles={["admin"]} component={PlayerCreate} />
+        <PrivateRoute exact path="/collection" roles={["user", "admin"]} component={Collection} />
+        <PrivateRoute path="dashboard" roles={["user", "admin"]} component={Dashboard}/>
         <Route exact path="/register" component={SignupPage} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/nomatch" component={NoMatch} />
