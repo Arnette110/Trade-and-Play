@@ -62,8 +62,8 @@ export default function PlayerCardBack({data}) {
           </Avatar>
           </IconButton>
         }
-        title="Player Name"
-        subheader="Season number #"
+        title={data.bio.fullName}
+        subheader={data.season}
       />
       {/* <CardMedia
         className={classes.media}
@@ -73,9 +73,13 @@ export default function PlayerCardBack({data}) {
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
   
+              <li>Position: {data.bio.primaryPosition.name}</li>
+              <li>Games Played: {data.stat.games}</li>
+              <li>{isGoalie ? 'Save Percentage: ' :  'Assists: '} {isGoalie ? data.stat.savePercentage :  data.stat.assists}</li>
               <li>{isGoalie ? 'Saves: ' :  'Assists: '} {isGoalie ? data.stat.saves :  data.stat.assists}</li>
-              <li>Stat:</li>
-              <li>Stat:</li>
+              <li>{isGoalie ? 'Saves: ' :  'Assists: '} {isGoalie ? data.stat.saves :  data.stat.assists}</li>
+              <li>{isGoalie ? 'Saves: ' :  'Assists: '} {isGoalie ? data.stat.saves :  data.stat.assists}</li>
+              <li>{isGoalie ? 'Saves: ' :  'Assists: '} {isGoalie ? data.stat.saves :  data.stat.assists}</li>
           
         </Typography>
       </CardContent>
