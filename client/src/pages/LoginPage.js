@@ -5,6 +5,7 @@ import { AuthContext } from '../Context/AuthContext';
 
 const LoginPage = props => {
   const [user, setUser] = useState({ username: "", password: "" });
+  const [_id, setId] = useState("")
   const [message, setMessage] = useState(null);
   const authContext = useContext(AuthContext);
   // const history = useHistory
@@ -17,6 +18,7 @@ const LoginPage = props => {
     e.preventDefault();
     AuthService.login(user).then(data => {
       console.log(data);
+      setId(data)
       const { isAuthenticated, user, message } = data;
       if (isAuthenticated) {
         authContext.setUser(user);
