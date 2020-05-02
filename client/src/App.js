@@ -31,7 +31,11 @@ function App() {
         <PrivateRoute exact path="/collection" roles={["user", "admin"]} component={Collection} />
         <PrivateRoute path="/dashboard" roles={["user", "admin"]}>
           <Dashboard/>
+<<<<<<< HEAD
         </ PrivateRoute>
+=======
+        </PrivateRoute>
+>>>>>>> master
         <Route exact path="/register" component={SignupPage} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/nomatch" component={NoMatch} />

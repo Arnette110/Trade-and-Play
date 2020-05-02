@@ -8,7 +8,7 @@ mongoose.connect(
 const playerSeed = [
   {
     id: 8474600,
-    season: '20182019',
+    season: '2018-2019',
     stat: {
       timeOnIce: '2063:34',
       assists: 41,
@@ -73,7 +73,7 @@ const playerSeed = [
   },
   {
     id: 8473419,
-    season: '20182019',
+    season: '2018-2019',
     stat: {
       timeOnIce: '1550:16',
       assists: 64,
@@ -139,7 +139,7 @@ const playerSeed = [
   },
   {
     id: 8478427,
-    season: '20182019',
+    season: '2018-2019',
     stat: {
       timeOnIce: '1652:22',
       assists: 53,
@@ -204,7 +204,7 @@ const playerSeed = [
   },
   {
     id: 8476945,
-    season: '20182019',
+    season: '2018-2019',
     stat: {
       timeOnIce: '3704:06',
       ot: 3,
@@ -265,7 +265,7 @@ const playerSeed = [
     }
   },
   {
-    season: '20132014',
+    season: '2013-2014',
     stat: {
       timeOnIce: '1902:06',
       assists: 27,
@@ -331,7 +331,7 @@ const playerSeed = [
     __v: 0
   },
   {
-    season: '20172018',
+    season: '2017-2018',
     stat: {
       timeOnIce: '1506:59',
       assists: 45,
@@ -397,7 +397,7 @@ const playerSeed = [
     __v: 0
   },
   {
-    season: '20172018',
+    season: '2017-2018',
     stat: {
       timeOnIce: '1651:50',
       assists: 38,
@@ -463,7 +463,7 @@ const playerSeed = [
     __v: 0
   },
   {
-    season: '20182019',
+    season: '2018-2019',
     stat: {
       timeOnIce: '1637:10',
       assists: 87,
@@ -529,7 +529,7 @@ const playerSeed = [
     __v: 0
   },
   {
-    season: '20172018',
+    season: '2017-2018',
     stat: {
       timeOnIce: '2007:27',
       assists: 39,
@@ -596,7 +596,7 @@ const playerSeed = [
     __v: 0
   },
   {
-    season: '20182019',
+    season: '2018-2019',
     stat: {
       timeOnIce: '2058:08',
       assists: 67,
@@ -663,7 +663,7 @@ const playerSeed = [
     __v: 0
   },
   {
-    season: '20172018',
+    season: '2017-2018',
     stat: {
       timeOnIce: '1103:11',
       assists: 16,
@@ -730,7 +730,7 @@ const playerSeed = [
     __v: 0
   },
   {
-    season: '20162017',
+    season: '2016-2017',
     stat: {
       timeOnIce: '2225:50',
       assists: 32,
@@ -797,7 +797,7 @@ const playerSeed = [
     __v: 0
   },
   {
-    season: '20172018',
+    season: '2017-2018',
     stat: {
       timeOnIce: '1008:14',
       ot: 3,
@@ -859,7 +859,7 @@ const playerSeed = [
     __v: 0
   },
   {
-    season: '20182019',
+    season: '2018-2019',
     stat: {
       timeOnIce: '1263:52',
       ot: 0,
@@ -922,7 +922,7 @@ const playerSeed = [
     __v: 0
   },
   {
-    season: '20172018',
+    season: '2017-2018',
     stat: {
       timeOnIce: '1495:16',
       ot: 4,
@@ -985,7 +985,7 @@ const playerSeed = [
     __v: 0
   },
   {
-    season: '20162017',
+    season: '2016-2017',
     stat: {
       timeOnIce: '3240:26',
       ot: 4,
@@ -1046,7 +1046,7 @@ const playerSeed = [
     __v: 0
   },
   {
-    season: '20182019',
+    season: '2018-2019',
     stat: {
       timeOnIce: '1716:55',
       ot: 1,
@@ -1109,7 +1109,7 @@ const playerSeed = [
     __v: 0
   },
   {
-    season: '20172018',
+    season: '2017-2018',
     stat: {
       timeOnIce: '3911:34',
       ot: 6,
@@ -1171,7 +1171,7 @@ const playerSeed = [
     __v: 0
   },
   {
-    season: '20182019',
+    season: '2018-2019',
     stat: {
       timeOnIce: '1294:04',
       assists: 38,
@@ -1237,7 +1237,7 @@ const playerSeed = [
     __v: 0
   },
   {
-    season: '20182019',
+    season: '2018-2019',
     stat: {
       timeOnIce: '1312:45',
       assists: 33,
@@ -1303,7 +1303,7 @@ const playerSeed = [
     __v: 0
   },
   {
-    season: '20182019',
+    season: '2018-2019',
     stat: {
       timeOnIce: '1734:45',
       assists: 35,
@@ -1369,7 +1369,7 @@ const playerSeed = [
     __v: 0
   },
   {
-    season: '20172018',
+    season: '2017-2018',
     stat: {
       timeOnIce: '1128:21',
       assists: 10,
