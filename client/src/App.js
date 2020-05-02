@@ -25,7 +25,6 @@ function App() {
   return (
     <Router>
       <div>
-        <ButtonAppBar />
         <Route exact path={["/", "/home"]} component={Home} />
         <PrivateRoute exact path="/createplayer" roles={["admin"]} component={PlayerCreate} />
         <PrivateRoute exact path="/collection" roles={["user", "admin"]} component={Collection} />
@@ -33,29 +32,6 @@ function App() {
         <Route exact path="/register" component={SignupPage} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/nomatch" component={NoMatch} />
-        {/* <Switch>
-          <Route exact path={["/", "/home"]}>
-            <Home />
-          </Route>
-          <Route exact path={["/dashboard"]}>
-            <Dashboard />
-          </Route>
-          <Route exact path={["/createplayer"]}>
-            <PlayerCreate />
-          </Route>
-          <Route exact path={["/collection"]}>
-            <Collection />
-          </Route>
-          <Route exact path={["/register"]}>
-            <SignupPage />
-          </Route>
-          <Route exact path={["/login"]}>
-            <LoginPage />
-          </Route>
-          <Route exact path={["/nomatch"]}>
-            <NoMatch />
-          </Route>
-        </Switch> */}
       </div>
     </Router>
   );
