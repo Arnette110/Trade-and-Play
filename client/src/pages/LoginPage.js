@@ -56,7 +56,10 @@ const LoginPage = props => {
         authContext.setUser(user);
         authContext.setIsAuthenticated(isAuthenticated);
         props.history.push("/dashboard");
-      } else setMessage(message);
+      } else {
+        setMessage(message)
+        props.history.push('/register')
+      };
     });
   };
   const classes = useStyles()
