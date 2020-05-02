@@ -27,7 +27,9 @@ function App() {
     <Router>
       <div>
         <Route exact path={["/", "/home"]} component={Home} />
-        <PrivateRoute exact path="/createplayer" roles={["admin"]} component={PlayerCreate} />
+        <PrivateRoute path="/createplayer" roles={["admin"]}>
+          <PlayerCreate/>
+        </PrivateRoute>
         <PrivateRoute exact path="/collection" roles={["user", "admin"]} component={Collection} />
         <PrivateRoute path="/dashboard" roles={["user", "admin"]}>
           <Dashboard/>
