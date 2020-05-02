@@ -22,16 +22,6 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   },
-  // populateBio: function (req, res) {
-  //   db.PlayerStats
-  //     .findOneAndUpdate({ _id: '5eab21f824c9e7ab82a93de5' }, { $push: { bio: '5eab21f824c9e7ab82a93de9' } })
-  //     .populate('bio')
-  //     .then(dbStats => {
-  //       console.log('PSC: ', dbStats)
-
-  //       res.json(dbStats)
-  //     })
-  // },
   getUserCollection: function (req, res) {
     console.log('you are in the backend getUserCollection fx')
     db.User
@@ -55,5 +45,11 @@ module.exports = {
     // .then(() => res.json(cardDataArr))
     // .catch(err => res.status(422).json(err))
     // setTimeout(() => { console.log('cardDataArr: ', cardDataArr) }, 3000)
+  },
+  findByCode: function (req, res) {
+    db.PlayerStats
+      .find({ 'bio.primaryPosition.type': req.params.code })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err))
   }
 }
