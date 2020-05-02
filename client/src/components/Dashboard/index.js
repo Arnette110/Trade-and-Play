@@ -1,11 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
-import AppBar from '@material-ui/core/AppBar'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
-import Typography from '@material-ui/core/Typography'
-import Box from '@material-ui/core/Box'
+import { AppBar, Tabs, Tab, Typography, Box, TextField, Container } from '@material-ui/core'
 import Collection from '../Collection'
 import Packs from '../../pages/Packs'
 
@@ -63,6 +59,14 @@ const useStyles = makeStyles((theme) => ({
   tabNav: {
     backgroundColor: '#212121',
   },
+  search: {
+    width: '80vw',
+    
+  },
+  form: {
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
 }))
 
 export default function NavTabs() {
@@ -81,15 +85,37 @@ export default function NavTabs() {
           value={value}
           onChange={handleChange}
           aria-label='nav tabs example'>
-          <LinkTab label='{user name goes here} dream team' href='/collection' {...a11yProps(0)} />
-          <LinkTab label='draft players from booster pack' href='/packs' {...a11yProps(1)} />
+          <LinkTab
+            label='{user name goes here} dream team'
+            href='/collection'
+            {...a11yProps(0)}
+          />
+          <LinkTab
+            label='draft players from booster pack'
+            href='/packs'
+            {...a11yProps(1)}
+          />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <Collection/>
+        <Container>
+          <form className={classes.form}>
+            <div>
+              <TextField
+                className={classes.search}
+                id='outlined-search'
+                label='Search field'
+                type='search'
+                variant='outlined'
+              />
+            </div>
+          </form>
+        </Container>
+        <br/>
+        <Collection />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Packs/>
+        <Packs />
       </TabPanel>
     </div>
   )

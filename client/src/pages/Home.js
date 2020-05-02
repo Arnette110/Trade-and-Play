@@ -1,10 +1,11 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Grid, Typography, Container } from '@material-ui/core'
-import logo from '../logo.svg'
+import logo from '../TradeAndPlay_Logo.svg'
 import Jumbotron from '../components/Jumbotron'
 import Login from '../components/login'
 import StarBorderIcon from '@material-ui/icons/StarBorder'
+
 
 const useStyles = makeStyles({
   textContainer: {
