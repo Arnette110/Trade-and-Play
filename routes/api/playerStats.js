@@ -13,4 +13,7 @@ router.route('/collection')
   .get(playerStatsController.getUserCollection)
   .post(playerStatsController.getCollectionData)
 
+router.route('/draft/:code')
+  .get(playerStatsController.findByCode)
+
 module.exports = router
