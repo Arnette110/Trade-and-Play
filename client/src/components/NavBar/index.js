@@ -10,7 +10,7 @@ import {
 
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import Logout from '../Logout'
-import logo from '../../logo.svg'
+import logo from '../../TradeAndPlay_Logo.svg'
 
 const useStyles = makeStyles((theme) => ({
   root: {
