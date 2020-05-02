@@ -14,9 +14,9 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   },
-  findAll: function (req, res) {
+  findByCode: function (req, res) {
     db.PlayerBios
-      .find({})
+      .find({ 'primaryPosition.type': req.params.code })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   }

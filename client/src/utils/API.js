@@ -27,7 +27,13 @@ export default {
   findAllStats: function () {
     return axios.get("/api/playerstats/all")
   },
-  findAllBios: function () {
-    return axios.get("/api/playerbio/all")
-  }
+  getUserCard: function () {
+    return axios.get("/api/playerstats/collection")
+  },
+  getCardData: function (arr) {
+    return axios.post("/api/playerstats/collection", arr)
+  },
+  findAllbyCode: function (code) {
+    return axios.get("/api/playerstats/draft/" + code)
+  },
 };
