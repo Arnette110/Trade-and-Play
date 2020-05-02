@@ -17,11 +17,14 @@ function TabPanel(props) {
       role='tabpanel'
       hidden={value !== index}
       id={`nav-tabpanel-${index}`}
+      style={{
+        backgroundColor: '#424242',
+      }}
       aria-labelledby={`nav-tab-${index}`}
       {...other}>
       {value === index && (
         <Box p={3}>
-          <Typography component='div' >{children}</Typography>
+          <Typography component='div'>{children}</Typography>
         </Box>
       )}
     </div>
@@ -56,7 +59,6 @@ function LinkTab(props) {
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    // backgroundColor: 'theme.palette.background.Box',
   },
   tabNav: {
     backgroundColor: '#212121',
