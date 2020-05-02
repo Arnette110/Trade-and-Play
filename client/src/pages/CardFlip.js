@@ -13,9 +13,9 @@ const CardFlip = (props) => {
   }
   return (
 
-    <ReactCardFlip containerStyle={{width:'100%', maxWidth: 350}} isFlipped={isFlipped} flipDirection='horizontal'>
+    <ReactCardFlip containerStyle={{width:350, margin: 0, maxWidth: 350}} isFlipped={isFlipped} flipDirection='horizontal'>
       <div onClick={handleHover}>
-        <PlayerCardFront />
+        <PlayerCardFront frontsideData={props.frontsideData}/>
       </div>
 
       <div onClick={handleHover}>

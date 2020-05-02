@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     border: '3px solid blue',
     borderRadius: 10,
     // margin: 10,
+    height: 400,
     color: indigo[50],
     backgroundColor: indigo[100],
   },
@@ -49,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function PlayerCardFront() {
+export default function PlayerCardFront({frontsideData}) {
   const classes = useStyles()
 
   return (
@@ -71,12 +72,12 @@ export default function PlayerCardFront() {
             </Avatar>
           </IconButton>
         }
-        title='Player Name'
+        title={frontsideData.fullName}
         subheader='Season number #'
       />
       <CardMedia
         className={classes.media}
-        image='https://nhl.bamcontent.com/images/headshots/current/168x168/8474600.jpg'
+        image={'https://nhl.bamcontent.com/images/headshots/current/168x168/'+ frontsideData.id + '.jpg'}
         title='Player Portrait'
       />
       <CardContent>

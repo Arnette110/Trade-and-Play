@@ -5,24 +5,36 @@ import CardFlip from '../../pages/CardFlip';
 // import ItemsCarousel from 'react-items-carousel';
 import API from '../../utils/API';
 
+import Swiper from 'react-id-swiper';
+import { Container, Box } from '@material-ui/core';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     margin: 'auto',
-    justifyContent: 'center',
-    textAlign: 'center',
+    // justifyContent: 'center',
+    // textAlign: 'center',
   },
   cardSpacing: {
-    justifyContent: 'center',
-    textAlign: 'center',
+    // justifyContent: 'center',
+    // textAlign: 'center',
   },
   paper: {
     padding: theme.spacing(0),
-    textAlign: 'center',
-    justifyContent: 'center',
+    // textAlign: 'center',
+    // justifyContent: 'center',
     color: theme.palette.text.secondary,
   },
 }))
+
+  const params = {
+    slidesPerView: 4,
+    spaceBetween: 0,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    }
+  }
 
 
 
@@ -62,20 +74,14 @@ export default function NestedGrid() {
 
   return (
     <div className={classes.root}>
-      {apiData.stats.map(el  => {
-        let matchedBio = apiData.bios.find((bio) => bio.id === el.id);
-        // for (var i = 0; i < apiData.bio.length; i++){
-          // console.log("Bio: " , matchedBio.id)
-          // console.log("Stat: ", el.id)
-          
-        //   if (apiData.bio.id === el.stat.id) {
-        //     matchedBio = apiData.bio[i];
-        //   }
-        // }
-        // console.log(matchedBio.id);
-        return <CardFlip frontsideData={matchedBio} backsideData={el} key={el.id}/>
-      })}
-  
+        {/* <Swiper> */}
+      
+        {apiData.stats.map(el  => {
+          let matchedBio = apiData.bios.find((bio) => bio.id === el.id);
+
+          return (<CardFlip frontsideData={matchedBio} backsideData={el} key={el.id}/>)
+        })}
+      {/* </Swiper> */}
     </div>
   )
 }

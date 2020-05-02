@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     border: "3px solid blue",
     borderRadius: 10,
     // margin: 10,
+    height: 400,
     color: indigo[50],
     backgroundColor: indigo[100],
   },

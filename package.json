@@ -45,13 +45,15 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "if-env": "^1.0.4",
+    "method-override": "^3.0.0",
     "mongoose": "^5.9.7",
     "nba-api-client": "^1.0.9",
     "passport": "^0.4.1",
     "passport-google-oauth2": "^0.2.0",
     "passport-local": "^1.0.0",
     "react-card-flip": "^1.0.10",
-    "method-override": "^3.0.0"
+    "react-id-swiper": "^3.0.0",
+    "swiper": "^5.3.8"
   },
   "bugs": {
     "url": "https://github.com/Arnette110/Trade-and-Play/issues"
