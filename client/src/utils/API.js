@@ -26,5 +26,14 @@ export default {
   },
   findAll: function () {
     return axios.get("/api/playerstats/all")
-  }
+  },
+  getUserCard: function () {
+    return axios.get("/api/playerstats/collection")
+  },
+  getCardData: function (arr) {
+    return axios.post("/api/playerstats/collection", arr)
+  },
+  findAllbyCode: function (code) {
+    return axios.get("/api/playerstats/draft/" + code)
+  },
 };

@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-// import { Container } from '@material-ui/core';
 import CardFlip from '../../pages/CardFlip';
 // import ItemsCarousel from 'react-items-carousel';
 import API from '../../utils/API';
@@ -29,13 +28,22 @@ const useStyles = makeStyles((theme) => ({
 export default function NestedGrid() {
   const classes = useStyles()
 
-  async function findAll() {
-    let apiStats = await API.findAll()
-    await console.log(apiStats.data)
+  const getUserCollection = () => {
+    return API.getUserCard()
   }
 
-  findAll();
-  
+  const getCollectionData = (res) => {
+    console.log(res.data)
+    return API.getCardData(res.data)
+  }
+
+  const consoleLog = (res) => {
+    console.log(res.data)
+  }
+
+  getUserCollection()
+    .then(getCollectionData)
+    .then(consoleLog)
 
   return (
     <div className={classes.root}>
