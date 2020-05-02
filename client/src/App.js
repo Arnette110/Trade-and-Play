@@ -29,7 +29,9 @@ function App() {
         <Route exact path={["/", "/home"]} component={Home} />
         <PrivateRoute exact path="/createplayer" roles={["admin"]} component={PlayerCreate} />
         <PrivateRoute exact path="/collection" roles={["user", "admin"]} component={Collection} />
-        <PrivateRoute path="dashboard" roles={["user", "admin"]} component={Dashboard}/>
+        <PrivateRoute path="/dashboard" roles={["user", "admin"]}>
+          <Dashboard/>
+        </PrivateRoute>
         <Route exact path="/register" component={SignupPage} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/nomatch" component={NoMatch} />

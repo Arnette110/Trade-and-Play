@@ -30,6 +30,9 @@ const PlayerCreate = () => {
     const setPlayerInfoToState = (res) => {
       response.stats = res.data.stats[0].splits[0];
       response.stats.id = form.playerId
+      // converts API season to have a hyphen
+      let newSeasonStr =  response.stats.season.slice(0, 4) + '-' + response.stats.season.slice(4, 8)
+      response.stats.season = newSeasonStr
       setForm({...form, bioObj: response.bio, statsObj: response.stats})
     }
 
@@ -54,23 +57,11 @@ const PlayerCreate = () => {
 
   const handleSubmitToDb = async () => {
     let statCheck = await API.findPlayerStats({id: form.statsObj.id, season: form.statsObj.season})
-    let bioCheck = await API.findPlayerBio({id: form.statsObj.id})
     if (statCheck.data === null) {
       console.log('Stat DO NOT EXIST in the database')
-      // API.savePlayerStats(form.statsObj)
-      if (bioCheck.data) {
-        console.log('Bio EXIST in the database')
-      }
-      else {
-        console.log('Stats DO NOT EXIST in the database')
-        let combinedStatsAndBio = form.statsObj
-        combinedStatsAndBio.bio = form.bioObj
-        console.log('cmbS&B: ', combinedStatsAndBio)
-        API.savePlayerStats(combinedStatsAndBio)
-      }
     }
     else {
-      console.log('Player & Stats EXIST in the database')
+      console.log('Stats EXIST in the database')
     }
     emptyStateObjs()
   }

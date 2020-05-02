@@ -25,16 +25,8 @@ export default function RosterLi(props) {
         })
     }
 
-    const addHyphenToSeason = (str) => {
-        if (str.slice(4, 5) !== '-') {
-            const newStr = str.slice(0, 4) + '-' + str.slice(4, 8)
-            props.data.season = newStr
-        }
-    }
-
     // invoke functions
     getAbrName(abrKey)
-    addHyphenToSeason(props.data.season)
 
     return (
         <div className={classes.root}>
