@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import AuthService from '../../Services/AuthService'
+import { AuthContext } from '../../Context/AuthContext'
 import { makeStyles } from '@material-ui/core/styles'
 import {
   Toolbar,
@@ -31,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
     height: '4rem',
   },
 }))
+
 
 export default function ButtonAppBar() {
   const classes = useStyles()
