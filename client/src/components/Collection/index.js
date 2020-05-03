@@ -4,9 +4,9 @@ import CardFlip from '../../pages/CardFlip';
 // import ItemsCarousel from 'react-items-carousel';
 import API from '../../utils/API';
 
-import Swiper from 'react-id-swiper';
+// import Swiper from 'react-id-swiper';
 import 'swiper/css/swiper.css'
-import { Container, Box } from '@material-ui/core';
+import { Grid, Container } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,32 +27,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-  const params = {
-    slidesPerView: '3',
-    spaceBetween: 0,
-    centeredSlides: true,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    }
-  }
+// const params = {
+//   slidesPerView: '3',
+//   spaceBetween: 0,
+//   centeredSlides: true,
+//   pagination: {
+//     el: '.swiper-pagination',
+//     clickable: true,
+//   }
+// }
 
 export default function NestedGrid() {
   let [apiData, setApiData] = React.useState({
     cardData: [],
   })
-  
   const classes = useStyles()
-
-  // const addHyphenToSeason = (str) => {
-  //   if (str.slice(4, 5) !== '-') {
-  //       const newStr = str.slice(0, 4) + '-' + str.slice(4, 8)
-  //       apiData.cardData[0].season = newStr
-  //   }
-  // }
-  // useEffect(() => {
-  //   addHyphenToSeason(apiData.cardData[0].season)
-  // }, []);
 
   const getUserCollection = () => {
     return API.getUserCard()
@@ -64,22 +53,26 @@ export default function NestedGrid() {
   }
 
   const consoleLog = (res) => {
-    setApiData({...apiData, cardData: res.data})
+    setApiData({ ...apiData, cardData: res.data })
     console.log(res.data)
   }
 
   useEffect(() => {
     getUserCollection()
-    .then(getCollectionData)
-    .then(consoleLog)
+      .then(getCollectionData)
+      .then(consoleLog)
   }, []);
 
   return (
     <div className={classes.root}>
       {/* <Swiper {...params}> */}
-        { apiData.cardData.map(el  => {
-            return (<CardFlip data={el} style={{width: 350}} key={el._id}/>)
-        })}
+      <Container>
+        <Grid container spacing={1}>
+          {apiData.cardData.map(el => {
+            return (<Grid item xs={12} md={6} lg={4}><CardFlip data={el} style={{ width: 300 }} key={el._id} /></Grid>)
+          })}
+        </Grid>
+      </Container>
       {/* </Swiper> */}
     </div>
   )
