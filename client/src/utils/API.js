@@ -15,14 +15,8 @@ export default {
   savePlayerStats: function(playerData) {
     return axios.post("/api/playerstats", playerData);
   },
-  savePlayerBio: function(playerData) {
-    return axios.post("/api/playerbio", playerData);
-  },
   findPlayerStats: function(obj) {
     return axios.put("/api/playerstats", obj);
-  },
-  findPlayerBio: function(obj) {
-    return axios.put("/api/playerbio", obj);
   },
   findAll: function () {
     return axios.get("/api/playerstats/all")
