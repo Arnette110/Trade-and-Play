@@ -27,7 +27,7 @@ export default function Login() {
 
   return (
     <div>
-      <Button variant='outlined' href="/login" className={classes.root}>
+      <Button variant='outlined' href="/register" className={classes.root}>
         Sign in or Register
       </Button>
     </div>

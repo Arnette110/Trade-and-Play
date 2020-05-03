@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CardFlip from '../../pages/CardFlip';
 // import ItemsCarousel from 'react-items-carousel';
 import API from '../../utils/API';
+import { AuthContext } from '../../Context/AuthContext'
 
 // import Swiper from 'react-id-swiper';
 import 'swiper/css/swiper.css'
@@ -43,7 +44,20 @@ export default function NestedGrid() {
   })
   const classes = useStyles()
 
+  const {user} = useContext(AuthContext);
+
+    useEffect(() => {
+      console.log(user)
+    }, [user]);
+
+    useEffect(() => {
+      getUserCollection()
+        .then(getCollectionData)
+        .then(consoleLog);
+    }, [])
+
   const getUserCollection = () => {
+    // Set authcontext set user as argument
     return API.getUserCard()
   }
 

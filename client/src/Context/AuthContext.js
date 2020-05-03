@@ -1,10 +1,15 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, {
+  createContext,
+  useState,
+  useEffect
+} from "react";
+
 import AuthService from "../Services/AuthService";
 
-export const AuthContext = createContext();
+export const AuthContext = createContext({user: {}, setUser: () => {}, isAuthenticated: {}, setIsAuthenticated: () => {}});
 
 export default ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -18,15 +23,12 @@ export default ({ children }) => {
 
   return (
     <div>
-      {!isLoaded ? (
-        <h1>Loading</h1>
-      ) : (
+     
         <AuthContext.Provider
           value={{ user, setUser, isAuthenticated, setIsAuthenticated }}
         >
           {children}
-        </AuthContext.Provider>
-      )}
+        </AuthContext.Provider>     
     </div>
   );
 };

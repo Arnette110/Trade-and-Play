@@ -23,7 +23,6 @@ module.exports = {
       .catch(err => res.status(422).json(err))
   },
   getUserCollection: function (req, res) {
-    console.log('you are in the backend getUserCollection fx')
     db.User
       .find({})
       .then(userModel => res.json(userModel[0].card))
