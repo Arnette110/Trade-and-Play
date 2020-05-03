@@ -61,7 +61,8 @@ export default function PlayerCardFront({data}) {
   return (
     <Card className={classes.root} style={{backgroundColor: currentTeam.colorPrimary, color: currentTeam.textPrimary}}>
       <CardHeader
-        style={{title: {color: currentTeam.textPrimary}, subheader: {color: currentTeam.textPrimary},}}
+        subheaderTypographyProps={{color: 'inherit'}}
+        style={{title: {color: currentTeam.textPrimary},}}
         avatar={
           <Avatar aria-label='rarity' className={classes.avatar}>
             <img src={Icons.find( ({ name }) => name === data.bio.currentTeam.name).src} 

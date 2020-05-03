@@ -49,6 +49,7 @@ export default function PlayerCardBack({data}) {
   return (
     <Card className={classes.root}style={{backgroundColor: currentTeam.colorSecondary, color: currentTeam.textSecondary}}>
       <CardHeader
+        subheaderTypographyProps={{color: 'inherit'}}
         avatar={
           <Avatar aria-label='rarity' className={classes.avatar}>
             <img src={Icons.find( ({ name }) => name === data.bio.currentTeam.name).src} 

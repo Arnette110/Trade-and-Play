@@ -80,13 +80,13 @@ export default function NestedGrid() {
   return (
     <div className={classes.root}>
       {/* <Swiper {...params}> */}
-      <Container>
-        <Grid container spacing={1}>
+      {/* <Container> */}
+        <Grid container spacing={0}>
           {apiData.cardData.map(el => {
-            return (<Grid item xs={12} md={6} lg={4}><CardFlip data={el} style={{ width: 300 }} key={el._id} /></Grid>)
+            return (<Grid item xs={12} md={6} lg={4} key={el._id}><CardFlip data={el} style={{ width: 300 }} /></Grid>)
           })}
         </Grid>
-      </Container>
+      {/* </Container> */}
       {/* </Swiper> */}
     </div>
   )
