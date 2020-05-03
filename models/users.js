@@ -22,7 +22,19 @@ var userSchema = new Schema({
     enum: ['user', 'admin'],
     required: true
   },
-  card: []
+  card: [],
+  firstPick: {
+    type: Number,
+    default: 10
+  },
+  thirdPick: {
+    type: Number,
+    default: 10
+  },
+  fifthPick: {
+    type: Number,
+    default: 10
+  }
 })
 
 userSchema.pre('save', function (next) {

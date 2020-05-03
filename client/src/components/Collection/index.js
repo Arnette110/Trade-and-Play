@@ -28,11 +28,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NestedGrid() {
   const classes = useStyles()
-
   const {user} = useContext(AuthContext);
 
     useEffect(() => {
-      console.log(user)
+      // console.log(user)
     }, [user]);
 
     useEffect(() => {
@@ -47,12 +46,12 @@ export default function NestedGrid() {
   }
 
   const getCollectionData = (res) => {
-    console.log(res.data)
+    // console.log(res.data)
     return API.getCardData(res.data)
   }
 
   const consoleLog = (res) => {
-    console.log(res.data)
+    // console.log(res.data)
   }
 
 

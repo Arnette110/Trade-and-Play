@@ -15,9 +15,8 @@ const useStyles = makeStyles({
     },
 });
 
-function Booster(props) {
+function Booster({ title, description, img, boosterType }) {
     const classes = useStyles();
-    const { title, description, img } = props
 
     return (
         <Card className={classes.root}>
@@ -42,9 +41,9 @@ function Booster(props) {
             <CardActions
                 style={{ justifyContent: 'space-evenly' }}
             >
-                <ConfirmDialog/>
+                <ConfirmDialog boosterType={boosterType}/>
                 <RosterDialog
-                    boosterType={props.boosterType}
+                    boosterType={boosterType}
                 />
             </CardActions>
         </Card>
