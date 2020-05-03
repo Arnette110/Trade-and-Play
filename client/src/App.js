@@ -17,6 +17,7 @@ import Home from './pages/Home'
 import SignupPage from './pages/SignupPage'
 import LoginPage from './pages/LoginPage'
 import Dashboard from './pages/Dashboard'
+import Draft from './pages/Draft'
 
 // import CardFlip from './pages/CardFlip'
 import PlayerCreate from './pages/PlayerCreate'
@@ -39,6 +40,7 @@ function App() {
         <PrivateRoute path='/dashboard' roles={['user', 'admin']}>
           <Dashboard />
         </PrivateRoute>
+        <Route exact path='/draft' component={Draft} />
         <Route exact path='/register' component={SignupPage} />
         <Route exact path='/login' component={LoginPage} />
         <Route exact path='/nomatch' component={NoMatch} />
