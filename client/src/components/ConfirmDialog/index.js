@@ -12,7 +12,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function ConfirmDialog({ label }) {
+export default function ConfirmDialog({ label, pick }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -23,8 +23,8 @@ export default function ConfirmDialog({ label }) {
     setOpen(false);
   };
 
-  const reducePick = () => {
-    API.reducePick({pickType: 'third'})
+  const reducePick = (pick) => {
+    API.reducePick({pickType: pick})
     setOpen(false)
   }
 
@@ -51,7 +51,7 @@ export default function ConfirmDialog({ label }) {
         <Button onClick={handleClose} size="medium" variant="contained" color="secondary">
             No
           </Button>
-          <Button onClick={reducePick} size="medium" variant="contained" color="primary">
+          <Button onClick={()=> reducePick({pick})} size="medium" variant="contained" color="primary">
             Yes
           </Button>
         </DialogActions>

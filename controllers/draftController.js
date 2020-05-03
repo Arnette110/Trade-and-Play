@@ -3,8 +3,8 @@ const db = require('../models')
 // Defining methods for the playerController
 module.exports = {
   reduce: function (req, res) {
-    console.log('in reduce method', req.body.pickType)
-    switch (req.body.pickType) {
+    console.log('in reduce method', req.body.pickType.pick)
+    switch (req.body.pickType.pick) {
       case 'first':
         db.User
           .findOneAndUpdate({}, { $inc: { firstPick: -1 } })
