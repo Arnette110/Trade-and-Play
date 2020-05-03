@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react'
+import API from '../utils/API'
 
 function Draft() {
 
     useEffect(() => {
-        console.log('useEffect: ')
-        // get 5 random players from Draft banner
-        
+        API.generateDraft()
+
     }, [])
     return (
         <div>
-            This is where drafting will happen
+            <p> Drafting Page</p>
         </div>
     )
 }

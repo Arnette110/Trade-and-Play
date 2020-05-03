@@ -51,7 +51,7 @@ export default function ConfirmDialog({ label, pick }) {
         <Button onClick={handleClose} size="medium" variant="contained" color="secondary">
             No
           </Button>
-          <Button onClick={()=> reducePick({pick})} size="medium" variant="contained" color="primary">
+          <Button onClick={()=> reducePick({pick})} href="/draft" size="medium" variant="contained" color="primary">
             Yes
           </Button>
         </DialogActions>
