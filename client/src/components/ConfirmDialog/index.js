@@ -6,6 +6,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
+import API from '../../utils/API'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -21,6 +22,11 @@ export default function ConfirmDialog({ label }) {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const reducePick = () => {
+    API.reducePick({pickType: 'third'})
+    setOpen(false)
+  }
 
   return (
     <div>
@@ -45,7 +51,7 @@ export default function ConfirmDialog({ label }) {
         <Button onClick={handleClose} size="medium" variant="contained" color="secondary">
             No
           </Button>
-          <Button href="/draft" size="medium" variant="contained" color="primary">
+          <Button onClick={reducePick} size="medium" variant="contained" color="primary">
             Yes
           </Button>
         </DialogActions>

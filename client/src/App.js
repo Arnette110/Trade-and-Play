@@ -40,7 +40,9 @@ function App() {
         <PrivateRoute path='/dashboard' roles={['user', 'admin']}>
           <Dashboard />
         </PrivateRoute>
-        <Route exact path='/draft' component={Draft} />
+        <PrivateRoute path='/draft' roles={['user', 'admin']}>
+          <Draft />
+        </PrivateRoute>
         <Route exact path='/register' component={SignupPage} />
         <Route exact path='/login' component={LoginPage} />
         <Route exact path='/nomatch' component={NoMatch} />
