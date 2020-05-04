@@ -43,25 +43,23 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   },
-  draftFive: function (req, res) {
-    console.log('in draftFive fx')
+  draftFive: async function (req, res) {
+    // console.log('in draftFive fx')
     const draftContent = []
+    const totalCards = db.PlayerStats.countDocuments().exec(function (err, count) {
+      if (err) {
+        console.log('error: ', err)
+      }
+      console.log(count)
+      return count
+    })
+    console.log(totalCards)
     for (let i = 0; i < 5; i++) {
-      db.PlayerStats.count().exec(function (err, count) {
-        if (err) {
-          console.log('error: ', err)
-        }
-        const random = Math.floor(Math.random() * count)
-        db.PlayerStats.findOne().skip(random).exec(
-          function (err, result) {
-            if (err) {
-              console.log('error: ', err)
-            }
-            draftContent.push(result)
-            console.log(result._id)
-          })
-      })
+      const random = Math.floor(Math.random() * totalCards)
+      await db.PlayerStats.findOne().skip(random)
+        .then(result => draftContent.push(result._id))
     }
-    console.log(draftContent)
+    console.log('draftContent: ', draftContent)
+    res.json(draftContent)
   }
 }

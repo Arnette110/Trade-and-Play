@@ -3,9 +3,22 @@ import API from '../utils/API'
 
 function Draft() {
 
-    useEffect(() => {
-        API.generateDraft()
+    const prepareDraft = () => {
+        const getDraft = () => {
+            return API.generateDraft()
+        }
+    
+        const consoleLog = (res) => {
+            console.log(res.data)
+        }
 
+        return getDraft()
+            .then(consoleLog)
+    }
+
+    useEffect(() => {
+        // API.generateDraft()
+        prepareDraft()
     }, [])
     return (
         <div>
