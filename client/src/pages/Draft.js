@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import API from '../utils/API'
+import CardFlip from '../pages/CardFlip';
 
 function Draft() {
     const [draftContent, setDraftContent] = useState(null)
@@ -23,7 +24,7 @@ function Draft() {
     }, [])
     return (
         <div>
-            <p> Drafting Page</p>
+            <CardFlip />
         </div>
     )
 }
