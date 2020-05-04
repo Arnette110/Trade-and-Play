@@ -5,6 +5,10 @@ import CardFlip from '../../pages/CardFlip';
 import API from '../../utils/API';
 import { AuthContext } from '../../Context/AuthContext'
 
+// import Swiper from 'react-id-swiper';
+import 'swiper/css/swiper.css'
+import { Grid, Container } from '@material-ui/core';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -24,9 +28,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-
+// const params = {
+//   slidesPerView: '3',
+//   spaceBetween: 0,
+//   centeredSlides: true,
+//   pagination: {
+//     el: '.swiper-pagination',
+//     clickable: true,
+//   }
+// }
 
 export default function NestedGrid() {
+  let [apiData, setApiData] = React.useState({
+    cardData: [],
+  })
   const classes = useStyles()
 
   const {user} = useContext(AuthContext);
@@ -52,15 +67,27 @@ export default function NestedGrid() {
   }
 
   const consoleLog = (res) => {
+    setApiData({ ...apiData, cardData: res.data })
     console.log(res.data)
   }
 
+  useEffect(() => {
+    getUserCollection()
+      .then(getCollectionData)
+      .then(consoleLog)
+  }, []);
 
   return (
     <div className={classes.root}>
-   
-      <CardFlip/>
-
+      {/* <Swiper {...params}> */}
+      {/* <Container> */}
+        <Grid container spacing={0}>
+          {apiData.cardData.map(el => {
+            return (<Grid item xs={12} md={6} lg={4} key={el._id}><CardFlip data={el} style={{ width: 300 }} /></Grid>)
+          })}
+        </Grid>
+      {/* </Container> */}
+      {/* </Swiper> */}
     </div>
   )
 }

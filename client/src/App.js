@@ -1,28 +1,31 @@
 // React
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom'
 // Components
 // import ButtonAppBar from './components/NavBar'
 import Collection from './components/Collection'
 // Material-ui
 
 // Pages
-import NoMatch from "./pages/NoMatch"
-import Home from "./pages/Home"
-import SignupPage from "./pages/SignupPage"
-import LoginPage from "./pages/LoginPage";
+import NoMatch from './pages/NoMatch'
+import Home from './pages/Home'
+import SignupPage from './pages/SignupPage'
+import LoginPage from './pages/LoginPage'
 import Dashboard from './pages/Dashboard'
 
 // import CardFlip from './pages/CardFlip'
 import PlayerCreate from './pages/PlayerCreate'
-import Packs from './pages/Packs'
 // Css
 import './App.css'
-import PrivateRoute from './hocs/PrivateRoute';
+import PrivateRoute from './hocs/PrivateRoute'
 // import UnPrivateRoute from './hocs/UnPrivateRoute';
 
 function App() {
-
   return (
     <Router>
       <div>

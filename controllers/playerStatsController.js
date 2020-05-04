@@ -23,28 +23,19 @@ module.exports = {
       .catch(err => res.status(422).json(err))
   },
   getUserCollection: function (req, res) {
-    console.log('you are in the backend getUserCollection fx')
     db.User
       .find({})
       .then(userModel => res.json(userModel[0].card))
   },
-  getCollectionData: function (req, res) {
+  getCollectionData: async function (req, res) {
     const cardDataArr = []
-    const collectionArray = req.body
-    collectionArray.map(el => {
-      // ID WILL NEED TO BE CHANGED TO _ID
-      const id = el
-      db.PlayerStats
-        .find({ id: id })
-        .then(cardData => {
-          cardDataArr.push(cardData)
-        })
-    })
-    // NEED TO RESOLVE .MAP BEFORE RETURNING JSON
-    setTimeout(() => { res.json(cardDataArr) }, 3000)
-    // .then(() => res.json(cardDataArr))
-    // .catch(err => res.status(422).json(err))
-    // setTimeout(() => { console.log('cardDataArr: ', cardDataArr) }, 3000)
+    for (let i = 0; i < req.body.length; i++) {
+      const id = req.body[i]
+      const pstats = await db.PlayerStats
+        .findOne({ id: id })
+      cardDataArr.push(pstats)
+    }
+    res.json(cardDataArr)
   },
   findByCode: function (req, res) {
     db.PlayerStats

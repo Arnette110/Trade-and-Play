@@ -52,7 +52,9 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
-    "react-card-flip": "^1.0.10"
+    "react-card-flip": "^1.0.10",
+    "react-id-swiper": "^3.0.0",
+    "swiper": "^5.3.8"
   },
   "bugs": {
     "url": "https://github.com/Arnette110/Trade-and-Play/issues"
