@@ -1,23 +1,24 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import API from '../utils/API'
 
 function Draft() {
+    const [draftContent, setDraftContent] = useState(null)
 
     const prepareDraft = () => {
         const getDraft = () => {
             return API.generateDraft()
         }
     
-        const consoleLog = (res) => {
+        const saveDraftToState = (res) => {
             console.log(res.data)
+            setDraftContent(res.data)
         }
 
         return getDraft()
-            .then(consoleLog)
+            .then(saveDraftToState)
     }
 
     useEffect(() => {
-        // API.generateDraft()
         prepareDraft()
     }, [])
     return (
