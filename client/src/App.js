@@ -15,6 +15,7 @@ import Home from './pages/Home'
 import SignupPage from './pages/SignupPage'
 import LoginPage from './pages/LoginPage'
 import Dashboard from './pages/Dashboard'
+import Draft from './pages/Draft'
 
 // import CardFlip from './pages/CardFlip'
 import PlayerCreate from './pages/PlayerCreate'
@@ -36,6 +37,11 @@ function App() {
           path={["/dashboard"]}
           roles={["user", "admin"]}
           component={Dashboard}
+        />
+        <PrivateRoute
+          path={['/draft']}
+          roles={['user', 'admin']}
+          component={Draft}
         />
         <Route exact path="/register" component={SignupPage} />
         <Route exact path="/login" component={LoginPage} />

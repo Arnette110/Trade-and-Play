@@ -42,5 +42,24 @@ module.exports = {
       .find({ 'bio.primaryPosition.type': req.params.code })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
+  },
+  draftFive: async function (req, res) {
+    console.log('rpp: ', req.params.position)
+    const draftContent = []
+    await db.PlayerStats.countDocuments({ 'bio.primaryPosition.type': req.params.position })
+      .then(async count => {
+        // console.log('count: ', count)
+        for (let i = 0; i < 5; i++) {
+          const random = Math.floor(Math.random() * count)
+          // console.log('random: ', random)
+          const finalArray = await db.PlayerStats.findOne({ 'bio.primaryPosition.type': req.params.position }).skip(random)
+            .then(result => {
+              return (result)
+            })
+          draftContent.push(finalArray)
+        }
+        // console.log('draftContent: ', draftContent)
+        res.json(draftContent)
+      })
   }
 }
