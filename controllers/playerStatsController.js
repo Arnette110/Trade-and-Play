@@ -26,14 +26,15 @@ module.exports = {
     // console.log('GUC username: ', req.params.username)
     db.User
       .find({ username: req.params.username })
+      .populate('card')
       .then(userModel => res.json(userModel[0].card))
   },
   getCollectionData: async function (req, res) {
     const cardDataArr = []
     for (let i = 0; i < req.body.length; i++) {
-      const id = req.body[i]
+      const _id = req.body[i]
       const pstats = await db.PlayerStats
-        .findOne({ id: id })
+        .findOne({ _id: _id })
       cardDataArr.push(pstats)
     }
     res.json(cardDataArr)
