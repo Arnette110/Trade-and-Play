@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
-import { AppBar, Tabs, Tab, Typography, Box, TextField, Container } from '@material-ui/core'
+import { AppBar, Tabs, Tab, Typography, Box } from '@material-ui/core'
 import Collection from '../Collection'
 import Packs from '../../pages/Packs'
 
@@ -58,14 +58,6 @@ const useStyles = makeStyles((theme) => ({
   },
   tabNav: {
     backgroundColor: '#212121',
-  },
-  search: {
-    width: '80vw',
-    
-  },
-  form: {
-    alignItems: 'center',
-    justifyContent: 'center'
   }
 }))
 
@@ -98,20 +90,6 @@ export default function NavTabs() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <Container>
-          <form className={classes.form}>
-            <div>
-              <TextField
-                className={classes.search}
-                id='outlined-search'
-                label='Search field'
-                type='search'
-                variant='outlined'
-              />
-            </div>
-          </form>
-        </Container>
-        <br/>
         <Collection />
       </TabPanel>
       <TabPanel value={value} index={1}>

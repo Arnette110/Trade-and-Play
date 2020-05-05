@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useContext, useEffect, useState } from 'react';
+import { makeStyles } from '@material-ui/styles';
 import CardFlip from '../../pages/CardFlip';
 // import ItemsCarousel from 'react-items-carousel';
 import API from '../../utils/API';
@@ -7,7 +7,7 @@ import { AuthContext } from '../../Context/AuthContext'
 
 // import Swiper from 'react-id-swiper';
 import 'swiper/css/swiper.css'
-import { Grid, Container } from '@material-ui/core';
+import { Grid, Container, TextField } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,11 +21,15 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
   },
   paper: {
-    padding: theme.spacing(0),
+    // padding: theme.spacing(0),
     textAlign: 'center',
     justifyContent: 'center',
-    color: theme.palette.text.secondary,
+    // color: theme.palette.text.secondary,
   },
+  search: {
+    backgroundColor: 'white',
+    textIndent: '5rem'
+  }
 }))
 
 // const params = {
@@ -39,9 +43,10 @@ const useStyles = makeStyles((theme) => ({
 // }
 
 export default function NestedGrid() {
-  let [apiData, setApiData] = React.useState({
+  let [apiData, setApiData] = useState({
     cardData: [],
   })
+  const [search, setSearch] = useState('')
   const classes = useStyles()
 
   const {user} = useContext(AuthContext);
@@ -77,17 +82,50 @@ export default function NestedGrid() {
       .then(consoleLog)
   }, []);
 
+  const findPlayers = apiData.cardData.filter((e) => {
+    return (
+      e.bio['fullName'].toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
+      e.bio.primaryPosition['name']
+        .toLowerCase()
+        .indexOf(search.toLowerCase()) !== -1 ||
+      e.bio.currentTeam['name']
+        .toLowerCase()
+        .indexOf(search.toLowerCase()) !== -1
+    )
+  })
+  const handleInputChange = event => {
+    setSearch(event.target.value)
+  }
+
   return (
     <div className={classes.root}>
-      {/* <Swiper {...params}> */}
-      {/* <Container> */}
-        <Grid container spacing={0}>
-          {apiData.cardData.map(el => {
-            return (<Grid item xs={12} md={6} lg={4} key={el._id}><CardFlip data={el} style={{ width: 300 }} /></Grid>)
-          })}
-        </Grid>
-      {/* </Container> */}
-      {/* </Swiper> */}
+      <Container>
+        <form className={classes.form}>
+          <div>
+            <TextField
+              fullWidth
+              className={classes.search}
+              id='outlined-search'
+              placeholder='Search'
+              type='search'
+              variant='filled'
+              value={search}
+              onChange={handleInputChange}
+              margin='normal'
+            />
+          </div>
+        </form>
+      </Container>
+      <br/>
+      <Grid container spacing={0}>
+        {findPlayers.map((el) => {
+          return (
+            <Grid item xs={12} md={6} lg={4} key={el._id}>
+              <CardFlip data={el} style={{ width: 300 }} />
+            </Grid>
+          )
+        })}
+      </Grid>
     </div>
   )
 }

@@ -4,11 +4,9 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect,
 } from 'react-router-dom'
 // Components
-// import ButtonAppBar from './components/NavBar'
-import Collection from './components/Collection'
+
 // Material-ui
 
 // Pages
@@ -33,9 +31,6 @@ function App() {
         <PrivateRoute exact path='/createplayer' roles={['admin']}>
           <PlayerCreate />
         </PrivateRoute>
-        {/* <PrivateRoute exact path='/collection' roles={['user', 'admin']}>
-          <Collection />
-        </PrivateRoute> */}
         <PrivateRoute path='/dashboard' roles={['user', 'admin']}>
           <Dashboard />
         </PrivateRoute>
