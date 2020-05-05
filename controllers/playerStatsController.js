@@ -23,8 +23,9 @@ module.exports = {
       .catch(err => res.status(422).json(err))
   },
   getUserCollection: function (req, res) {
+    // console.log('GUC username: ', req.params.username)
     db.User
-      .find({})
+      .find({ username: req.params.username })
       .then(userModel => res.json(userModel[0].card))
   },
   getCollectionData: async function (req, res) {
