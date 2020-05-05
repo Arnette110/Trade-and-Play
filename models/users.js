@@ -44,8 +44,7 @@ var userSchema = new Schema({
   },
   profileImage: {
     type: String
-  },
-  card: []
+  }
 })
 
 userSchema.pre('save', function (next) {
