@@ -13,7 +13,7 @@ router.route('/collection')
   .get(playerStatsController.getUserCollection)
   .post(playerStatsController.getCollectionData)
 
-router.route('/draft/first')
+router.route('/draft/first/:position')
   .get(playerStatsController.draftFive)
 
 router.route('/draft/:code')

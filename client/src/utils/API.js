@@ -34,8 +34,8 @@ export default {
     // console.log('in reducePick')
     return axios.post("/api/draft/", draftPick)
   },
-  generateDraft: function () {
+  generateDraft: function (position) {
     console.log('in generateDraft')
-    return axios.get("/api/playerstats/draft/first")
+    return axios.get("/api/playerstats/draft/first/" + position)
   }
 };
