@@ -2,13 +2,11 @@
 import React from 'react'
 import {
   BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
+  Route
 } from 'react-router-dom'
 // Components
 // import ButtonAppBar from './components/NavBar'
-import Collection from './components/Collection'
+// import Collection from './components/Collection'
 // Material-ui
 
 // Pages
@@ -23,7 +21,6 @@ import PlayerCreate from './pages/PlayerCreate'
 // Css
 import './App.css'
 import PrivateRoute from './hocs/PrivateRoute'
-// import UnPrivateRoute from './hocs/UnPrivateRoute';
 
 function App() {
   return (
@@ -34,11 +31,6 @@ function App() {
           path="/createplayer"
           roles={["admin"]}
           component={PlayerCreate}
-        />
-        <PrivateRoute
-          path={["/collection"]}
-          roles={["user", "admin"]}
-          component={Collection}
         />
         <PrivateRoute
           path={["/dashboard"]}

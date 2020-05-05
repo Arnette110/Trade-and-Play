@@ -5,6 +5,7 @@ import React, {
 } from "react";
 
 import AuthService from "../Services/AuthService";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 export const AuthContext = createContext({user: {}, setUser: () => {}, isAuthenticated: {}, setIsAuthenticated: () => {}});
 
@@ -24,7 +25,7 @@ export default ({ children }) => {
   return (
     <div>
       {!isLoaded ? (
-        <h1>Loading</h1>
+        <CircularProgress/>
       ) : (
         <AuthContext.Provider
           value={{ user, setUser, isAuthenticated, setIsAuthenticated }}
