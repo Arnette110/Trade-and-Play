@@ -28,6 +28,7 @@ function Draft(props) {
     return (
         <div>
             {draftContent.map( el => {
+                // new component that contains Cardflip and button
                 return <CardFlip data={el}/>
             })}
         </div>

@@ -21,8 +21,8 @@ export default {
   findAll: function () {
     return axios.get("/api/playerstats/all")
   },
-  getUserCard: function () {
-    return axios.get("/api/playerstats/collection")
+  getUserCard: function (username) {
+    return axios.get("/api/playerstats/collection/" + username)
   },
   getCardData: function (arr) {
     return axios.post("/api/playerstats/collection", arr)
