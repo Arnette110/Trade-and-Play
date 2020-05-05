@@ -4,12 +4,16 @@ function Jumbotron({ children }) {
   return (
     <div
       style={{
-        height: '200',
+        height: '100vh',
+        width: '100vw',
         clear: 'both',
-        paddingTop: 120,
-        paddingBottom: 120,
+        margin: 'auto',
+        paddingTop: 30,
+        paddingBottom: 100,
         textAlign: 'center',
-        backgroundColor: 'lightblue',
+        backgroundColor: '#131313',
+        color: 'white',
+        borderRadius: '0'
       }}
       className='jumbotron'>
       {children}

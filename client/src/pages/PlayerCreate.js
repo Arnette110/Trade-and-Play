@@ -21,16 +21,19 @@ const PlayerCreate = () => {
     const getBio = () => {
       return API.getBio(form.playerId)
     }
-    
+
     const getStats = res => {
       response.bio = res.data.people[0];
       return API.getStats(form.playerId, form.season);
     }
-  
+
     const setPlayerInfoToState = (res) => {
       response.stats = res.data.stats[0].splits[0];
       response.stats.id = form.playerId
-      setForm({...form, bioObj: response.bio, statsObj: response.stats})
+      // converts API season to have a hyphen
+      let newSeasonStr = response.stats.season.slice(0, 4) + '-' + response.stats.season.slice(4, 8)
+      response.stats.season = newSeasonStr
+      setForm({ ...form, bioObj: response.bio, statsObj: response.stats })
     }
 
     return getBio()
@@ -49,30 +52,25 @@ const PlayerCreate = () => {
   }
 
   const emptyStateObjs = () => {
-    setForm({...form, bioObj: {}, statsObj: {}})
+    setForm({ ...form, bioObj: {}, statsObj: {} })
   }
 
   const handleSubmitToDb = async () => {
-    let statCheck = await API.findPlayerStats({id: form.statsObj.id, season: form.statsObj.season})
-    let bioCheck = await API.findPlayerBio({id: form.statsObj.id})
+    let statCheck = await API.findPlayerStats({ id: form.statsObj.id, season: form.statsObj.season })
     if (statCheck.data === null) {
       console.log('Stat DO NOT EXIST in the database')
-      API.savePlayerStats(form.statsObj)
-      if (bioCheck.data) {
-        console.log('Bio EXIST in the database')
-      }
-      else {
-        console.log('Stats DO NOT EXIST in the database')
-        API.savePlayerBio(form.bioObj)
-      }
+      let combinedStatsAndBio = form.statsObj
+      combinedStatsAndBio.bio = form.bioObj
+      console.log('cmbS&B: ', combinedStatsAndBio)
+      API.savePlayerStats(combinedStatsAndBio)
     }
     else {
-      console.log('Player & Stats EXIST in the database')
+      console.log('Stats EXIST in the database')
     }
     emptyStateObjs()
   }
 
-  const isObjEmpty = (statsObj, bioObj ) => {
+  const isObjEmpty = (statsObj, bioObj) => {
     if (Object.keys(statsObj).length === 0 || Object.keys(bioObj).length === 0) {
       return true
     }
@@ -90,7 +88,7 @@ const PlayerCreate = () => {
             <TextField id="standard-basic" label="Season" onChange={handleInputChange} name="season" helperText="Example: 20182019" required />
             <Button variant="contained" onClick={handleFormSubmit}>Search for Player Data</Button>
             <Button variant="contained" onClick={handleSubmitToDb}
-            disabled={isObjEmpty(form.statsObj, form.bioObj) ? true : false }
+              disabled={isObjEmpty(form.statsObj, form.bioObj) ? true : false}
             >Add Player to DB</Button>
           </form>
         </Grid>
@@ -107,5 +105,5 @@ const PlayerCreate = () => {
     </Container>
   )
 }
-
+//
 export default PlayerCreate;

@@ -3,21 +3,23 @@ import ReactCardFlip from 'react-card-flip'
 import PlayerCardFront from '../components/CardFront'
 import PlayerCardBack from '../components/CardBack'
 
-const CardFlip = () => {
+const CardFlip = (props) => {
   const [isFlipped, setIsFlipped] = useState(false)
-
+  // console.log("Backside data in CardFlip: ", props.backsideData);
+  // console.log("Data in CardFlip: ", props.data);
+  // props.backsideData.stats etc.
   const handleHover = () => {
     setIsFlipped(!isFlipped)
   }
   return (
 
-    <ReactCardFlip containerStyle={{width:'100%', maxWidth: 350}} isFlipped={isFlipped} flipDirection='horizontal'>
+    <ReactCardFlip containerStyle={{width:300, margin: 0, maxWidth: 300, display: 'inline-block',}} isFlipped={isFlipped} flipDirection='horizontal'>
       <div onClick={handleHover}>
-        <PlayerCardFront />
+        <PlayerCardFront data={props.data}/>
       </div>
 
       <div onClick={handleHover}>
-        <PlayerCardBack />
+        <PlayerCardBack data={props.data} />
       </div>
     </ReactCardFlip>
   )
