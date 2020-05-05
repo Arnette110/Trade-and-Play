@@ -2,11 +2,11 @@
 import React from 'react'
 import {
   BrowserRouter as Router,
-  Route,
-  Switch,
+  Route
 } from 'react-router-dom'
 // Components
-
+// import ButtonAppBar from './components/NavBar'
+// import Collection from './components/Collection'
 // Material-ui
 
 // Pages
@@ -21,25 +21,56 @@ import PlayerCreate from './pages/PlayerCreate'
 // Css
 import './App.css'
 import PrivateRoute from './hocs/PrivateRoute'
-// import UnPrivateRoute from './hocs/UnPrivateRoute';
 
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route exact path={['/', '/home']} component={Home} />
-        <PrivateRoute exact path='/createplayer' roles={['admin']}>
-          <PlayerCreate />
-        </PrivateRoute>
-        <PrivateRoute path='/dashboard' roles={['user', 'admin']}>
-          <Dashboard />
-        </PrivateRoute>
-        <Route exact path='/register' component={SignupPage} />
-        <Route exact path='/login' component={LoginPage} />
-        <Route exact path='/nomatch' component={NoMatch} />
-      </Switch>
+      <div>
+        <Route exact path={["/", "/home"]} component={Home} />
+        <PrivateRoute
+          path="/createplayer"
+          roles={["admin"]}
+          component={PlayerCreate}
+        />
+        <PrivateRoute
+          path={["/dashboard"]}
+          roles={["user", "admin"]}
+          component={Dashboard}
+        />
+        <Route exact path="/register" component={SignupPage} />
+        <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/nomatch" component={NoMatch} />
+      </div>
     </Router>
-  )
+
+    // <Router>
+    //   <div>
+    //     <Switch>
+    //       <Route exact path={["/", "/home"]} component={Home} />
+    //       <PrivateRoute path="/createplayer" roles={["admin"]}>
+    //         <PlayerCreate />
+    //       </PrivateRoute>
+    //       <PrivateRoute
+    //         exact
+    //         path="/collection"
+    //         roles={["user", "admin"]}
+    //         component={Collection}
+    //       />
+    //       <PrivateRoute
+    //         exact
+    //         path="/dashboard"
+    //         roles={["user", "admin"]}
+    //         component={Dashboard}
+    //       />
+    //       {/* <Dashboard />
+    //       </PrivateRoute> */}
+    //       <Route exact path="/register" component={SignupPage} />
+    //       <Route exact path="/login" component={LoginPage} />
+    //       <Route exact path="/nomatch" component={NoMatch} />
+    //     </Switch>
+    //   </div>
+    // </Router>
+  );
 }
 
 export default App

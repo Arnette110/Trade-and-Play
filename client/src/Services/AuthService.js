@@ -1,6 +1,6 @@
 export default {
   login: user => {
-    console.log(user);
+    // console.log(user);
     return fetch("/user/login", {
       method: "post",
       body: JSON.stringify(user),
