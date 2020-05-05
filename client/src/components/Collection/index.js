@@ -57,7 +57,7 @@ export default function NestedGrid() {
     useEffect(() => {
       getUserCollection()
         .then(getCollectionData)
-        .then(consoleLog);
+        .then(saveDraftToState);
     }, [])
 
   const getUserCollection = () => {
@@ -70,15 +70,15 @@ export default function NestedGrid() {
     return API.getCardData(res.data)
   }
 
-  const consoleLog = (res) => {
+  const saveDraftToState = (res) => {
     setApiData({ ...apiData, cardData: res.data })
-    console.log(res.data)
+    // console.log(res.data)
   }
 
   useEffect(() => {
     getUserCollection()
       .then(getCollectionData)
-      .then(consoleLog)
+      .then(saveDraftToState)
   }, []);
 
   const findPlayers = apiData.cardData.filter((e) => {
