@@ -5,7 +5,7 @@ import { withRouter } from "react-router-dom";
 
 
 function Draft(props) {
-    const [draftContent, setDraftContent] = useState(null)
+    const [draftContent, setDraftContent] = useState([])
     const prepareDraft = (position) => {
         const getDraft = (position) => {
             return API.generateDraft(position)
@@ -23,10 +23,13 @@ function Draft(props) {
     useEffect(() => {
         console.log('props: ', props.location.state.boosterType)
         prepareDraft(props.location.state.boosterType)
+        console.log('draftContent: ', draftContent)
     }, [])
     return (
         <div>
-            <CardFlip />
+            {draftContent.map( el => {
+                return <CardFlip data={el}/>
+            })}
         </div>
     )
 }
