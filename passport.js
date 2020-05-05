@@ -28,7 +28,7 @@ passport.use(new JwtStrategy({
   })
 }))
 
-// authentication local strategy using email and password
+// authentication local strategy using username and password
 passport.use(new LocalStrategy((username, password, done) => {
   User.findOne({ username }, (err, user) => {
     // Something went wrong with db

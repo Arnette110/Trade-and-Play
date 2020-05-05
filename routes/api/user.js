@@ -29,7 +29,7 @@ userRouter.post('/register', (req, res) => {
       res
         .status(400)
         .json({
-          message: { msgBody: 'Email is already taken', msgError: true }
+          message: { msgBody: 'Username is already taken', msgError: true }
         })
     } else {
       const newUser = new User({ username, password, role })

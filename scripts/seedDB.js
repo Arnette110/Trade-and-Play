@@ -1453,8 +1453,9 @@ const userSeed = [{
     email: 'Email',
     username: 'Username',
     password: 'Password',
-    resetPasswordToken: 'resetPasswordToken'
+    resetPasswordToken: 'resetPasswordToken',
     // resetPasswordExpires: Date
+    role: 'admin'
   },
   card: [8474600, 8476945]
 }]
