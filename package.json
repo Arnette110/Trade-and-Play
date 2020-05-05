@@ -48,6 +48,7 @@
     "moment": "^2.24.0",
     "mongoose": "^5.9.7",
     "nba-api-client": "^1.0.9",
+    "react-avatar": "^3.9.3",
     "react-card-flip": "^1.0.10",
     "react-text-mask": "^5.4.3"
   },
