@@ -9,16 +9,23 @@ var userSchema = new Schema({
     min: 6,
     max: 15
   },
-  // email: {
-  //   type: String,
-  //   required: true
-  // },
+  firstname: {
+    type: String
+  },
+  lastname: {
+    type: String
+  },
+  email: {
+    type: String,
+    match: [/.+@.+\..+/, 'Please enter a valid e-mail address']
+  },
   password: {
     type: String,
     required: true
   },
   role: {
     type: String,
+    default: 'user',
     enum: ['user', 'admin'],
     required: true
   },
@@ -34,7 +41,11 @@ var userSchema = new Schema({
   fifthPick: {
     type: Number,
     default: 10
-  }
+  },
+  profileImage: {
+    type: String
+  },
+  card: []
 })
 
 userSchema.pre('save', function (next) {
