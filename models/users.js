@@ -29,7 +29,7 @@ var userSchema = new Schema({
     enum: ['user', 'admin'],
     required: true
   },
-  card: [],
+  card: [{ type: Schema.Types.ObjectId, ref: 'PlayerStats' }],
   firstPick: {
     type: Number,
     default: 10

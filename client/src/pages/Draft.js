@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import API from '../utils/API'
-import CardFlip from '../pages/CardFlip';
+import DraftSelect from '../components/DraftSelect/DraftSelect'
 import { withRouter } from "react-router-dom";
+import { Grid } from '@material-ui/core'
 
 
 function Draft(props) {
@@ -10,7 +11,7 @@ function Draft(props) {
         const getDraft = (position) => {
             return API.generateDraft(position)
         }
-    
+
         const saveDraftToState = (res) => {
             console.log('res.data: ', res.data)
             setDraftContent(res.data)
@@ -26,11 +27,16 @@ function Draft(props) {
         console.log('draftContent: ', draftContent)
     }, [])
     return (
-        <div>
-            {draftContent.map( el => {
-                return <CardFlip data={el}/>
+        <Grid container>
+            {draftContent.map(el => {
+                // new component that contains Cardflip and button
+                return (
+                    <Grid item xs={12} md={6} lg={4} key={el._id}>
+                        <DraftSelect data={el} />
+                    </Grid>
+                )
             })}
-        </div>
+        </Grid>
     )
 }
 export default withRouter(Draft)

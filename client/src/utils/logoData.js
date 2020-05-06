@@ -178,7 +178,7 @@ const Icons = [
     },
     {
         id: 16,
-        name: "Montreal Canadiens",
+        name: "Montréal Canadiens",
         src: "https://content.sportslogos.net/logos/1/16/thumbs/124.gif",
         colorPrimary: '#AF1E2D',
         colorSecondary: '#192168',
