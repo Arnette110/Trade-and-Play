@@ -50,12 +50,6 @@ function Booster({ title, description, img, boosterType }) {
                     <Grid item xs={12} style={{marginBottom: 10}}>
                         <ConfirmDialog label='First Round Draft' pick='first' boosterType={boosterType} />
                     </Grid>
-                    {/* <Grid item xs={12} style={{marginBottom: 10}}>
-                        <ConfirmDialog label='Third Round Draft' pick='third'/>
-                    </Grid>
-                    <Grid item xs={12} style={{marginBottom: 10}}>
-                        <ConfirmDialog label='Fifth Round Draft' pick='fifth'/>
-                    </Grid> */}
                 </Grid>
             </CardActions>
         </Card>
