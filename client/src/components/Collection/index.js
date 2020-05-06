@@ -32,16 +32,6 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-// const params = {
-//   slidesPerView: '3',
-//   spaceBetween: 0,
-//   centeredSlides: true,
-//   pagination: {
-//     el: '.swiper-pagination',
-//     clickable: true,
-//   }
-// }
-
 export default function NestedGrid() {
   let [apiData, setApiData] = useState({
     cardData: [],
@@ -106,6 +96,7 @@ export default function NestedGrid() {
               value={search}
               onChange={handleInputChange}
               margin='normal'
+              disableUnderline
             />
           </div>
         </form>
