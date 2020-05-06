@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import { AppBar, Tabs, Tab, Typography, Box } from '@material-ui/core'
 import Collection from '../Collection'
 import Packs from '../../pages/Packs'
+import { AuthContext } from '../../Context/AuthContext'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -58,12 +59,13 @@ const useStyles = makeStyles((theme) => ({
   },
   tabNav: {
     backgroundColor: '#212121',
-  }
+  },
 }))
 
 export default function NavTabs() {
   const classes = useStyles()
   const [value, setValue] = React.useState(0)
+  const { user } = useContext(AuthContext)
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
@@ -78,7 +80,7 @@ export default function NavTabs() {
           onChange={handleChange}
           aria-label='nav tabs example'>
           <LinkTab
-            label='{user name goes here} dream team'
+            label={`${user.username}'s dream team`}
             href='/collection'
             {...a11yProps(0)}
           />
