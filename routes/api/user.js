@@ -160,4 +160,12 @@ userRouter.get(
   }
 )
 
+userRouter.post('/', (req, res) => {
+  console.log(req.body)
+  User.findOneAndUpdate({ _id: req.body._id }, { $set: { favoriteTeam: req.body.favoriteTeam, bio: req.body.bio } })
+    .then(dbModel => console.log(dbModel))
+}
+
+)
+
 module.exports = userRouter
