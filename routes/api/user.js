@@ -29,7 +29,7 @@ userRouter.post('/register', (req, res) => {
       res
         .status(400)
         .json({
-          message: { msgBody: 'Email is already taken', msgError: true }
+          message: { msgBody: 'Username is already taken', msgError: true }
         })
     } else {
       const newUser = new User({ username, password, role })
@@ -165,8 +165,6 @@ userRouter.post('/', (req, res) => {
   console.log(req.body)
   User.findOneAndUpdate({ _id: req.body._id }, { $set: { favoriteTeam: req.body.favoriteTeam, bio: req.body.bio } })
     .then(dbModel => console.log(dbModel))
-}
-
+  }
 )
-
 module.exports = userRouter

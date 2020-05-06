@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import {  Paper, Container, FormControl, InputLabel, Input, Button } from '@material-ui/core'
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { makeStyles } from '@material-ui/core/styles'
 import AuthService from '../Services/AuthService'
 import Message from '../components/Message'
@@ -25,14 +26,14 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   form: {
-    width: '100vw',
+    width: '50vw',
     maxWidth: '80%'
   }
   
 }))
 
 const SignupPage = (props) => {
-  const [user, setUser] = useState({ username: '', password: '', role: 'user' })
+  const [user, setUser] = useState({ username: '', password: '', role: 'admin' })
   const [message, setMessage] = useState(null)
   let timerID = useRef(null)
 
@@ -73,48 +74,41 @@ const SignupPage = (props) => {
       <Container>
         <form onSubmit={onSubmit}>
           <Paper>
+            <AccountCircleIcon fontSize="large" style={{marginTop: "40px"}} />
             <h3>Please Register</h3>
             <FormControl fullWidth className={classes.form}>
-              <InputLabel htmlFor='username'>Username</InputLabel>
+              <InputLabel htmlFor="username">Username</InputLabel>
               <Input
-                id='username'
-                type='text'
-                name='username'
+                id="username"
+                type="text"
+                name="username"
                 value={user.username}
                 onChange={onChange}
-                placeholder='Enter Username'
+                placeholder="Enter Username"
               />
             </FormControl>
             <FormControl fullWidth className={classes.form}>
-              <InputLabel htmlFor='password'>Password</InputLabel>
+              <InputLabel htmlFor="password">Password</InputLabel>
               <Input
-                id='password'
-                type='password'
-                name='password'
+                id="password"
+                type="password"
+                name="password"
                 value={user.password}
                 onChange={onChange}
-                placeholder='Enter Password'
+                placeholder="Enter Password"
               />
             </FormControl>
-            {/* <FormControl fullWidth className={classes.form}>
-              <InputLabel htmlFor='role'>Role</InputLabel>
-              <Input
-                id='role'
-                type='text'
-                name='role'
-                value={user.role}
-                onChange={onChange}
-                placeholder='Enter role (admin/user)'
-              />
-            </FormControl> */}
             <br />
-            <Button className={classes.button} type='submit'>
+            <Button className={classes.button} type="submit">
               Register
             </Button>
             <p>
-              Already have a account?{' '}
-              <Button variant='text' href='/login' style={{ color: 'blue' }}>
+              Already have a account?{" "}
+              <Button variant="text" href="/login" style={{ color: "blue" }}>
                 sign-in
+              </Button>
+              <Button variant="text" href="/home" style={{ color: "blue" }}>
+                Home
               </Button>
             </p>
           </Paper>
@@ -122,7 +116,7 @@ const SignupPage = (props) => {
         </form>
       </Container>
     </Jumbotron>
-  )
+  );
 }
 
 export default SignupPage
