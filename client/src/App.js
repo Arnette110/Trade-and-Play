@@ -30,9 +30,11 @@ import {
 const theme = createMuiTheme({
   palette: {
     primary: {
+      //red
       main: 'rgb(235,36,39)',
     },
     secondary: {
+      //yellow
       main: 'rgb(255,184,28)',
     },
     info: {
@@ -46,7 +48,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <Switch>
-          <Route exact path={['/', '/home']} component={Home} color='primary' />
+          <Route exact path={['/', '/home']} component={Home} />
           <PrivateRoute
             exact
             path='/createplayer'
