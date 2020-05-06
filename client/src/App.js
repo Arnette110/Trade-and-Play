@@ -51,34 +51,6 @@ function App() {
         <Route exact path="/nomatch" component={NoMatch} />
       </div>
     </Router>
-
-    // <Router>
-    //   <div>
-    //     <Switch>
-    //       <Route exact path={["/", "/home"]} component={Home} />
-    //       <PrivateRoute path="/createplayer" roles={["admin"]}>
-    //         <PlayerCreate />
-    //       </PrivateRoute>
-    //       <PrivateRoute
-    //         exact
-    //         path="/collection"
-    //         roles={["user", "admin"]}
-    //         component={Collection}
-    //       />
-    //       <PrivateRoute
-    //         exact
-    //         path="/dashboard"
-    //         roles={["user", "admin"]}
-    //         component={Dashboard}
-    //       />
-    //       {/* <Dashboard />
-    //       </PrivateRoute> */}
-    //       <Route exact path="/register" component={SignupPage} />
-    //       <Route exact path="/login" component={LoginPage} />
-    //       <Route exact path="/nomatch" component={NoMatch} />
-    //     </Switch>
-    //   </div>
-    // </Router>
   );
 }
 
