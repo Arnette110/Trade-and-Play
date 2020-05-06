@@ -155,8 +155,16 @@ userRouter.get(
   '/authenticated',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    const { _id, username, role } = req.user
-    res.status(200).json({ isAuthenticated: true, user: { _id, username, role } })
+    console.log(req)
+    const { _id, username, role, bio, favoriteTeam } = req.user
+    res.status(200).json({ isAuthenticated: true, user: { _id, username, role, bio, favoriteTeam } })
+  }
+)
+
+userRouter.post('/', (req, res) => {
+  console.log(req.body)
+  User.findOneAndUpdate({ _id: req.body._id }, { $set: { favoriteTeam: req.body.favoriteTeam, bio: req.body.bio } })
+    .then(dbModel => console.log(dbModel))
   }
 )
 module.exports = userRouter

@@ -19,6 +19,7 @@ import Draft from './pages/Draft'
 
 // import CardFlip from './pages/CardFlip'
 import PlayerCreate from './pages/PlayerCreate'
+import Profile from './pages/Profile'
 // Css
 import './App.css'
 import PrivateRoute from './hocs/PrivateRoute'
@@ -43,6 +44,8 @@ function App() {
           roles={['user', 'admin']}
           component={Draft}
         />
+           <Route exact path={["/profile"]}><Profile />
+          </Route>
         <Route exact path="/register" component={SignupPage} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/nomatch" component={NoMatch} />

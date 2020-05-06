@@ -1460,7 +1460,9 @@ const userSeed = [{
   card: [8474600, 8476945],
   firstPick: 100,
   thirdPick: 100,
-  fifthPick: 100
+  fifthPick: 100,
+  favoriteTeam: '',
+  bio: ''
 }]
 
 db.User.remove({})

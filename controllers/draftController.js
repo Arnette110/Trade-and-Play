@@ -3,7 +3,7 @@ const db = require('../models')
 // Defining methods for the playerController
 module.exports = {
   reduce: function (req, res) {
-    console.log('in reduce method', req.body.pickType.pick)
+    // console.log('in reduce method', req.body.pickType.pick)
     switch (req.body.pickType.pick) {
       case 'first':
         db.User
@@ -24,5 +24,12 @@ module.exports = {
           .catch(err => res.status(422).json(err))
         break
     }
+  },
+  pushToCollection: function (req, res) {
+    const userId = req.body.user_id
+    const cardId = req.body.card
+    db.User
+      .findOneAndUpdate({ _id: userId }, { $push: { card: cardId } })
+      .then(dbModel => res.status(200).json(dbModel))
   }
 }
