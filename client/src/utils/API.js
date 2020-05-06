@@ -21,8 +21,8 @@ export default {
   findAll: function () {
     return axios.get("/api/playerstats/all")
   },
-  getUserCard: function () {
-    return axios.get("/api/playerstats/collection")
+  getUserCard: function (username) {
+    return axios.get("/api/playerstats/collection/" + username)
   },
   getCardData: function (arr) {
     return axios.post("/api/playerstats/collection", arr)
@@ -30,4 +30,12 @@ export default {
   findAllbyCode: function (code) {
     return axios.get("/api/playerstats/draft/" + code)
   },
+  reducePick: function (draftPick) {
+    // console.log('in reducePick')
+    return axios.post("/api/draft/", draftPick)
+  },
+  generateDraft: function (position) {
+    console.log('in generateDraft')
+    return axios.get("/api/playerstats/draft/first/" + position)
+  }
 };

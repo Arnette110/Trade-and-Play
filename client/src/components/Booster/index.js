@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardActionArea, CardActions, CardContent, Typography } from '@material-ui/core';
+import { Card, CardActionArea, CardActions, CardContent, Typography, Grid, Button } from '@material-ui/core';
 import ConfirmDialog from '../ConfirmDialog'
 import RosterDialog from '../RosterDialog'
 
@@ -15,9 +15,8 @@ const useStyles = makeStyles({
     },
 });
 
-function Booster(props) {
+function Booster({ title, description, img, boosterType }) {
     const classes = useStyles();
-    const { title, description, img } = props
 
     return (
         <Card className={classes.root}>
@@ -42,10 +41,22 @@ function Booster(props) {
             <CardActions
                 style={{ justifyContent: 'space-evenly' }}
             >
-                <ConfirmDialog/>
-                <RosterDialog
-                    boosterType={props.boosterType}
-                />
+                <Grid container>
+                    <Grid item xs={12} style={{marginBottom: 10}}>
+                        <RosterDialog
+                            boosterType={boosterType}
+                        />
+                    </Grid>
+                    <Grid item xs={12} style={{marginBottom: 10}}>
+                        <ConfirmDialog label='First Round Draft' pick='first' boosterType={boosterType} />
+                    </Grid>
+                    {/* <Grid item xs={12} style={{marginBottom: 10}}>
+                        <ConfirmDialog label='Third Round Draft' pick='third'/>
+                    </Grid>
+                    <Grid item xs={12} style={{marginBottom: 10}}>
+                        <ConfirmDialog label='Fifth Round Draft' pick='fifth'/>
+                    </Grid> */}
+                </Grid>
             </CardActions>
         </Card>
     );

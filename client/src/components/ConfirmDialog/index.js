@@ -6,13 +6,17 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
+import API from '../../utils/API'
+import { Redirect } from "react-router-dom";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function ConfirmDialog() {
+function ConfirmDialog({ label, pick, boosterType }) {
+  console.log('in confirm, boostertype: ', boosterType)
   const [open, setOpen] = React.useState(false);
+  const [displayDraft, setDisplayDraft] = React.useState(false)
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -22,10 +26,17 @@ export default function ConfirmDialog() {
     setOpen(false);
   };
 
+  const reducePick = (pick) => {
+    API.reducePick({pickType: pick})
+    setOpen(false)
+  }
+  if (displayDraft) {
+    return <Redirect to={{pathname: "/draft", state: {boosterType: boosterType}}}/>
+  }
   return (
     <div>
-      <Button variant="contained" color="primary" onClick={handleClickOpen}>
-        Draft Now
+      <Button variant="contained" color="primary" onClick={handleClickOpen} style={{width: '100%'}}>
+        {label}
       </Button>
       <Dialog
         open={open}
@@ -45,7 +56,10 @@ export default function ConfirmDialog() {
         <Button onClick={handleClose} size="medium" variant="contained" color="secondary">
             No
           </Button>
-          <Button onClick={handleClose} size="medium" variant="contained" color="primary">
+          <Button onClick={()=> {
+            reducePick({pick})
+            setDisplayDraft(true)
+            }} size="medium" variant="contained" color="primary">
             Yes
           </Button>
         </DialogActions>
@@ -53,3 +67,4 @@ export default function ConfirmDialog() {
     </div>
   );
 }
+export default ConfirmDialog

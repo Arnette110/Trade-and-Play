@@ -51,6 +51,19 @@ function CustomizedDialogs({ boosterType }) {
     bios: []
   });
 
+  const generateRoster = (positionType) => {
+    const getRoster = (positionType) => {
+      return API.findAllbyCode(positionType)
+    }
+    
+    const setRosterToState = (res) => {
+      setRoster({...roster, bios: res.data})
+    }
+    
+    return getRoster(positionType)
+    .then(setRosterToState)
+  }
+  
   const handleClickOpen = (positionType) => {
     setOpen(true);
     generateRoster(positionType)
@@ -58,29 +71,10 @@ function CustomizedDialogs({ boosterType }) {
   const handleClose = () => {
     setOpen(false);
   };
-
-  const generateRoster = (positionType) => {
-    const getRoster = (positionType) => {
-      return API.findAllbyCode(positionType)
-    }
-    //get team abbreviation
-    
-    //get stats
-
-    
-    const setRosterToState = (res) => {
-      // console.log('r.s: ', res.data)
-      setRoster({...roster, bios: res.data})
-    }
-    
-    return getRoster(positionType)
-      .then(setRosterToState)
-  }
   
-
   return (
     <div>
-      <Button variant="contained" color="primary" onClick={() => handleClickOpen(boosterType)}>
+      <Button variant="contained" color="primary" onClick={() => handleClickOpen(boosterType)} style={{width: '100%'}}>
         View Roster
       </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
@@ -88,7 +82,6 @@ function CustomizedDialogs({ boosterType }) {
           Roster
         </DialogTitle>
         <DialogContent dividers style={{ minWidth: '300px' }}>
-        {/* Map array of players to generate RosterLIs */}
         {roster.bios.map(el=>{
           return (
             <List key={el._id}>

@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const SignupPage = (props) => {
-  const [user, setUser] = useState({ username: '', password: '', role: '' })
+  const [user, setUser] = useState({ username: '', password: '', role: 'user' })
   const [message, setMessage] = useState(null)
   let timerID = useRef(null)
 
@@ -47,7 +47,7 @@ const SignupPage = (props) => {
   }
 
   const resetForm = () => {
-    setUser({ username: '', password: '', role: '' })
+    setUser({ username: '', password: '' })
   }
 
   const onSubmit = (e) => {
@@ -96,7 +96,7 @@ const SignupPage = (props) => {
                 placeholder='Enter Password'
               />
             </FormControl>
-            <FormControl fullWidth className={classes.form}>
+            {/* <FormControl fullWidth className={classes.form}>
               <InputLabel htmlFor='role'>Role</InputLabel>
               <Input
                 id='role'
@@ -106,7 +106,7 @@ const SignupPage = (props) => {
                 onChange={onChange}
                 placeholder='Enter role (admin/user)'
               />
-            </FormControl>
+            </FormControl> */}
             <br />
             <Button className={classes.button} type='submit'>
               Register
