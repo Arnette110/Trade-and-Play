@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { AppBar, Tabs, Tab, Typography, Box } from '@material-ui/core'
 import Collection from '../Collection'
 import Packs from '../../pages/Packs'
+import Profile from '../../pages/Profile'
 import { AuthContext } from '../../Context/AuthContext'
 
 function TabPanel(props) {
@@ -89,6 +90,11 @@ export default function NavTabs() {
             href='/packs'
             {...a11yProps(1)}
           />
+          <LinkTab
+            label={`${user.username}'s Profile`}
+            href='/profile'
+            {...a11yProps(2)}
+          />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
@@ -96,6 +102,9 @@ export default function NavTabs() {
       </TabPanel>
       <TabPanel value={value} index={1}>
         <Packs />
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        <Profile />
       </TabPanel>
     </div>
   )
