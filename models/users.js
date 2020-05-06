@@ -29,10 +29,22 @@ var userSchema = new Schema({
     enum: ['user', 'admin'],
     required: true
   },
+  card: [{ type: Schema.Types.ObjectId, ref: 'PlayerStats' }],
+  firstPick: {
+    type: Number,
+    default: 10
+  },
+  thirdPick: {
+    type: Number,
+    default: 10
+  },
+  fifthPick: {
+    type: Number,
+    default: 10
+  },
   profileImage: {
     type: String
-  },
-  card: []
+  }
 })
 
 userSchema.pre('save', function (next) {

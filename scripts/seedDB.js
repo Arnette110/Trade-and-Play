@@ -1457,7 +1457,10 @@ const userSeed = [{
     // resetPasswordExpires: Date
     role: 'admin'
   },
-  card: [8474600, 8476945]
+  card: [8474600, 8476945],
+  firstPick: 100,
+  thirdPick: 100,
+  fifthPick: 100
 }]
 
 db.User.remove({})
