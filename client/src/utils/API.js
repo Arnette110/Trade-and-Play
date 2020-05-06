@@ -36,6 +36,11 @@ export default {
   generateDraft: function (position) {
     return axios.get("/api/playerstats/draft/first/" + position)
   },
+  safeProfile: function (obj) {
+    console.log('in save profile')
+    console.log(obj)
+    return axios.post("/api/user", obj)
+  },
   addCardToCollection: function (obj) {
     return axios.post("/api/draft/add", obj)
   }

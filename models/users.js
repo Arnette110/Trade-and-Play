@@ -44,6 +44,14 @@ var userSchema = new Schema({
   },
   profileImage: {
     type: String
+  },
+  favoriteTeam: {
+    type: String,
+    default: 'f'
+  },
+  bio: {
+    type: String,
+    default: 'f'
   }
 })
 
