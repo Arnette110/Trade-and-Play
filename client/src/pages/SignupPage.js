@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import {  Paper, Container, FormControl, InputLabel, Input, Button } from '@material-ui/core'
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { makeStyles } from '@material-ui/core/styles'
 import AuthService from '../Services/AuthService'
 import Message from '../components/Message'
@@ -73,6 +74,7 @@ const SignupPage = (props) => {
       <Container>
         <form onSubmit={onSubmit}>
           <Paper>
+            <AccountCircleIcon fontSize="large" style={{marginTop: "40px"}} />
             <h3>Please Register</h3>
             <FormControl fullWidth className={classes.form}>
               <InputLabel htmlFor="username">Username</InputLabel>
@@ -96,17 +98,6 @@ const SignupPage = (props) => {
                 placeholder="Enter Password"
               />
             </FormControl>
-            {/* <FormControl fullWidth className={classes.form}>
-              <InputLabel htmlFor='role'>Role</InputLabel>
-              <Input
-                id='role'
-                type='text'
-                name='role'
-                value={user.role}
-                onChange={onChange}
-                placeholder='Enter role (admin/user)'
-              />
-            </FormControl> */}
             <br />
             <Button className={classes.button} type="submit">
               Register

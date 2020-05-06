@@ -159,5 +159,4 @@ userRouter.get(
     res.status(200).json({ isAuthenticated: true, user: { _id, username, role } })
   }
 )
-
 module.exports = userRouter

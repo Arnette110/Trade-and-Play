@@ -12,6 +12,7 @@ import AuthService from '../Services/AuthService';
 import Message from '../components/Message';
 import { AuthContext } from '../Context/AuthContext';
 import Jumbotron from '../components/Jumbotron'
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -39,7 +40,7 @@ const useStyles = makeStyles(theme => ({
 
 const LoginPage = props => {
   const [user, setUser] = useState({ username: "", password: "" });
-  const [_id, setId] = useState("")
+  // const [_id, setId] = useState("")
   const [message, setMessage] = useState(null);
   const authContext = useContext(AuthContext);
 
@@ -47,11 +48,15 @@ const LoginPage = props => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
+// const resetForm = () => {
+//   setUser({ username: '', password: '' });
+// };
+
   const onSubmit = e => {
     e.preventDefault();
     AuthService.login(user).then(data => {
       console.log(data);
-      setId(data)
+      // setId(data)
       const { isAuthenticated, user, message } = data;
       if (isAuthenticated) {
         authContext.setUser(user);
@@ -59,7 +64,6 @@ const LoginPage = props => {
         props.history.push("/dashboard");
       } else {
         setMessage(message)
-        props.history.push('/register')
       };
     });
   };
@@ -68,50 +72,46 @@ const LoginPage = props => {
   return (
     <Jumbotron>
       <Container>
-          <form onSubmit={onSubmit}>
-            <Paper>
-              <h3>Please Sign-in</h3>
-              <FormControl fullWidth className={classes.form}>
-                <InputLabel htmlFor="username">Username</InputLabel>
-                <Input
-                  id="username"
-                  type="text"
-                  name="username"
-                  onChange={onChange}
-                  placeholder="Enter Username"
-                />
-              </FormControl>
-              <FormControl fullWidth className={classes.form}>
-                <InputLabel htmlFor="password">Password</InputLabel>
-                <Input
-                  id="password"
-                  type="password"
-                  name="password"
-                  onChange={onChange}
-                  placeholder="Enter Password"
-                />
-              </FormControl>
-              <br />
-              <Button className={classes.button} type="submit">
-                Sign-in
+        <form onSubmit={onSubmit}>
+          <Paper>
+            <AccountCircleIcon fontSize="large" style={{ marginTop: "40px" }} />
+            <h3>Please Sign-in</h3>
+            <FormControl fullWidth className={classes.form}>
+              <InputLabel htmlFor="username">Username</InputLabel>
+              <Input
+                id="username"
+                type="text"
+                name="username"
+                onChange={onChange}
+                placeholder="Enter Username"
+              />
+            </FormControl>
+            <FormControl fullWidth className={classes.form}>
+              <InputLabel htmlFor="password">Password</InputLabel>
+              <Input
+                id="password"
+                type="password"
+                name="password"
+                onChange={onChange}
+                placeholder="Enter Password"
+              />
+            </FormControl>
+            <br />
+            <Button className={classes.button} type="submit">
+              Sign-in
+            </Button>
+            <p>
+              Don't have account?{" "}
+              <Button variant="text" href="/register" style={{ color: "blue" }}>
+                register
               </Button>
-              <p>
-                Don't have account?{" "}
-                <Button
-                  variant="text"
-                  href="/register"
-                  style={{ color: "blue" }}
-                >
-                  register
-                </Button>
-
-                  <Button variant="text" href="/home" style={{ color: "blue" }}>
-                    Home
-                  </Button>
-              </p>
-              {message ? <Message message={message} /> : null}
-            </Paper>
-          </form>
+              <Button variant="text" href="/home" style={{ color: "blue" }}>
+                Home
+              </Button>
+            </p>
+            {message ? <Message message={message} /> : null}
+          </Paper>
+        </form>
       </Container>
     </Jumbotron>
   );
