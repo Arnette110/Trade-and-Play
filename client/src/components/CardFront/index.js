@@ -52,7 +52,7 @@ function checkColors(teamName){
 
 export default function PlayerCardFront({data}) {
   
-  console.log(data);
+  // console.log(data);
   const currentTeam = checkColors(data.bio.currentTeam.name)
   const classes = useStyles()
 
