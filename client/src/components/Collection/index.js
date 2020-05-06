@@ -51,11 +51,11 @@ export default function NestedGrid() {
   const {user} = useContext(AuthContext);
 
     useEffect(() => {
-      console.log(user)
+      // console.log(user)
     }, [user]);
 
     useEffect(() => {
-      console.log('user.username: ', user.username)
+      // console.log('user.username: ', user.username)
       getUserCollection(user.username)
         .then(getCollectionData)
         .then(saveDraftToState);

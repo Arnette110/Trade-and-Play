@@ -5,4 +5,7 @@ const draftController = require('../../controllers/draftController')
 router.route('/')
   .post(draftController.reduce)
 
+router.route('/add')
+  .post(draftController.pushToCollection)
+
 module.exports = router
