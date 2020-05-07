@@ -46,6 +46,7 @@ module.exports = {
   },
   draftFive: async function (req, res) {
     const draftContent = []
+    console.log('2')
     await db.PlayerStats.countDocuments({ 'bio.primaryPosition.type': req.params.position })
       .then(async count => {
         for (let i = 0; i < 5; i++) {
@@ -56,6 +57,7 @@ module.exports = {
             })
           draftContent.push(finalArray)
         }
+        console.log(draftContent)
         res.json(draftContent)
       })
   }

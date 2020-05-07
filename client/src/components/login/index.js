@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -22,14 +23,15 @@ const useStyles = makeStyles({
 })
 
 export default function Login() {
-
   const classes = useStyles()
 
   return (
     <div>
-      <Button variant='outlined' href="/register" className={classes.root}>
-        Sign in or Register
-      </Button>
+      <Link to='/register'>
+        <Button variant='outlined' className={classes.root}>
+          Sign in or Register
+        </Button>
+      </Link>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import React, {useContext} from 'react'
+import {Link} from 'react-router-dom'
 import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import AuthService from '../../Services/AuthService';
@@ -40,9 +41,11 @@ export default function Logout() {
 
   return (
     <div>
-      <Button onClick={onClickLogoutHandler} className={classes.root} href='/'>
-        sign out
-      </Button>
+      <Link to='/'>
+        <Button onClick={onClickLogoutHandler} className={classes.root}>
+          sign out
+        </Button>
+      </Link>
     </div>
-  );
+  )
 }

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import {Link} from 'react-router-dom'
 import {  Paper, Container, FormControl, InputLabel, Input, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import AuthService from '../Services/AuthService'
@@ -73,49 +74,52 @@ const SignupPage = (props) => {
       <Container>
         <form onSubmit={onSubmit}>
           <Paper>
-            
             <h3>Please Register</h3>
             <FormControl fullWidth className={classes.form}>
-              <InputLabel htmlFor="username">Username</InputLabel>
+              <InputLabel htmlFor='username'>Username</InputLabel>
               <Input
-                id="username"
-                type="text"
-                name="username"
+                id='username'
+                type='text'
+                name='username'
                 value={user.username}
                 onChange={onChange}
-                placeholder="Enter Username"
+                placeholder='Enter Username'
               />
             </FormControl>
             <FormControl fullWidth className={classes.form}>
-              <InputLabel htmlFor="password">Password</InputLabel>
+              <InputLabel htmlFor='password'>Password</InputLabel>
               <Input
-                id="password"
-                type="password"
-                name="password"
+                id='password'
+                type='password'
+                name='password'
                 value={user.password}
                 onChange={onChange}
-                placeholder="Enter Password"
+                placeholder='Enter Password'
               />
             </FormControl>
             <br />
-            <Button className={classes.button} type="submit">
+            <Button className={classes.button} type='submit'>
               Register
             </Button>
             <p>
-              Already have a account?{" "}
-              <Button variant="text" href="/login" style={{ color: "blue" }}>
-                sign-in
-              </Button>
-              <Button variant="text" href="/home" style={{ color: "blue" }}>
-                Home
-              </Button>
+              Already have a account?{' '}
+              <Link to='/login'>
+                <Button variant='text' style={{ color: 'blue' }}>
+                  sign-in
+                </Button>
+              </Link>
+              <Link to='/home'>
+                <Button variant='text' style={{ color: 'blue' }}>
+                  Home
+                </Button>
+              </Link>
             </p>
           </Paper>
           {message ? <Message message={message} /> : null}
         </form>
       </Container>
     </Jumbotron>
-  );
+  )
 }
 
 export default SignupPage

@@ -34,6 +34,7 @@ export default {
     return axios.post("/api/draft/", draftPick)
   },
   generateDraft: function (position) {
+    console.log('1')
     return axios.get("/api/playerstats/draft/first/" + position)
   },
   safeProfile: function (obj) {
