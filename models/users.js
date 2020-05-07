@@ -47,11 +47,11 @@ var userSchema = new Schema({
   },
   favoriteTeam: {
     type: String,
-    default: 'f'
+    default: 'Seattle Kraken'
   },
   bio: {
     type: String,
-    default: 'f'
+    default: 'I enjoy long walks on the beach, Starbucks, CSS, and unicorns'
   }
 })
 
