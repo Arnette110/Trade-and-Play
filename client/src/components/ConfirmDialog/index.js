@@ -35,7 +35,7 @@ function ConfirmDialog({ label, pick, boosterType }) {
   }
   return (
     <div>
-      <Button variant="contained" color="primary" onClick={handleClickOpen} style={{width: '100%'}}>
+      <Button variant="contained" color="secondary" onClick={handleClickOpen} style={{width: '100%'}}>
         {label}
       </Button>
       <Dialog

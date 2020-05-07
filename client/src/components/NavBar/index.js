@@ -81,9 +81,10 @@ export default function ButtonAppBar() {
                   }}
                   open={open}
                   onClose={handleClose}>
-                  <MenuItem onClick={handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={handleClose}>My account</MenuItem>
-                  <Logout></Logout>
+                  <MenuItem>
+                    <Logout />
+                  </MenuItem>
+
                 </Menu>
               </div>
             </Toolbar>
