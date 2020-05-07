@@ -60,10 +60,10 @@ userRouter.post(
   passport.authenticate('local', { session: false }),
   (req, res) => {
     if (req.isAuthenticated()) {
-      const { _id, username, role } = req.user
+      const { _id, username, role, bio, favoriteTeam } = req.user
       const token = signToken(_id)
       res.cookie('access_token', token, { httpOnly: true, sameSite: true })
-      res.status(200).json({ isAuthenticated: true, user: { username, role } })
+      res.status(200).json({ isAuthenticated: true, user: { username, role, _id, bio, favoriteTeam } })
     }
   }
 )
@@ -165,6 +165,6 @@ userRouter.post('/', (req, res) => {
   console.log(req.body)
   User.findOneAndUpdate({ _id: req.body._id }, { $set: { favoriteTeam: req.body.favoriteTeam, bio: req.body.bio } })
     .then(dbModel => console.log(dbModel))
-  }
+}
 )
 module.exports = userRouter
