@@ -46,8 +46,6 @@ const Profile = () => {
   }, [])
 
   function handleSubmit() {
-    console.log(form.favoriteTeam)
-    console.log(form.bio)
     API.safeProfile(form)
   }
 

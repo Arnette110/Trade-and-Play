@@ -1,7 +1,6 @@
 const express = require('express')
 const userRouter = express.Router()
 const passport = require('passport')
-// const passportConfig = require('../../passport')
 require('../../passport')
 const JWT = require('jsonwebtoken')
 const User = require('../../models/users')
@@ -77,94 +76,17 @@ userRouter.get(
   }
 )
 
-// userRouter.post(
-//   '/dashboard',
-//   passport.authenticate('jwt', { session: false }),
-//   (req, res) => {
-//     const todo = new Todo(req.body)
-//     todo.save(err => {
-//       if (err) {
-//         res
-//           .status(500)
-//           .json({ message: { msgBody: 'Error has occured', msgError: true } })
-//       } else {
-//         req.user.todos.push(todo)
-//         req.user.save(err => {
-//           if (err) {
-//             res
-//               .status(500)
-//               .json({
-//                 message: { msgBody: 'Error has occured', msgError: true }
-//               })
-//           } else {
-//             res
-//               .status(200)
-//               .json({
-//                 message: {
-//                   msgBody: 'Successfully created todo',
-//                   msgError: false
-//                 }
-//               })
-//           }
-//         })
-//       }
-//     })
-//   }
-// )
-
-userRouter.get(
-  '/home',
-  passport.authenticate('jwt', { session: false }),
-  (req, res) => {
-    // User.findById({ _id: req.user._id })
-    //   .populate('todos')
-    //   .exec((err, document) => {
-    //     if (err) {
-    //       res
-    //         .status(500)
-    //         .json({
-    //           message: { msgBody: 'Error has occured', msgError: true }
-    //         })
-    //     } else {
-    //       res.status(200).json({ todos: document.todos, authenticated: true })
-    //     }
-    //   })
-    console.log(req.user)
-  }
-)
-
-userRouter.get(
-  '/admin',
-  passport.authenticate('jwt', { session: false }),
-  (req, res) => {
-    if (req.user.role === 'admin') {
-      res
-        .status(200)
-        .json({ message: { msgBody: 'You are an admin', msgError: false } })
-    } else {
-      res
-        .status(403)
-        .json({
-          message: { msgBody: "You're not an admin,go away", msgError: true }
-        })
-    }
-  }
-)
-
 userRouter.get(
   '/authenticated',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    console.log(req)
     const { _id, username, role, bio, favoriteTeam } = req.user
     res.status(200).json({ isAuthenticated: true, user: { _id, username, role, bio, favoriteTeam } })
   }
 )
 
 userRouter.post('/', (req, res) => {
-  console.log(req.body)
   User.findOneAndUpdate({ _id: req.body._id }, { $set: { favoriteTeam: req.body.favoriteTeam, bio: req.body.bio } })
-    .then(dbModel => console.log(dbModel))
 }
 )
 module.exports = userRouter

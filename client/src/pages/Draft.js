@@ -13,7 +13,6 @@ function Draft(props) {
         }
 
         const saveDraftToState = (res) => {
-            console.log('res.data: ', res.data)
             setDraftContent(res.data)
         }
 
@@ -22,9 +21,7 @@ function Draft(props) {
     }
 
     useEffect(() => {
-        console.log('props: ', props.location.state.boosterType)
         prepareDraft(props.location.state.boosterType)
-        console.log('draftContent: ', draftContent)
     }, [])
     return (
         <Grid container>

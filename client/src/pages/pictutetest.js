@@ -16,7 +16,6 @@ class SimpleReactFileUpload extends Component {
  
 
   uploadHandler = () => {
-    console.log(this.state.selectedFile)
     const formData = new FormData()
     formData.append(
       'myFile',

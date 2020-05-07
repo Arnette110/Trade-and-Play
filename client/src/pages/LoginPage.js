@@ -57,7 +57,6 @@ const LoginPage = props => {
     e.preventDefault();
     AuthService.login(user).then(data => {
       const { isAuthenticated, user, message } = data
-      console.log(user);
       // setId(data)
       
       if (isAuthenticated) {

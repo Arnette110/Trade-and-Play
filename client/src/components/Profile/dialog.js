@@ -73,8 +73,6 @@ export default function FullScreenDialog() {
   }, [])
 
   function handleSubmit() {
-    console.log(form.favoriteTeam)
-    console.log(form.bio)
     API.safeProfile(form)
     setUser({...user, bio: form.bio, favoriteTeam: form.favoriteTeam})
     handleClose()
