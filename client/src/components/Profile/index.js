@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import {
   Button,
   CssBaseline,
@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
 export default function ProfileComponent() {
   const { user } = useContext(AuthContext)
   const classes = useStyles()
+
   return (
     <Grid container component='main' className={classes.root}>
       <Grid item xs={false} sm={2} md={4} />

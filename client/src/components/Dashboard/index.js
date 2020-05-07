@@ -8,7 +8,7 @@ import ProfileComponent from '../Profile'
 import { AuthContext } from '../../Context/AuthContext'
 
 function TabPanel(props) {
-  const { children, value, index, ...other } = props
+  const { children, value, index, height, ...other } = props
 
   return (
     <div
@@ -16,6 +16,7 @@ function TabPanel(props) {
       hidden={value !== index}
       id={`nav-tabpanel-${index}`}
       style={{
+        height: height || 'auto',
         backgroundColor: '#424242',
       }}
       aria-labelledby={`nav-tab-${index}`}
@@ -103,7 +104,7 @@ export default function NavTabs() {
       <TabPanel value={value} index={1}>
         <Packs />
       </TabPanel>
-      <TabPanel value={value} index={2}>
+      <TabPanel height='800px' value={value} index={2}>
         <ProfileComponent />
       </TabPanel>
     </div>
