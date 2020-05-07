@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import {Redirect} from 'react-router-dom'
 import {
   Paper,
   Container,
@@ -47,7 +48,7 @@ const LoginPage = props => {
   const onChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
-
+  const [redirect, setRedirect] = useState('')
 // const resetForm = () => {
 //   setUser({ username: '', password: '' });
 // };
@@ -55,19 +56,22 @@ const LoginPage = props => {
   const onSubmit = e => {
     e.preventDefault();
     AuthService.login(user).then(data => {
-      console.log(data);
+      const { isAuthenticated, user, message } = data
+      console.log(user);
       // setId(data)
-      const { isAuthenticated, user, message } = data;
+      
       if (isAuthenticated) {
         authContext.setUser(user);
         authContext.setIsAuthenticated(isAuthenticated);
-        props.history.push("/dashboard");
+        setRedirect('/dashboard');
       } else {
         setMessage(message)
       };
     });
   };
   const classes = useStyles()
+
+  if (redirect) return (<Redirect to={redirect}/>)
 
   return (
     <Jumbotron>
