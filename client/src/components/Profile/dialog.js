@@ -60,7 +60,7 @@ export default function FullScreenDialog() {
   const classes = useStyles()
   const [open, setOpen] = useState(false)
   
-  const { user } = useContext(AuthContext)
+  const  { user, setUser } = useContext(AuthContext)
 
   const [form, setForm] = useState({
     favoriteTeam: '',
@@ -76,6 +76,7 @@ export default function FullScreenDialog() {
     console.log(form.favoriteTeam)
     console.log(form.bio)
     API.safeProfile(form)
+    setUser({...user, bio: form.bio, favoriteTeam: form.favoriteTeam})
     handleClose()
   }
 
