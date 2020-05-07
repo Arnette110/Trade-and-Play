@@ -31,15 +31,23 @@ import {
 const theme = createMuiTheme({
   palette: {
     primary: {
+      //black
+      main: 'rgb(19,19,19)',
+      //dark grey
+      secondary: 'rgb(33,33,33)',
+    },
+    secondary: {
       //red
       main: 'rgb(235,36,39)',
     },
-    secondary: {
+    info: {
       //yellow
       main: 'rgb(255,184,28)',
     },
-    info: {
-      main: 'rgb(255,184,28)',
+    success: {
+      //green
+      main: 'rgb(76, 175, 80)',
+      // contrastText: 'rgb(0, 0, 0, 0.87)'
     },
   },
 })
