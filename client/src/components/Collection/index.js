@@ -92,11 +92,11 @@ export default function NestedGrid() {
               id='outlined-search'
               placeholder='Search'
               type='search'
-              variant='filled'
+              variant='outlined'
               value={search}
               onChange={handleInputChange}
-              margin='normal'
-              disableUnderline
+              // margin='normal'
+              multiline
             />
           </div>
         </form>
