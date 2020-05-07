@@ -16,11 +16,15 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
 }
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/tradeandplay', {
-  useNewUrlParser: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true
-})
+mongoose.connect(
+  process.env.MONGODB_URI ||
+    'mongodb://user1:password1@ds255787.mlab.com:55787/heroku_fsd441x9',
+  {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+  },
+)
 
 app.use('/user', userRouter)
 
