@@ -9,7 +9,7 @@ import Jumbotron from '../components/Jumbotron'
 const useStyles = makeStyles((theme) => ({
  
   button: {
-    background: 'rgb(235,36,39)',
+    background: theme.palette.secondary.main,
     border: '2px solid',
     borderRadius: 0,
     color: 'white',
@@ -74,7 +74,7 @@ const SignupPage = (props) => {
       <Container>
         <form onSubmit={onSubmit}>
           <Paper>
-            <AccountCircleIcon fontSize="large" style={{marginTop: "40px"}} />
+            
             <h3>Please Register</h3>
             <FormControl fullWidth className={classes.form}>
               <InputLabel htmlFor="username">Username</InputLabel>
