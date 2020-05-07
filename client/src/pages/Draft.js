@@ -13,7 +13,6 @@ function Draft(props) {
         }
 
         const saveDraftToState = (res) => {
-            console.log('res.data: ', res.data)
             setDraftContent(res.data)
         }
 
@@ -22,16 +21,14 @@ function Draft(props) {
     }
 
     useEffect(() => {
-        console.log('props: ', props.location.state.boosterType)
         prepareDraft(props.location.state.boosterType)
-        console.log('draftContent: ', draftContent)
     }, [])
     return (
         <Grid container>
-            {draftContent.map(el => {
-                // new component that contains Cardflip and button
+            {draftContent.map((el, index) => {
+            let concatKey = el._id.concat("_", index)
                 return (
-                    <Grid item xs={12} md={6} lg={4} key={el._id}>
+                    <Grid item xs={12} md={6} lg={4} key={concatKey}>
                         <DraftSelect data={el} />
                     </Grid>
                 )

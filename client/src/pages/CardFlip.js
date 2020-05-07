@@ -5,9 +5,6 @@ import PlayerCardBack from '../components/CardBack'
 
 const CardFlip = (props) => {
   const [isFlipped, setIsFlipped] = useState(false)
-  // console.log("Backside data in CardFlip: ", props.backsideData);
-  // console.log("Data in CardFlip: ", props.data);
-  // props.backsideData.stats etc.
   const handleHover = () => {
     setIsFlipped(!isFlipped)
   }

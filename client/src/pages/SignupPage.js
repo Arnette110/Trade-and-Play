@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
 import {  Paper, Container, FormControl, InputLabel, Input, Button } from '@material-ui/core'
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { makeStyles } from '@material-ui/core/styles'
 import AuthService from '../Services/AuthService'
 import Message from '../components/Message'

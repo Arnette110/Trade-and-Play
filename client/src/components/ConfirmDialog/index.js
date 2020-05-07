@@ -14,7 +14,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 function ConfirmDialog({ label, pick, boosterType }) {
-  console.log('in confirm, boostertype: ', boosterType)
   const [open, setOpen] = React.useState(false);
   const [displayDraft, setDisplayDraft] = React.useState(false)
 

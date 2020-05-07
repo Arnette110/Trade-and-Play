@@ -1,6 +1,5 @@
 export default {
   login: user => {
-    // console.log(user);
     return fetch("/user/login", {
       method: "post",
       body: JSON.stringify(user),
@@ -13,7 +12,6 @@ export default {
     });
   },
   register: user => {
-    console.log(user);
     return fetch("user/register", {
       method: "post",
       body: JSON.stringify(user),

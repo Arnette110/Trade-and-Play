@@ -41,11 +41,9 @@ export default function NestedGrid() {
   const {user} = useContext(AuthContext);
 
     useEffect(() => {
-      // console.log(user)
     }, [user]);
 
     useEffect(() => {
-      // console.log('user.username: ', user.username)
       getUserCollection(user.username)
         .then(getCollectionData)
         .then(saveDraftToState);
@@ -57,13 +55,11 @@ export default function NestedGrid() {
   }
 
   const getCollectionData = (res) => {
-    // console.log(res.data)
     return API.getCardData(res.data)
   }
 
   const saveDraftToState = (res) => {
     setApiData({ ...apiData, cardData: res.data })
-    // console.log(res.data)
   }
 
   const findPlayers = apiData.cardData.filter((e) => {
@@ -103,9 +99,10 @@ export default function NestedGrid() {
       </Container>
       <br/>
       <Grid container spacing={0}>
-        {findPlayers.map((el) => {
+        {findPlayers.map((el, index) => {
+        let concatKey = el._id.concat("_", index)
           return (
-            <Grid item xs={12} md={6} lg={4} key={el._id}>
+            <Grid item xs={12} md={6} lg={4} key={concatKey}>
               <CardFlip data={el} style={{ width: 300 }} />
             </Grid>
           )
