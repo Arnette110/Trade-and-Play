@@ -1,0 +1,61 @@
+# Trade and Play
+
+[Deployed Link](https://trade-and-play.herokuapp.com/)
+
+[Github Repo](https://github.com/Arnette110/Trade-and-Play)
+
+## Created by / Contact
+
+* [Christopher Ellis](https://www.linkedin.com/in/christopher-ellis-b018a67/)
+* [Carlos Hernandez](https://www.linkedin.com/in/carloshernandezr/)
+* [Erik Huynh](https://www.linkedin.com/in/erik-huynh-228321196/)
+* [Tyler Snyder](https://www.linkedin.com/in/tyler-snyder-b6484313a/)
+* [Tucker Vassau](https://www.linkedin.com/in/tucker-vassau/)
+
+## Purpose
+
+Trade and play brings the excitement of sports card collecting onto the web. New collectible cards can be acquired from drafting from draft packs. Each card is uniquely decorated in team colors and displays an image and statistics of your favorite players. Draft packs contain a random assortement of players from a specific position. Make an account and collect them all!
+        
+## Functionality
+* Account creation and authenication.
+* Displays user's entire card collection with a player bio on the front and player stats on the the back.
+* Quickly filter and search through your collection.
+* View the roster of each draft before you make your pick.
+* Five random cards per draft pack. Three draft packs to choose from.
+* Set up your own profile by listing your favorite team and a bio.
+  
+## Instructions
+
+Simply head over to the deployed link, make an account and start collecting.
+
+## Technologies
+  * React
+  * Javascript
+  * Axios
+  * Express
+  * MongoDB & Mongoose
+  * Passport
+  * Material-UI
+
+## Future Features
+  * NBA, NFL, Soccer cards to be added
+  * View and trade cards with your friends.
+  
+## Images
+### Image description
+![image-1]()
+
+### Image description
+![image-2]()
+
+### Image description
+![image-3]()
+
+### Image description
+![image-4]()
+
+### Image description
+![image-5]()
+
+### Image description
+![image-6]()
