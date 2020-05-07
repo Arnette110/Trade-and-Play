@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import { AppBar, Tabs, Tab, Typography, Box } from '@material-ui/core'
@@ -46,7 +47,7 @@ function a11yProps(index) {
 function LinkTab(props) {
   return (
     <Tab
-      component='a'
+      component={Link}
       onClick={(event) => {
         event.preventDefault()
       }}
@@ -83,17 +84,17 @@ export default function NavTabs() {
           aria-label='nav tabs example'>
           <LinkTab
             label={`${user.username}'s dream team`}
-            href='/collection'
+            to='/collection'
             {...a11yProps(0)}
           />
           <LinkTab
             label='draft players from booster pack'
-            href='/packs'
+            to='/packs'
             {...a11yProps(1)}
           />
           <LinkTab
             label={`${user.username}'s Profile`}
-            href='/profile'
+            to='/profile'
             {...a11yProps(2)}
           />
         </Tabs>

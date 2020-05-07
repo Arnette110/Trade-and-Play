@@ -22,8 +22,8 @@ mongoose.connect(
   {
     useNewUrlParser: true,
     useFindAndModify: false,
-    useUnifiedTopology: true,
-  },
+    useUnifiedTopology: true
+  }
 )
 
 app.use('/user', userRouter)

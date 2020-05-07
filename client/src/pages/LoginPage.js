@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
 import {
   Paper,
   Container,
@@ -77,47 +77,51 @@ const LoginPage = props => {
       <Container>
         <form onSubmit={onSubmit}>
           <Paper>
-            <AccountCircleIcon fontSize="large" style={{ marginTop: "40px" }} />
+            <AccountCircleIcon fontSize='large' style={{ marginTop: '40px' }} />
             <h3>Please Sign-in</h3>
             <FormControl fullWidth className={classes.form}>
-              <InputLabel htmlFor="username">Username</InputLabel>
+              <InputLabel htmlFor='username'>Username</InputLabel>
               <Input
-                id="username"
-                type="text"
-                name="username"
+                id='username'
+                type='text'
+                name='username'
                 onChange={onChange}
-                placeholder="Enter Username"
+                placeholder='Enter Username'
               />
             </FormControl>
             <FormControl fullWidth className={classes.form}>
-              <InputLabel htmlFor="password">Password</InputLabel>
+              <InputLabel htmlFor='password'>Password</InputLabel>
               <Input
-                id="password"
-                type="password"
-                name="password"
+                id='password'
+                type='password'
+                name='password'
                 onChange={onChange}
-                placeholder="Enter Password"
+                placeholder='Enter Password'
               />
             </FormControl>
             <br />
-            <Button className={classes.button} type="submit">
+            <Button className={classes.button} type='submit'>
               Sign-in
             </Button>
             <p>
-              Don't have account?{" "}
-              <Button variant="text" href="/register" style={{ color: "blue" }}>
-                register
-              </Button>
-              <Button variant="text" href="/home" style={{ color: "blue" }}>
-                Home
-              </Button>
+              Don't have account?{' '}
+              <Link to='/register'>
+                <Button variant='text' style={{ color: 'blue' }}>
+                  register
+                </Button>
+              </Link>
+              <Link to='/home'>
+                <Button variant='text' style={{ color: 'blue' }}>
+                  Home
+                </Button>
+              </Link>
             </p>
             {message ? <Message message={message} /> : null}
           </Paper>
         </form>
       </Container>
     </Jumbotron>
-  );
+  )
 };
 
 export default LoginPage;
