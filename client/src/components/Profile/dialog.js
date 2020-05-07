@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, forceUpdate } from 'react' 
+import React, { useContext, useState, useEffect } from 'react' 
 import { makeStyles } from '@material-ui/core/styles'
 import {
   Button,
@@ -12,8 +12,7 @@ import {
   Typography,
   Slide,
   TextField,
-  Container,
-  Box
+  Container
 } from '@material-ui/core'
 
 import CloseIcon from '@material-ui/icons/Close'

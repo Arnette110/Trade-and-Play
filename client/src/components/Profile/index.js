@@ -1,17 +1,11 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import {
-  Button,
-  CssBaseline,
-  TextField,
   Paper,
   Grid,
   Typography,
-  makeStyles,
-  Avatar,
-  Divider,
+  makeStyles
 } from '@material-ui/core'
 import { AuthContext } from '../../Context/AuthContext'
-import Profile from '../../pages/Profile'
 import FullScreenDialog from '../Profile/dialog'
 
 const useStyles = makeStyles((theme) => ({

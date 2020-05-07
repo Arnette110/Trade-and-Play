@@ -1,6 +1,4 @@
-import React, { useContext } from 'react'
-import AuthService from '../../Services/AuthService'
-import { AuthContext } from '../../Context/AuthContext'
+import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import {
   Toolbar,

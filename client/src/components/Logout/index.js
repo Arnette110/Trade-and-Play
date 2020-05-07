@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 })
 
 export default function Logout() {
-  const { isAuthenticated, user, setIsAuthenticated, setUser } = useContext(
+  const { setIsAuthenticated, setUser } = useContext(
     AuthContext
   );
 
