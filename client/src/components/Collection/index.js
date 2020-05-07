@@ -103,9 +103,10 @@ export default function NestedGrid() {
       </Container>
       <br/>
       <Grid container spacing={0}>
-        {findPlayers.map((el) => {
+        {findPlayers.map((el, index) => {
+        let concatKey = el._id.concat("_", index)
           return (
-            <Grid item xs={12} md={6} lg={4} key={el._id}>
+            <Grid item xs={12} md={6} lg={4} key={concatKey}>
               <CardFlip data={el} style={{ width: 300 }} />
             </Grid>
           )

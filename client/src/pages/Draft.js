@@ -28,10 +28,10 @@ function Draft(props) {
     }, [])
     return (
         <Grid container>
-            {draftContent.map(el => {
-                // new component that contains Cardflip and button
+            {draftContent.map((el, index) => {
+            let concatKey = el._id.concat("_", index)
                 return (
-                    <Grid item xs={12} md={6} lg={4} key={el._id}>
+                    <Grid item xs={12} md={6} lg={4} key={concatKey}>
                         <DraftSelect data={el} />
                     </Grid>
                 )
