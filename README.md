@@ -72,5 +72,8 @@ Simply head over to the deployed link, make an account and start collecting.
 ### Edit Profile
 ![Edit Profile](https://github.com/Arnette110/Trade-and-Play/blob/master/client/src/assets/READEME-screenshots/edit_profile.png?raw=true)
 
+### Updated Profile
+![Updated Profile](https://github.com/Arnette110/Trade-and-Play/blob/master/client/src/assets/READEME-screenshots/updated_profile.png?raw=true)
+
 ### Create Player
 ![Create Player](https://github.com/Arnette110/Trade-and-Play/blob/master/client/src/assets/READEME-screenshots/create_player.png?raw=true)
