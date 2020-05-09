@@ -14,10 +14,10 @@
 
 ## Purpose
 
-Trade and play brings the excitement of sports card collecting onto the web. New collectible cards can be acquired from drafting from draft packs. Each card is uniquely decorated in team colors and displays an image and statistics of your favorite players. Draft packs contain a random assortement of players from a specific position. Make an account and collect them all!
+Trade and play brings the excitement of sports card collecting onto the web. New collectible cards can be acquired from drafting from draft packs. Each card is uniquely decorated in team colors and displays an image and statistics of your favorite players. Draft packs contain a random assortment of players from a specific position. Make an account and collect them all!
         
 ## Functionality
-* Account creation and authenication.
+* Account creation and authentication.
 * Displays user's entire card collection with a player bio on the front and player stats on the the back.
 * Quickly filter and search through your collection.
 * View the roster of each draft before you make your pick.
@@ -29,11 +29,12 @@ Trade and play brings the excitement of sports card collecting onto the web. New
 Simply head over to the deployed link, make an account and start collecting.
 
 ## Technologies
+  * MongoDB & Mongoose
+  * Express
   * React
+  * Node
   * Javascript
   * Axios
-  * Express
-  * MongoDB & Mongoose
   * Passport
   * Material-UI
 
@@ -77,3 +78,6 @@ Simply head over to the deployed link, make an account and start collecting.
 
 ### Create Player
 ![Create Player](https://github.com/Arnette110/Trade-and-Play/blob/master/client/src/assets/READEME-screenshots/create_player.png?raw=true)
+
+## Credits
+- Sloan Ellis - Logo Design, UX/UI consultation
