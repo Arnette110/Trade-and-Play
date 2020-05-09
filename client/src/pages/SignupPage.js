@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const SignupPage = (props) => {
-  const [user, setUser] = useState({ username: '', password: '', role: 'admin' })
+  const [user, setUser] = useState({ username: '', password: '', role: 'user' })
   const [message, setMessage] = useState(null)
   let timerID = useRef(null)
 
