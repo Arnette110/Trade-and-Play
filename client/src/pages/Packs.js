@@ -1,6 +1,9 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
 import Booster from '../components/Booster'
+import Forward from '../assets/Forwards.jpg'
+import Defensemen from '../assets/Defensemen.jpg'
+import Goalie from '../assets/Goalies.jpg'
 
 function Packs() {
 
@@ -14,7 +17,7 @@ function Packs() {
                 <Booster
                     title='Forwards'
                     description="Increase the offensive power of your collection with the top NHL's forwards. The season's top scorers avaialable in a single pack "
-                    img='https://nhl.bamcontent.com/images/photos/316717774/2048x1152/cut.jpg'
+                    img={Forward}
                     boosterType='Forward'
                 />
             </Grid>
@@ -22,7 +25,7 @@ function Packs() {
                 <Booster
                     title='Defensemen'
                     description="Your collection can become a defensive powerhouse with the top blue lines. The season's best defensemen avaialable in a single pack"
-                    img='https://nhl.bamcontent.com/images/photos/316632660/2048x1152/cut.jpg'
+                    img={Defensemen}
                     boosterType='Defenseman'
                 />
             </Grid>
@@ -30,7 +33,7 @@ function Packs() {
                 <Booster
                     title='Goalies'
                     description="Make your collection untouchable with the best Goalies in the league. The season's best goalies all available in a single pack."
-                    img='https://nhl.bamcontent.com/images/photos/316699102/2048x1152/cut.jpg'
+                    img={Goalie}
                     boosterType='Goalie'
                 />
             </Grid>
