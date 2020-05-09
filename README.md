@@ -42,20 +42,35 @@ Simply head over to the deployed link, make an account and start collecting.
   * View and trade cards with your friends.
   
 ## Images
-### Image description
-![image-1]()
+### Landing Page
+![Landing Page](https://github.com/Arnette110/Trade-and-Play/blob/master/client/src/assets/READEME-screenshots/home.png?raw=true)
 
-### Image description
-![image-2]()
+### Registration
+![Register](https://github.com/Arnette110/Trade-and-Play/blob/master/client/src/assets/READEME-screenshots/register.png?raw=true)
 
-### Image description
-![image-3]()
+### Collection
+![Collection](https://github.com/Arnette110/Trade-and-Play/blob/master/client/src/assets/READEME-screenshots/collection.png?raw=true)
 
-### Image description
-![image-4]()
+### Card Flip
+![Card Back](https://github.com/Arnette110/Trade-and-Play/blob/master/client/src/assets/READEME-screenshots/cardback.png?raw=true)
 
-### Image description
-![image-5]()
+### Search Functionality
+![Search Functionality](https://github.com/Arnette110/Trade-and-Play/blob/master/client/src/assets/READEME-screenshots/search.png?raw=true)
 
-### Image description
-![image-6]()
+### Draft Packs
+![Draft Packs](https://github.com/Arnette110/Trade-and-Play/blob/master/client/src/assets/READEME-screenshots/draft.png?raw=true)
+
+### Roster Preview
+![Roster Preview](https://github.com/Arnette110/Trade-and-Play/blob/master/client/src/assets/READEME-screenshots/roster.png?raw=true)
+
+### Draft Player
+![Draft Player](https://github.com/Arnette110/Trade-and-Play/blob/master/client/src/assets/READEME-screenshots/draftpick.png?raw=true)
+
+### Profile
+![Profile](https://github.com/Arnette110/Trade-and-Play/blob/master/client/src/assets/READEME-screenshots/profile.png?raw=true)
+
+### Edit Profile
+![Edit Profile](https://github.com/Arnette110/Trade-and-Play/blob/master/client/src/assets/READEME-screenshots/edit_profile.png?raw=true)
+
+### Create Player
+![Create Player](https://github.com/Arnette110/Trade-and-Play/blob/master/client/src/assets/READEME-screenshots/create_player.png?raw=true)
