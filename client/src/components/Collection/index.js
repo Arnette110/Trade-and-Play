@@ -44,9 +44,11 @@ export default function NestedGrid() {
     }, [user]);
 
     useEffect(() => {
-      getUserCollection(user.username)
-        .then(getCollectionData)
-        .then(saveDraftToState);
+      setTimeout(() => {
+        getUserCollection(user.username)
+          .then(getCollectionData)
+          .then(saveDraftToState);
+      }, 500)
     }, [])
 
   const getUserCollection = (username) => {
