@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, TextField, Button, Typography, Grid } from '@material-ui/core';
+import { Link } from 'react-router-dom'
 import API from '../utils/API';
 
 const PlayerCreate = () => {
@@ -83,6 +84,9 @@ const PlayerCreate = () => {
     <Container>
       <Grid container spacing={3}>
         <Grid item xs={12}>
+          <Link to='/dashboard'>
+            <Button variant='contained' color='secondary'>Back to Dashboard</Button>
+          </Link>
           <form>
             <TextField id="standard-basic" label="PlayerId" onChange={handleInputChange} name="playerId" helperText="Example: 8474565" required />
             <TextField id="standard-basic" label="Season" onChange={handleInputChange} name="season" helperText="Example: 20182019" required />
