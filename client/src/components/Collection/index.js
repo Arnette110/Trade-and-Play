@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/styles';
-import CardFlip from '../../pages/CardFlip';
+import CardFlip from '../../components/CardFlip';
 // import ItemsCarousel from 'react-items-carousel';
 import API from '../../utils/API';
 import { AuthContext } from '../../Context/AuthContext'

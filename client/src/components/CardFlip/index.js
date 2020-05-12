@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ReactCardFlip from 'react-card-flip'
-import PlayerCardFront from '../components/CardFront'
-import PlayerCardBack from '../components/CardBack'
+import PlayerCardFront from '../CardFront'
+import PlayerCardBack from '../CardBack'
 
 const CardFlip = (props) => {
   const [isFlipped, setIsFlipped] = useState(false)

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import {Link} from 'react-router-dom'
 import { Button } from '@material-ui/core'
-import CardFlip from '../../pages/CardFlip'
+import CardFlip from '../../components/CardFlip'
 import API from '../../utils/API'
 import { AuthContext } from '../../Context/AuthContext'
 
