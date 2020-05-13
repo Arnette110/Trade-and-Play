@@ -65,7 +65,8 @@ const FullScreenDialog = () => {
 
   useEffect(() => {
     setForm({ ...form, _id: user._id })
-  }, [form, user._id])
+    // eslint-disable-next-line
+  }, [])
 
   const handleSubmit = () => {
     API.safeProfile(form)
