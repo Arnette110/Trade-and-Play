@@ -1,6 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardActionArea, CardActions, CardContent, Typography, Grid } from '@material-ui/core';
+import { Card,
+    CardActionArea,
+    CardActions,
+    CardContent,
+    Typography,
+    Grid } from '@material-ui/core';
 import ConfirmDialog from '../ConfirmDialog'
 import RosterDialog from '../RosterDialog'
 
@@ -15,7 +20,7 @@ const useStyles = makeStyles({
     },
 });
 
-function Booster({ title, description, img, boosterType }) {
+const Booster = ({ title, description, img, boosterType }) => {
     const classes = useStyles();
 
     return (

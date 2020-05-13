@@ -3,11 +3,10 @@ import React, {
   useState,
   useEffect
 } from "react";
-
 import AuthService from "../Services/AuthService";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-export const AuthContext = createContext({user: {}, setUser: () => {}, isAuthenticated: {}, setIsAuthenticated: () => {}});
+export const AuthContext = createContext({ user: {}, setUser: () => { }, isAuthenticated: {}, setIsAuthenticated: () => { } });
 
 export default ({ children }) => {
   const [user, setUser] = useState({});
@@ -25,14 +24,14 @@ export default ({ children }) => {
   return (
     <div>
       {!isLoaded ? (
-        <CircularProgress/>
+        <CircularProgress />
       ) : (
-        <AuthContext.Provider
-          value={{ user, setUser, isAuthenticated, setIsAuthenticated }}
-        >
-          {children}
-        </AuthContext.Provider>
-      )}
+          <AuthContext.Provider
+            value={{ user, setUser, isAuthenticated, setIsAuthenticated }}
+          >
+            {children}
+          </AuthContext.Provider>
+        )}
     </div>
   );
 };

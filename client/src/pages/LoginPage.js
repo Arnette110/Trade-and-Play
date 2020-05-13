@@ -39,26 +39,21 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const LoginPage = props => {
+const LoginPage = () => {
+  const classes = useStyles()
   const [user, setUser] = useState({ username: "", password: "" });
-  // const [_id, setId] = useState("")
   const [message, setMessage] = useState(null);
   const authContext = useContext(AuthContext);
+  const [redirect, setRedirect] = useState('')
 
   const onChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
-  const [redirect, setRedirect] = useState('')
-// const resetForm = () => {
-//   setUser({ username: '', password: '' });
-// };
 
   const onSubmit = e => {
     e.preventDefault();
     AuthService.login(user).then(data => {
       const { isAuthenticated, user, message } = data
-      // setId(data)
-      
       if (isAuthenticated) {
         authContext.setUser(user);
         authContext.setIsAuthenticated(isAuthenticated);
@@ -68,7 +63,6 @@ const LoginPage = props => {
       };
     });
   };
-  const classes = useStyles()
 
   if (redirect) return (<Redirect to={redirect}/>)
 
@@ -122,6 +116,6 @@ const LoginPage = props => {
       </Container>
     </Jumbotron>
   )
-};
+}
 
 export default LoginPage;

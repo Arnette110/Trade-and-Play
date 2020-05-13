@@ -1,13 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react'
-import {Link} from 'react-router-dom'
-import {  Paper, Container, FormControl, InputLabel, Input, Button } from '@material-ui/core'
+import { Link } from 'react-router-dom'
+import {
+  Paper,
+  Container,
+  FormControl,
+  InputLabel,
+  Input,
+  Button
+} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import AuthService from '../Services/AuthService'
 import Message from '../components/Message'
 import Jumbotron from '../components/Jumbotron'
 
 const useStyles = makeStyles((theme) => ({
- 
   button: {
     background: theme.palette.secondary.main,
     border: '2px solid',
@@ -29,10 +35,10 @@ const useStyles = makeStyles((theme) => ({
     width: '50vw',
     maxWidth: '80%'
   }
-  
 }))
 
 const SignupPage = (props) => {
+  const classes = useStyles()
   const [user, setUser] = useState({ username: '', password: '', role: 'user' })
   const [message, setMessage] = useState(null)
   let timerID = useRef(null)
@@ -65,9 +71,6 @@ const SignupPage = (props) => {
       }
     })
   }
-
-  const classes = useStyles()
-  
 
   return (
     <Jumbotron>

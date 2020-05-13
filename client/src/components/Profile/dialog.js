@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react' 
+import React, { useContext, useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import {
   Button,
@@ -14,9 +14,7 @@ import {
   TextField,
   Container
 } from '@material-ui/core'
-
 import CloseIcon from '@material-ui/icons/Close'
-
 import { AuthContext } from '../../Context/AuthContext'
 import API from '../../utils/API'
 
@@ -35,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
     height: 48,
     padding: '0 30px',
-    
+
     '&:hover': {
       color: 'rgb(235,36,39)',
       backgroundColor: 'white',
@@ -55,12 +53,10 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction='up' ref={ref} {...props} />
 })
 
-export default function FullScreenDialog() {
+const FullScreenDialog = () => {
   const classes = useStyles()
   const [open, setOpen] = useState(false)
-  
-  const  { user, setUser } = useContext(AuthContext)
-
+  const { user, setUser } = useContext(AuthContext)
   const [form, setForm] = useState({
     favoriteTeam: '',
     bio: '',
@@ -71,9 +67,9 @@ export default function FullScreenDialog() {
     setForm({ ...form, _id: user._id })
   }, [])
 
-  function handleSubmit() {
+  const handleSubmit = () => {
     API.safeProfile(form)
-    setUser({...user, bio: form.bio, favoriteTeam: form.favoriteTeam})
+    setUser({ ...user, bio: form.bio, favoriteTeam: form.favoriteTeam })
     handleClose()
   }
 
@@ -96,58 +92,58 @@ export default function FullScreenDialog() {
       <Button className={classes.edit} onClick={handleClickOpen}>
         Edit
       </Button>
-      
-        <Dialog
-          open={open}
-          onClose={handleClose}
-          TransitionComponent={Transition}>
-          <AppBar className={classes.appBar}>
-            <Container>
-              <Toolbar>
-                <Typography variant='h6' className={classes.title}>
-                  {user.username}
-                </Typography>
-                <IconButton
-                  edge='end'
-                  color='inherit'
-                  onClick={handleClose}
-                  aria-label='close'>
-                  <CloseIcon />
-                </IconButton>
-              </Toolbar>
-            </Container>
-          </AppBar>
+
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        TransitionComponent={Transition}>
+        <AppBar className={classes.appBar}>
           <Container>
-            <List>
-              <ListItem>
-                <TextField
-                  variant='outlined'
-                  margin='normal'
-                  onChange={handleInputChange}
-                  id='favoriteTeam'
-                  label='Favorite team'
-                  name='favoriteTeam'
-                  type='text'
-                  autoFocus
-                  multiline
-                />
-              </ListItem>
-              <Divider />
-              <ListItem>
-                <TextField
-                  variant='outlined'
-                  margin='normal'
-                  fullWidth
-                  onChange={handleInputChange}
-                  name='bio'
-                  id='standard-multiline-flexible'
-                  label='User Bio'
-                  multiline
-                  rowsMax={4}
-                />
-              </ListItem>
-            </List>
-          
+            <Toolbar>
+              <Typography variant='h6' className={classes.title}>
+                {user.username}
+              </Typography>
+              <IconButton
+                edge='end'
+                color='inherit'
+                onClick={handleClose}
+                aria-label='close'>
+                <CloseIcon />
+              </IconButton>
+            </Toolbar>
+          </Container>
+        </AppBar>
+        <Container>
+          <List>
+            <ListItem>
+              <TextField
+                variant='outlined'
+                margin='normal'
+                onChange={handleInputChange}
+                id='favoriteTeam'
+                label='Favorite team'
+                name='favoriteTeam'
+                type='text'
+                autoFocus
+                multiline
+              />
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <TextField
+                variant='outlined'
+                margin='normal'
+                fullWidth
+                onChange={handleInputChange}
+                name='bio'
+                id='standard-multiline-flexible'
+                label='User Bio'
+                multiline
+                rowsMax={4}
+              />
+            </ListItem>
+          </List>
+
           <Button
             autoFocus
             className={classes.edit}
@@ -159,3 +155,5 @@ export default function FullScreenDialog() {
     </div>
   )
 }
+
+export default FullScreenDialog

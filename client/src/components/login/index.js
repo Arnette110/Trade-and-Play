@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   },
 })
 
-export default function Login() {
+const Login = () => {
   const classes = useStyles()
 
   return (
@@ -35,3 +35,5 @@ export default function Login() {
     </div>
   )
 }
+
+export default Login

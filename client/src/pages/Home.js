@@ -1,11 +1,13 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { Grid, Typography, Container } from '@material-ui/core'
+import { Grid,
+  Typography,
+  Container
+} from '@material-ui/core'
 import logo from '../TradeAndPlay_Logo.svg'
 import Jumbotron from '../components/Jumbotron'
 import Login from '../components/login'
 import StarBorderIcon from '@material-ui/icons/StarBorder'
-
 
 const useStyles = makeStyles({
   textContainer: {
@@ -20,7 +22,7 @@ const useStyles = makeStyles({
   }
 })
 
-export default function Home() {
+const Home = () => {
   const classes = useStyles()
 
   return (
@@ -63,3 +65,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Home

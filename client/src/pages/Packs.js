@@ -5,7 +5,7 @@ import Forward from '../assets/Forwards.jpg'
 import Defensemen from '../assets/Defensemen.jpg'
 import Goalie from '../assets/Goalies.jpg'
 
-function Packs() {
+const Packs = () => {
 
     return (
         <Grid container
@@ -41,6 +41,4 @@ function Packs() {
     )
 }
 
-
-
-export default Packs;
+export default Packs

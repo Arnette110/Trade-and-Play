@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export default function ProfileComponent() {
+const ProfileComponent = () => {
   const { user } = useContext(AuthContext)
   const classes = useStyles()
 
@@ -65,9 +65,11 @@ export default function ProfileComponent() {
           </Typography>
         </div>
         <div className={classes.submit}>
-          <FullScreenDialog/>
+          <FullScreenDialog />
         </div>
       </Grid>
     </Grid>
   )
 }
+
+export default ProfileComponent

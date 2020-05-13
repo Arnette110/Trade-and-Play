@@ -4,10 +4,13 @@ import CardFlip from '../components/CardFlip';
 // import ItemsCarousel from 'react-items-carousel';
 import API from '../utils/API';
 import { AuthContext } from '../Context/AuthContext'
-
 // import Swiper from 'react-id-swiper';
 import 'swiper/css/swiper.css'
-import { Grid, Container, TextField } from '@material-ui/core';
+import {
+  Grid,
+  Container,
+  TextField
+} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,24 +35,21 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export default function NestedGrid() {
+const NestedGrid = () => {
   let [apiData, setApiData] = useState({
     cardData: [],
   })
   const [search, setSearch] = useState('')
   const classes = useStyles()
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
-    useEffect(() => {
-    }, [user]);
-
-    useEffect(() => {
-      setTimeout(() => {
-        getUserCollection(user.username)
-          .then(getCollectionData)
-          .then(saveDraftToState);
-      }, 500)
-    }, [])
+  useEffect(() => {
+    setTimeout(() => {
+      getUserCollection(user.username)
+        .then(getCollectionData)
+        .then(saveDraftToState);
+    }, 500)
+  }, [])
 
   const getUserCollection = (username) => {
     // Set authcontext set user as argument
@@ -99,10 +99,10 @@ export default function NestedGrid() {
           </div>
         </form>
       </Container>
-      <br/>
+      <br />
       <Grid container spacing={0}>
         {findPlayers.map((el, index) => {
-        let concatKey = el._id.concat("_", index)
+          let concatKey = el._id.concat("_", index)
           return (
             <Grid item xs={12} md={6} lg={4} key={concatKey}>
               <CardFlip data={el} style={{ width: 300 }} />
@@ -113,3 +113,5 @@ export default function NestedGrid() {
     </div>
   )
 }
+
+export default NestedGrid

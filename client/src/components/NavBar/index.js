@@ -7,7 +7,6 @@ import {
   Menu,
   Container,
 } from '@material-ui/core'
-
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import Logout from '../Logout'
 import logo from '../../TradeAndPlay_Logo.svg'
@@ -32,8 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-
-export default function ButtonAppBar() {
+const ButtonAppBar = () => {
   const classes = useStyles()
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
@@ -43,7 +41,6 @@ export default function ButtonAppBar() {
   }
 
   const handleClose = () => {
-
     setAnchorEl(null)
   }
 
@@ -82,7 +79,6 @@ export default function ButtonAppBar() {
                   <MenuItem>
                     <Logout />
                   </MenuItem>
-
                 </Menu>
               </div>
             </Toolbar>
@@ -92,3 +88,5 @@ export default function ButtonAppBar() {
     </div>
   )
 }
+
+export default ButtonAppBar

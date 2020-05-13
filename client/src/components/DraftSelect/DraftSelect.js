@@ -11,7 +11,7 @@ const addToCollection = (userId, cardId) => {
     API.addCardToCollection(dataObj)
 }
 
-function DraftSelect({ data }) {
+const DraftSelect = ({ data }) => {
     const {user} = useContext(AuthContext);
 
     return (

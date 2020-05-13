@@ -3,7 +3,6 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // Components
 // Material-ui
-
 // Pages
 import NoMatch from './pages/NoMatch'
 import Home from './pages/Home'
@@ -11,7 +10,6 @@ import SignupPage from './pages/SignupPage'
 import LoginPage from './pages/LoginPage'
 import Dashboard from './pages/Dashboard'
 import Draft from './pages/Draft'
-
 import PlayerCreate from './pages/PlayerCreate'
 // Css
 import './App.css'
@@ -45,7 +43,7 @@ const theme = createMuiTheme({
   },
 })
 
-function App() {
+const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Router>

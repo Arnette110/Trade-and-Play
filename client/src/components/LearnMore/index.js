@@ -8,7 +8,7 @@ import {
   DialogTitle,
 } from '@material-ui/core'
 
-export default function Login() {
+const Login = () => {
   const [open, setOpen] = React.useState(false)
 
   const handleClickOpen = () => {
@@ -55,3 +55,5 @@ export default function Login() {
     </div>
   )
 }
+
+export default Login
