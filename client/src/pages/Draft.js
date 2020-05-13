@@ -21,7 +21,7 @@ const Draft = (props) => {
 
     useEffect(() => {
         prepareDraft(props.location.state.boosterType)
-    }, [])
+    }, [props.location.state.boosterType])
 
     return (
         <Grid container>

@@ -65,7 +65,7 @@ const FullScreenDialog = () => {
 
   useEffect(() => {
     setForm({ ...form, _id: user._id })
-  }, [])
+  }, [form, user._id])
 
   const handleSubmit = () => {
     API.safeProfile(form)
