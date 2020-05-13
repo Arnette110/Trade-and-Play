@@ -46,14 +46,14 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 40,
   },
 }))
-function checkColors(teamName){
+
+const checkColors = (teamName) => {
   return Icons.find( ({ name }) => name === teamName)
 }
 
-export default function PlayerCardFront({data}) {
+const PlayerCardFront = ({data}) => {
   const currentTeam = checkColors(data.bio.currentTeam.name)
   const classes = useStyles()
-
   const isCaptain = (data.bio.captain === true);
 
   return (
@@ -103,3 +103,5 @@ export default function PlayerCardFront({data}) {
     </Card>
   )
 }
+
+export default PlayerCardFront

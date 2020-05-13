@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import { List, Divider } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
+import { Button, Dialog, Typography, IconButton } from '@material-ui/core';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
-import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-import Typography from '@material-ui/core/Typography';
 import RosterLi from '../RosterListItem'
 import API from '../../utils/API'
-
 
 const styles = (theme) => ({
   root: {
@@ -45,7 +41,7 @@ const DialogContent = withStyles((theme) => ({
   },
 }))(MuiDialogContent);
 
-function CustomizedDialogs({ boosterType }) {
+const CustomizedDialogs = ({ boosterType }) => {
   const [open, setOpen] = useState(false);
   const [roster, setRoster] = useState({
     bios: []
@@ -55,15 +51,15 @@ function CustomizedDialogs({ boosterType }) {
     const getRoster = (positionType) => {
       return API.findAllbyCode(positionType)
     }
-    
+
     const setRosterToState = (res) => {
-      setRoster({...roster, bios: res.data})
+      setRoster({ ...roster, bios: res.data })
     }
-    
+
     return getRoster(positionType)
-    .then(setRosterToState)
+      .then(setRosterToState)
   }
-  
+
   const handleClickOpen = (positionType) => {
     setOpen(true);
     generateRoster(positionType)
@@ -71,10 +67,10 @@ function CustomizedDialogs({ boosterType }) {
   const handleClose = () => {
     setOpen(false);
   };
-  
+
   return (
     <div>
-      <Button variant="contained" color="primary" onClick={() => handleClickOpen(boosterType)} style={{width: '100%'}}>
+      <Button variant="contained" color="primary" onClick={() => handleClickOpen(boosterType)} style={{ width: '100%' }}>
         View Roster
       </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
@@ -82,13 +78,13 @@ function CustomizedDialogs({ boosterType }) {
           Roster
         </DialogTitle>
         <DialogContent dividers style={{ minWidth: '300px' }}>
-        {roster.bios.map(el=>{
-          return (
-            <List key={el._id}>
-              <RosterLi data={el}/>
-            </List>
-          )
-        })}
+          {roster.bios.map(el => {
+            return (
+              <List key={el._id}>
+                <RosterLi data={el} />
+              </List>
+            )
+          })}
           <Divider />
         </DialogContent>
       </Dialog>

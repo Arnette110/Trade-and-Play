@@ -4,8 +4,7 @@ import DraftSelect from '../components/DraftSelect/DraftSelect'
 import { withRouter } from "react-router-dom";
 import { Grid } from '@material-ui/core'
 
-
-function Draft(props) {
+const Draft = (props) => {
     const [draftContent, setDraftContent] = useState([])
     const prepareDraft = (position) => {
         const getDraft = (position) => {
@@ -19,15 +18,15 @@ function Draft(props) {
         return getDraft(position)
             .then(saveDraftToState)
     }
-    console.log(draftContent)
+
     useEffect(() => {
         prepareDraft(props.location.state.boosterType)
-    }, [])
+    }, [props.location.state.boosterType])
+
     return (
         <Grid container>
             {draftContent.map((el, index) => {
-
-            let concatKey = el._id.concat("_", index)
+                let concatKey = el._id.concat("_", index)
                 return (
                     <Grid item xs={12} md={6} lg={4} key={concatKey}>
                         <DraftSelect data={el} />
@@ -37,4 +36,5 @@ function Draft(props) {
         </Grid>
     )
 }
+
 export default withRouter(Draft)

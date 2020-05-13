@@ -2,22 +2,15 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // Components
-// import ButtonAppBar from './components/NavBar'
-// import Collection from './components/Collection'
 // Material-ui
-
 // Pages
 import NoMatch from './pages/NoMatch'
 import Home from './pages/Home'
 import SignupPage from './pages/SignupPage'
 import LoginPage from './pages/LoginPage'
 import Dashboard from './pages/Dashboard'
-// import Profile from './pages/Profile'
 import Draft from './pages/Draft'
-
-// import CardFlip from './pages/CardFlip'
 import PlayerCreate from './pages/PlayerCreate'
-// import Profile from './pages/Profile'
 // Css
 import './App.css'
 import PrivateRoute from './hocs/PrivateRoute'
@@ -25,7 +18,6 @@ import {
   createMuiTheme,
   ThemeProvider,
 } from '@material-ui/core/styles'
-// import UnPrivateRoute from './hocs/UnPrivateRoute';
 
 const theme = createMuiTheme({
   palette: {
@@ -51,7 +43,7 @@ const theme = createMuiTheme({
   },
 })
 
-function App() {
+const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Router>

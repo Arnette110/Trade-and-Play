@@ -13,7 +13,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-function ConfirmDialog({ label, pick, boosterType }) {
+const ConfirmDialog = ({ label, pick, boosterType }) => {
   const [open, setOpen] = React.useState(false);
   const [displayDraft, setDisplayDraft] = React.useState(false)
 

@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function RosterLi(props) {
+const RosterLi = (props) => {
     const classes = useStyles();
 
     const getAbrName = (key) => {
@@ -57,3 +57,5 @@ export default function RosterLi(props) {
         </div>
     );
 }
+
+export default RosterLi

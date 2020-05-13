@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Jumbotron({ children }) {
+const Jumbotron = ({ children }) => {
   return (
     <div
       style={{

@@ -1,5 +1,5 @@
-import React, {useContext} from 'react'
-import {Link} from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import AuthService from '../../Services/AuthService';
@@ -23,21 +23,21 @@ const useStyles = makeStyles({
   },
 })
 
-export default function Logout() {
+const Logout = () => {
+  const classes = useStyles()
   const { setIsAuthenticated, setUser } = useContext(
     AuthContext
   );
 
-    const onClickLogoutHandler = () => {
-      AuthService.logout().then(data => {
-        if (data.success) {
-          setUser(data.user);
-          setIsAuthenticated(false);
-        }
-      });
-    };
+  const onClickLogoutHandler = () => {
+    AuthService.logout().then(data => {
+      if (data.success) {
+        setUser(data.user);
+        setIsAuthenticated(false);
+      }
+    });
+  };
 
-  const classes = useStyles()
 
   return (
     <div>
@@ -49,3 +49,5 @@ export default function Logout() {
     </div>
   )
 }
+
+export default Logout

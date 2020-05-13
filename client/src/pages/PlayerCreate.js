@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import { Container, TextField, Button, Typography, Grid } from '@material-ui/core';
+import {
+  Container,
+  TextField,
+  Button,
+  Typography,
+  Grid
+} from '@material-ui/core';
 import { Link } from 'react-router-dom'
 import API from '../utils/API';
 
 const PlayerCreate = () => {
-
   const [form, setForm] = useState({
     playerId: '',
     season: '',
@@ -105,9 +110,8 @@ const PlayerCreate = () => {
           <pre>{JSON.stringify(form.statsObj, null, 2)}</pre>
         </Grid>
       </Grid>
-
     </Container>
   )
 }
-//
+
 export default PlayerCreate;
