@@ -49,6 +49,7 @@ const NestedGrid = () => {
         .then(getCollectionData)
         .then(saveDraftToState);
     }, 500)
+    // eslint-disable-next-line
   }, [])
 
   const getUserCollection = (username) => {
